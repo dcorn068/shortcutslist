@@ -31,7 +31,9 @@ const Layout = ({ children }) => {
           paddingTop: 0,
         }}
       >
-        <main>{children}</main>
+        <div style={{ display: "flex", flexDirection: "column", flexGrow: 1 }}>
+          <main>{children}</main>
+        </div>
         <footer style={{ paddingLeft: "1.0875rem" }}>
           © {new Date().getFullYear()}, Built with
           {` `}

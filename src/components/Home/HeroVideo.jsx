@@ -63,48 +63,45 @@ const HeroStyles = styled.section`
 export default () => {
   return (
     <ContainerDimensions>
-      {({ width }) => {
-        console.log("⚡🚨: width", width)
-        return (
-          <HeroStyles>
-            <div className="overflow-wrapper">
-              <div
-                style={{
-                  transform: `scale(${Math.min(
-                    2.5,
-                    (0.7 * width) / HERO_HEIGHT
-                  )})`,
+      {({ width }) => (
+        <HeroStyles>
+          <div className="overflow-wrapper">
+            <div
+              style={{
+                transform: `scale(${Math.min(
+                  2.5,
+                  (0.7 * width) / HERO_HEIGHT
+                )})`,
+              }}
+            >
+              <Youtube
+                containerClassName="video-container"
+                opts={{
+                  playerVars: {
+                    autoplay: 1,
+                    start: 51,
+                    end: 97,
+                    loop: 1,
+                    controls: 0,
+                  },
                 }}
-              >
-                <Youtube
-                  containerClassName="video-container"
-                  opts={{
-                    playerVars: {
-                      autoplay: 1,
-                      start: 51,
-                      end: 97,
-                      loop: 1,
-                      controls: 0,
-                    },
-                  }}
-                  onReady={event => {
-                    event.target.setVolume(0)
-                  }}
-                  onEnd={event => {
-                    event.target.seekTo(51)
-                  }}
-                  videoId="dKJa-KQNjQU"
-                />
-              </div>
+                onReady={event => {
+                  event.target.setVolume(0)
+                }}
+                onEnd={event => {
+                  event.target.seekTo(51)
+                }}
+                videoId="dKJa-KQNjQU"
+              />
             </div>
-            <div className="background-overlay"></div>
-            <div className="title">
-              <h1 className="font-effect-anaglyph">Shortcuts List</h1>
-              <h3>You can do this — Grab some shortcuts and get moving!</h3>
-            </div>
-          </HeroStyles>
-        )
-      }}
+          </div>
+          <div className="background-overlay"></div>
+          <div className="title">
+            <h1 className="font-effect-anaglyph">Shortcuts List</h1>
+            <h3>You can do this — Grab some shortcuts and get moving!</h3>
+          </div>
+        </HeroStyles>
+      )}
     </ContainerDimensions>
   )
 }
