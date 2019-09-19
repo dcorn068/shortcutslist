@@ -1,18 +1,26 @@
 import React from "react"
 import styled from "styled-components/macro"
 import Youtube from "react-youtube"
+import ContainerDimensions from "react-container-dimensions"
+
+const HERO_HEIGHT = 480
 
 const HeroStyles = styled.section`
-  height: 400px;
+  height: ${HERO_HEIGHT}px;
   width: 100%;
   position: relative;
-  .video-container {
+  .overflow-wrapper {
     height: 100%;
-    width: 100%;
-    iframe {
-      height: 400px;
+    overflow: hidden;
+    div {
       width: 100%;
-      margin: 0;
+      height: 100%;
+      iframe {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        transform-origin: center center;
+      }
     }
   }
   .background-overlay {
@@ -54,31 +62,49 @@ const HeroStyles = styled.section`
 `
 export default () => {
   return (
-    <HeroStyles>
-      <Youtube
-        containerClassName="video-container"
-        opts={{
-          playerVars: {
-            autoplay: 1,
-            start: 51,
-            end: 97,
-            loop: 1,
-            controls: 0,
-          },
-        }}
-        onReady={event => {
-          event.target.setVolume(0)
-        }}
-        onEnd={event => {
-          event.target.seekTo(51)
-        }}
-        videoId="dKJa-KQNjQU"
-      />
-      <div className="background-overlay"></div>
-      <div className="title">
-        <h1 className="font-effect-anaglyph">Shortcuts List</h1>
-        <h3>You can do this — Grab some shortcuts and get moving!</h3>
-      </div>
-    </HeroStyles>
+    <ContainerDimensions>
+      {({ width }) => {
+        console.log("⚡🚨: width", width)
+        return (
+          <HeroStyles>
+            <div className="overflow-wrapper">
+              <div
+                style={{
+                  transform: `scale(${Math.min(
+                    2.5,
+                    (0.7 * width) / HERO_HEIGHT
+                  )})`,
+                }}
+              >
+                <Youtube
+                  containerClassName="video-container"
+                  opts={{
+                    playerVars: {
+                      autoplay: 1,
+                      start: 51,
+                      end: 97,
+                      loop: 1,
+                      controls: 0,
+                    },
+                  }}
+                  onReady={event => {
+                    event.target.setVolume(0)
+                  }}
+                  onEnd={event => {
+                    event.target.seekTo(51)
+                  }}
+                  videoId="dKJa-KQNjQU"
+                />
+              </div>
+            </div>
+            <div className="background-overlay"></div>
+            <div className="title">
+              <h1 className="font-effect-anaglyph">Shortcuts List</h1>
+              <h3>You can do this — Grab some shortcuts and get moving!</h3>
+            </div>
+          </HeroStyles>
+        )
+      }}
+    </ContainerDimensions>
   )
 }
