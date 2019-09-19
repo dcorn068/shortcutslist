@@ -6,33 +6,40 @@ import notepadIcon from "../../images/icons/notepadIcon.jpg"
 const demos = [
   {
     shortcuts: [
-      { name: "Jump entire words", shortcut: "Ctrl + [←/→]" },
-      { name: "Select characters", shortcut: "Shift + [←/→]" },
-      { name: "Select entire words", shortcut: "Ctrl + Shift + [←/→]" },
-      { name: "Jump to line ends", shortcut: "Home / End" },
-      { name: "Select to line ends", shortcut: "Shift + [Home / End]" },
-      { name: "Next field", shortcut: "Tab" },
-      { name: "Previous field", shortcut: "Shift + Tab" },
-      { name: "Switch windows", shortcut: "Alt + Tab" },
+      { description: "Jump entire words", shortcut: "Ctrl + [←/→]" },
+      { description: "Select characters", shortcut: "Shift + [←/→]" },
+      { description: "Select entire words", shortcut: "Ctrl + Shift + [←/→]" },
+      { description: "Jump to line ends", shortcut: "Home / End" },
+      { description: "Select to line ends", shortcut: "Shift + [Home / End]" },
+      { description: "Next field", shortcut: "Tab" },
+      { description: "Previous field", shortcut: "Shift + Tab" },
+      { description: "Switch windows", shortcut: "Alt + Tab" },
     ],
-    image: basicShortcuts,
+    imageSrc: basicShortcuts,
     logo: notepadIcon,
     title: "The Basics",
   },
   {
     shortcuts: [],
+    title: "Windows 10",
   },
 ]
+
+const DEMO_BOX_WIDTH = 500
 
 const DemosGridStyles = styled.div`
   display: grid;
 
   .demoRow {
-    border: 1px solid tomato;
-    height: 500px;
+    height: ${DEMO_BOX_WIDTH}px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     place-items: center;
+    width: 100%;
+    margin: 0 auto;
+    @media (min-width: ${DEMO_BOX_WIDTH * 2}px) {
+      width: ${DEMO_BOX_WIDTH * 2}px;
+    }
 
     .shortcutsColumn {
       .header {
@@ -47,6 +54,7 @@ const DemosGridStyles = styled.div`
       .shortcutRow {
         display: grid;
         grid-template-columns: 1fr 1fr;
+        grid-gap: 1.45em;
         .name {
           text-align: left;
         }
@@ -68,9 +76,9 @@ const DemosGridStyles = styled.div`
   }
 `
 
-const ImageColumn = ({ image }) => (
+const ImageColumn = ({ imageSrc }) => (
   <div className="imageColumn">
-    <img src={image} />
+    <img src={imageSrc} />
   </div>
 )
 const ShortcutsColumn = ({ logo, title, shortcuts }) => (
@@ -81,9 +89,9 @@ const ShortcutsColumn = ({ logo, title, shortcuts }) => (
       </div>
       <div className="title">{title}</div>
     </div>
-    {shortcuts.map(({ name, shortcut }) => (
-      <div className="shortcutRow">
-        <div className="name">{name}:</div>
+    {shortcuts.map(({ description, shortcut }) => (
+      <div className="shortcutRow" key={description}>
+        <div className="name">{description}:</div>
         <div className="shortcut">{shortcut}</div>
       </div>
     ))}
@@ -93,10 +101,10 @@ const ShortcutsColumn = ({ logo, title, shortcuts }) => (
 export default ({}) => {
   return (
     <DemosGridStyles>
-      {demos.map(({ shortcuts, image, logo, title }, idx) => {
+      {demos.map(({ shortcuts, imageSrc, logo, title }, idx) => {
         const isEven = idx % 2 === 0
         return (
-          <div className="demoRow">
+          <div className="demoRow" key={title}>
             {isEven ? (
               <ShortcutsColumn
                 logo={logo}
@@ -104,7 +112,7 @@ export default ({}) => {
                 shortcuts={shortcuts}
               />
             ) : (
-              <ImageColumn image={image} />
+              <ImageColumn imageSrc={imageSrc} />
             )}
             {!isEven ? (
               <ShortcutsColumn
@@ -113,7 +121,7 @@ export default ({}) => {
                 shortcuts={shortcuts}
               />
             ) : (
-              <ImageColumn image={image} />
+              <ImageColumn imageSrc={imageSrc} />
             )}
           </div>
         )
