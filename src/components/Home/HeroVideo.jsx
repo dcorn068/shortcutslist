@@ -2,11 +2,15 @@ import React from "react"
 import styled from "styled-components/macro"
 import Youtube from "react-youtube"
 import ContainerDimensions from "react-container-dimensions"
+import useMediaQuery from "@material-ui/core/useMediaQuery"
+import { BREAKPOINTS } from "../../constants"
+import Img from "gatsby-image"
+import { useStaticQuery, graphql } from "gatsby"
 
 const HERO_HEIGHT = 480
 
 const HeroStyles = styled.section`
-  height: ${HERO_HEIGHT}px;
+  height: ${HERO_HEIGHT * 0.8}px;
   width: 100%;
   position: relative;
   .overflow-wrapper {
@@ -39,12 +43,14 @@ const HeroStyles = styled.section`
     mix-blend-mode: overlay;
   }
   .title {
+    text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 0 1em;
     h1 {
-      font-size: 60px;
+      font-size: 48px;
       font-family: "Permanent Marker", Sans-serif;
     }
     h3 {
@@ -59,41 +65,65 @@ const HeroStyles = styled.section`
     right: 0;
     color: white;
   }
+  @media (min-width: ${BREAKPOINTS.TABLET}px) {
+    height: ${HERO_HEIGHT}px;
+    h1 {
+      font-size: 60px;
+    }
+  }
 `
 export default () => {
+  const isTabletOrLarger = useMediaQuery(`(min-width:${BREAKPOINTS.TABLET}px)`)
+  const data = useStaticQuery(graphql`
+    query {
+      placeholderImage: file(relativePath: { eq: "speed-bus.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 300) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `)
   return (
     <ContainerDimensions>
       {({ width }) => (
         <HeroStyles>
           <div className="overflow-wrapper">
-            <div
-              style={{
-                transform: `scale(${Math.min(
-                  2.5,
-                  (0.7 * width) / HERO_HEIGHT
-                )})`,
-              }}
-            >
-              <Youtube
-                containerClassName="video-container"
-                opts={{
-                  playerVars: {
-                    autoplay: 1,
-                    start: 51,
-                    end: 97,
-                    loop: 1,
-                    controls: 0,
-                  },
+            {isTabletOrLarger ? (
+              <div
+                style={{
+                  transform: `scale(${Math.min(
+                    2.5,
+                    (0.7 * width) / HERO_HEIGHT
+                  )})`,
                 }}
-                onReady={event => {
-                  event.target.setVolume(0)
-                }}
-                onEnd={event => {
-                  event.target.seekTo(51)
-                }}
-                videoId="dKJa-KQNjQU"
-              />
-            </div>
+              >
+                <Youtube
+                  containerClassName="video-container"
+                  opts={{
+                    playerVars: {
+                      autoplay: 1,
+                      start: 51,
+                      end: 97,
+                      loop: 1,
+                      controls: 0,
+                    },
+                  }}
+                  onReady={event => {
+                    event.target.setVolume(0)
+                  }}
+                  onEnd={event => {
+                    event.target.seekTo(51)
+                  }}
+                  videoId="dKJa-KQNjQU"
+                />
+              </div>
+            ) : (
+              <div>
+                <Img fluid={data.placeholderImage.childImageSharp.fluid} />
+              </div>
+            )}
           </div>
           <div className="background-overlay"></div>
           <div className="title">
