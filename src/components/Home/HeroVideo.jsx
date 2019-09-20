@@ -71,9 +71,37 @@ const HeroStyles = styled.section`
       font-size: 60px;
     }
   }
+  .static-image {
+    animation-name: slow-transform-right;
+    animation-duration: 20s;
+    animation-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    transform-origin: center center;
+  }
+
+  @keyframes slow-transform-right {
+    from {
+      transform: translate(10px, -5px) scale(1.1);
+    }
+    to {
+      transform: translate(-10px, 5px) scale(1.2);
+    }
+  }
 `
 export default () => {
   const isTabletOrLarger = useMediaQuery(`(min-width:${BREAKPOINTS.TABLET}px)`)
+
+  const siteTitleData = useStaticQuery(graphql`
+    query SiteTitleQuery {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `)
+
   const data = useStaticQuery(graphql`
     query {
       placeholderImage: file(relativePath: { eq: "speed-bus.jpg" }) {
@@ -120,14 +148,16 @@ export default () => {
                 />
               </div>
             ) : (
-              <div>
+              <div className="static-image">
                 <Img fluid={data.placeholderImage.childImageSharp.fluid} />
               </div>
             )}
           </div>
           <div className="background-overlay"></div>
           <div className="title">
-            <h1 className="font-effect-anaglyph">Shortcuts List</h1>
+            <h1 className="font-effect-anaglyph">
+              {siteTitleData.site.siteMetadata.title}
+            </h1>
             <h3>You can do this — Grab some shortcuts and get moving!</h3>
           </div>
         </HeroStyles>

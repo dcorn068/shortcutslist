@@ -204,7 +204,7 @@ html {
 }
 body {
   color: hsla(0, 0%, 0%, 0.8);
-  font-family: system-ui, sans-serif;
+  font-family: Roboto, system-ui, sans-serif;
   font-weight: normal;
   word-wrap: break-word;
   font-kerning: normal;

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import { animated, useTrail } from "react-spring"
 import { Link } from "gatsby"
 import styled from "styled-components/macro"
-import { BREAKPOINTS } from "../../constants"
+import { BREAKPOINTS, getPageLinks, COLORS } from "../../constants"
 
 const LINK_WIDTH = 155
 const GRID_GAP_HZ = 10
@@ -35,7 +35,10 @@ const PageLinksHorizontalStyles = styled.div`
       margin-top: -2px;
     }
     &:hover {
-      transform: scale(1.1);
+      color: ${COLORS.BLUE_HIGHLIGHT};
+      border: 2px solid ${COLORS.PURPLE_HIGHLIGHT};
+      /* transform: scale(1.07) translateY(-3px); */
+      box-shadow: 0px 0px 20px 0px hsla(140, 67%, 82%, 0.56);
     }
     @media (min-width: ${BREAKPOINTS.MOBILE}px) {
       height: ${LINK_HEIGHT}px;
@@ -52,17 +55,11 @@ const useIsMounted = () => {
   return isMounted
 }
 
-const getPageLinks = () => [
-  { to: "/windows", title: "Windows" },
-  { to: "/browser", title: "Browser" },
-  { to: "/android", title: "Android" },
-  { to: "/vs-code", title: "VS Code" },
-  { to: "/terminal", title: "Terminal" },
-]
-
 export default () => {
-  const PAGE_LINKS = getPageLinks()
+  const PAGE_LINKS = getPageLinks().slice(1)
   const isMounted = useIsMounted()
+  const [rotateDeg, setRotateDeg] = useState(0)
+  const [isMousedOverIdx, setIsMousedOverIdx] = useState(null)
   const trailSpringLeftOnEnter = useTrail(PAGE_LINKS.length, {
     transform: `translate(${isMounted ? 0 : 250}px, 0px)`,
     opacity: isMounted ? 1 : 0,
@@ -76,7 +73,24 @@ export default () => {
         return (
           <animated.div key={to} style={spring}>
             <Link className="link" to={to}>
-              <div>
+              <div
+                style={{
+                  ...(isMousedOverIdx === idx
+                    ? {
+                        transform: `scale(1.07) translateY(-3px) rotate(${rotateDeg}deg)`,
+                      }
+                    : {}),
+                }}
+                onMouseEnter={() => {
+                  const randomRotateDeg =
+                    (Math.random() > 0.5 ? -1 : 1) * Math.random() * 8
+                  setRotateDeg(randomRotateDeg)
+                  setIsMousedOverIdx(idx)
+                }}
+                onMouseLeave={() => {
+                  setIsMousedOverIdx(null)
+                }}
+              >
                 <span>{title}</span>
               </div>
             </Link>
