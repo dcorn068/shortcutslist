@@ -37,6 +37,7 @@ const DemosGridStyles = styled.div`
     place-items: center;
     width: 100%;
     margin: 0 auto;
+    background: #ffffff;
     @media (min-width: ${DEMO_BOX_WIDTH * 2}px) {
       width: ${DEMO_BOX_WIDTH * 2}px;
     }

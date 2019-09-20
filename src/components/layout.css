@@ -10,6 +10,7 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: rgba(12, 12, 12, 0.91);
 }
 article,
 aside,
