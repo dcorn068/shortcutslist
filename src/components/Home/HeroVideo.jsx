@@ -92,18 +92,13 @@ const HeroStyles = styled.section`
 export default () => {
   const isTabletOrLarger = useMediaQuery(`(min-width:${BREAKPOINTS.TABLET}px)`)
 
-  const siteTitleData = useStaticQuery(graphql`
-    query SiteTitleQuery {
+  const data = useStaticQuery(graphql`
+    query {
       site {
         siteMetadata {
           title
         }
       }
-    }
-  `)
-
-  const data = useStaticQuery(graphql`
-    query {
       placeholderImage: file(relativePath: { eq: "speed-bus.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 300) {
@@ -156,7 +151,7 @@ export default () => {
           <div className="background-overlay"></div>
           <div className="title">
             <h1 className="font-effect-anaglyph">
-              {siteTitleData.site.siteMetadata.title}
+              {data.site.siteMetadata.title}
             </h1>
             <h3>You can do this — Grab some shortcuts and get moving!</h3>
           </div>

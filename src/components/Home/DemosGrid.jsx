@@ -79,14 +79,14 @@ const DemosGridStyles = styled.div`
 
 const ImageColumn = ({ imageSrc }) => (
   <div className="imageColumn">
-    <img src={imageSrc} />
+    <img src={imageSrc} alt={``} />
   </div>
 )
 const ShortcutsColumn = ({ logo, title, shortcuts }) => (
   <div className="shortcutsColumn">
     <div className="header">
       <div className="logoImage">
-        <img src={logo} />
+        <img src={logo} alt="a software developer typing musically as though playing a piano"/>
       </div>
       <div className="title">{title}</div>
     </div>
@@ -113,7 +113,7 @@ export default ({}) => {
                 shortcuts={shortcuts}
               />
             ) : (
-              <ImageColumn imageSrc={imageSrc} />
+              <ImageColumn imageSrc={imageSrc}  />
             )}
             {!isEven ? (
               <ShortcutsColumn
