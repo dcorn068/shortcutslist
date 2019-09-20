@@ -71,7 +71,6 @@ export default () => {
       }
     }
   `)
-  console.log("⚡🚨: data", data)
   return (
     <NavbarStyles>
       <Link className="logo-link" to="/">
