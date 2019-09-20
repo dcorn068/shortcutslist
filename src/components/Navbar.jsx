@@ -42,19 +42,23 @@ const NavbarStyles = styled.nav`
         bottom: -4px;
         height: 3px;
         background: ${COLORS.BLUE_BRIGHT};
-        left: 0%;
+        left: -1px;
         width: 0%;
         opacity: 0;
         transition: all 0.3s cubic-bezier(0.39, 0.575, 0.565, 1);
       }
     }
-    &:hover {
+    &:hover,
+    &.active {
       transform: scale(1);
       color: ${COLORS.YELLOW_HIGHLIGHT};
       span:after {
         opacity: 1;
-        width: 100%;
+        width: calc(100% + 1px);
       }
+    }
+    &.active {
+      pointer-events: none;
     }
   }
 `
@@ -79,7 +83,7 @@ export default () => {
         </div>
       </Link>
       {PAGE_LINKS.map(({ to, title }) => (
-        <Link key={title} className="link" to={to}>
+        <Link key={title} className="link" to={to} activeClassName="active">
           <div>
             <span>{title}</span>
           </div>
