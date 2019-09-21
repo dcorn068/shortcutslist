@@ -5,6 +5,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import DemosGrid from "../components/Home/DemosGrid/DemosGrid"
 import PageLinksHorizontal from "../components/Home/PageLinksHorizontal"
+
 const IndexPage = () => {
   return (
     <Layout>

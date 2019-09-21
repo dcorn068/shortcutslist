@@ -8,10 +8,11 @@
 import React from "react"
 import Navbar from "./Navbar"
 import "./layout.css"
+import { KeyboardStyles } from "./Keyboard/KeyboardStyles"
 
 const Layout = ({ children }) => {
   return (
-    <>
+    <KeyboardStyles>
       <Navbar />
       <div
         style={{
@@ -28,7 +29,7 @@ const Layout = ({ children }) => {
           <a href="https://www.gatsbyjs.org">Gatsby</a>
         </footer>
       </div>
-    </>
+    </KeyboardStyles>
   )
 }
 

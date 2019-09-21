@@ -1,22 +1,22 @@
 import styled from "styled-components/macro"
-const DEMO_BOX_WIDTH = 500
+import { BREAKPOINTS } from "../../../constants"
+const DEMO_BOX_WIDTH = 600
 
 export const DemosGridStyles = styled.div`
   display: grid;
 
   .demoRow {
-    height: ${DEMO_BOX_WIDTH}px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     place-items: center;
     width: 100%;
     margin: 0 auto;
-    background: #ffffff;
-    @media (min-width: ${DEMO_BOX_WIDTH * 2}px) {
-      width: ${DEMO_BOX_WIDTH * 2}px;
-    }
 
     .shortcutsColumn {
+      background: #ffffff;
+      width: 100%;
+      height: 100%;
+      padding: 2em;
       .header {
         display: grid;
         place-items: center;
@@ -28,14 +28,15 @@ export const DemosGridStyles = styled.div`
       }
       .shortcutRow {
         display: grid;
-        grid-template-columns: 1fr 1.5fr;
-        grid-gap: 1.45em;
-        margin: 0.5em 0;
-        .name {
-          text-align: left;
-        }
-        .shortcut {
-        }
+        place-items: center;
+        margin: 1em 0;
+        grid-gap: 0.25em;
+      }
+      .header,
+      .name,
+      .shortcut {
+        /* line-height: 1.2em; */
+        font-size: 0.8em;
       }
     }
 
@@ -45,64 +46,42 @@ export const DemosGridStyles = styled.div`
       background: #294675;
       width: 100%;
       height: 100%;
+      padding: 4em 1em;
       img {
         width: 100%;
       }
     }
-  }
-  .kbd {
-    display: inline-block;
-    margin: 0 0.4em;
-    min-width: 1.5em;
-    text-align: center;
-    color: white;
-    padding: 0.1em 0.3em;
-    border-radius: 5px;
-    background-image: linear-gradient(
-      to right top,
-      #373737,
-      #3d3d3d,
-      #444444,
-      #4a4a4a,
-      #515151,
-      #515151,
-      #515151,
-      #515151,
-      #4a4a4a,
-      #444444,
-      #3d3d3d,
-      #373737
-    );
-    position: relative;
-    z-index: 1;
-    &:before {
-      border-radius: 4px;
-      position: absolute;
-      z-index: -1;
-      content: "";
-      top: -2.5px;
-      bottom: -2.5px;
-      left: -2.5px;
-      right: -2.5px;
-      background-image: linear-gradient(
-        to right bottom,
-        #373737,
-        #3d3d3d,
-        #444444,
-        #4a4a4a,
-        #515151,
-        #515151,
-        #515151,
-        #515151,
-        #4a4a4a,
-        #444444,
-        #3d3d3d,
-        #373737
-      );
+
+    @media (min-width: ${BREAKPOINTS.MOBILE}px) {
+      .shortcutRow {
+        display: grid;
+        place-items: unset !important;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 1.45em !important;
+        .name {
+          text-align: left;
+          justify-self: end;
+        }
+      }
     }
-    img {
-      height: 1.2em;
-      transform: translateY(0.15em);
+    @media (min-width: ${BREAKPOINTS.TABLET}px) {
+      .header,
+      .name,
+      .shortcut {
+        font-size: 1em;
+      }
+      .shortcutRow {
+        grid-template-columns: 1fr 1fr;
+        margin: 0.5em 0;
+      }
+      height: ${DEMO_BOX_WIDTH}px;
+      grid-template-columns: 1fr 1fr;
+      .imageColumn {
+        padding: 0;
+      }
+    }
+    @media (min-width: ${DEMO_BOX_WIDTH * 2}px) {
+      width: ${DEMO_BOX_WIDTH * 2}px;
     }
   }
 `

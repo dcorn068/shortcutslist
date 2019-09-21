@@ -10,11 +10,11 @@ const LOGO_WIDTH = 64
 const NavbarStyles = styled.nav`
   max-width: 960px;
   margin: auto;
+  padding: 1em;
   display: grid;
   align-items: center;
-  grid-template-columns: 1fr repeat(${PAGE_LINKS.length}, 100px);
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   .logo-link {
-    padding: 1em;
     .logo {
       width: ${LOGO_WIDTH}px;
       transform: scale(0.95);
@@ -26,6 +26,11 @@ const NavbarStyles = styled.nav`
     }
   }
   .link {
+    margin: 1em 0;
+    div {
+      overflow: visible;
+      white-space: nowrap;
+    }
     color: white;
     text-decoration: none;
     text-align: center;

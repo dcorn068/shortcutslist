@@ -2,37 +2,41 @@ import React from "react"
 import styled from "styled-components/macro"
 import { DemosGridStyles } from "./DemosGridStyles"
 import { demos } from "./demosGridUtils"
+import { useMediaQuery } from "@material-ui/core"
+import { BREAKPOINTS } from "../../../constants"
 
 const ImageColumn = ({ imageSrc }) => (
   <div className="imageColumn">
     <img src={imageSrc} alt="" />
   </div>
 )
-const ShortcutsColumn = ({ logo, title, shortcuts, isEven }) => (
-  <div className="shortcutsColumn">
-    <div className="header">
-      <div className="logoImage">
-        <img src={logo} alt="" />
+const ShortcutsColumn = ({ logo, title, shortcuts, isEven }) => {
+  return (
+    <div className="shortcutsColumn">
+      <div className="header">
+        <div className="logoImage">
+          <img src={logo} alt="" />
+        </div>
+        <div className="title">{title}</div>
       </div>
-      <div className="title">{title}</div>
+      {shortcuts.map(({ description, shortcut }) => (
+        <div className={`shortcutRow`} key={description}>
+          {isEven ? (
+            <>
+              <div className="name">{description}</div>
+              <div className="shortcut">{shortcut}</div>
+            </>
+          ) : (
+            <>
+              <div className="name">{shortcut}</div>
+              <div className="shortcut">{description}</div>
+            </>
+          )}
+        </div>
+      ))}
     </div>
-    {shortcuts.map(({ description, shortcut }) => (
-      <div className={`shortcutRow`} key={description}>
-        {isEven ? (
-          <>
-            <div className="name">{description}</div>
-            <div className="shortcut">{shortcut}</div>
-          </>
-        ) : (
-          <>
-            <div className="shortcut">{shortcut}</div>
-            <div className="name">{description}</div>
-          </>
-        )}
-      </div>
-    ))}
-  </div>
-)
+  )
+}
 
 const SectionTitleStyles = styled.div`
   color: white;
@@ -50,6 +54,8 @@ const SectionTitleStyles = styled.div`
 `
 
 export default () => {
+  const isTabletOrLarger = useMediaQuery(`(min-width: ${BREAKPOINTS.TABLET}px)`)
+
   return (
     <>
       <SectionTitleStyles>
@@ -61,7 +67,7 @@ export default () => {
           const isEven = idx % 2 === 0
           return (
             <div className={`demoRow`} key={title}>
-              {isEven ? (
+              {isEven || !isTabletOrLarger ? (
                 <>
                   <ShortcutsColumn
                     isEven={isEven}
