@@ -1,0 +1,108 @@
+import styled from "styled-components/macro"
+const DEMO_BOX_WIDTH = 500
+
+export const DemosGridStyles = styled.div`
+  display: grid;
+
+  .demoRow {
+    height: ${DEMO_BOX_WIDTH}px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+    width: 100%;
+    margin: 0 auto;
+    background: #ffffff;
+    @media (min-width: ${DEMO_BOX_WIDTH * 2}px) {
+      width: ${DEMO_BOX_WIDTH * 2}px;
+    }
+
+    .shortcutsColumn {
+      .header {
+        display: grid;
+        place-items: center;
+        grid-template-rows: auto 1fr;
+        .title {
+          padding: 0.5em 0 1em 0;
+          font-size: 2em;
+        }
+      }
+      .shortcutRow {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        grid-gap: 1.45em;
+        margin: 0.5em 0;
+        .name {
+          text-align: left;
+        }
+        .shortcut {
+        }
+      }
+    }
+
+    .imageColumn {
+      display: grid;
+      place-items: center;
+      background: #294675;
+      width: 100%;
+      height: 100%;
+      img {
+        width: 100%;
+      }
+    }
+  }
+  .kbd {
+    display: inline-block;
+    margin: 0 0.4em;
+    min-width: 1.5em;
+    text-align: center;
+    color: white;
+    padding: 0.1em 0.3em;
+    border-radius: 5px;
+    background-image: linear-gradient(
+      to right top,
+      #373737,
+      #3d3d3d,
+      #444444,
+      #4a4a4a,
+      #515151,
+      #515151,
+      #515151,
+      #515151,
+      #4a4a4a,
+      #444444,
+      #3d3d3d,
+      #373737
+    );
+    position: relative;
+    z-index: 1;
+    &:before {
+      border-radius: 4px;
+      position: absolute;
+      z-index: -1;
+      content: "";
+      top: -2.5px;
+      bottom: -2.5px;
+      left: -2.5px;
+      right: -2.5px;
+      background-image: linear-gradient(
+        to right bottom,
+        #373737,
+        #3d3d3d,
+        #444444,
+        #4a4a4a,
+        #515151,
+        #515151,
+        #515151,
+        #515151,
+        #4a4a4a,
+        #444444,
+        #3d3d3d,
+        #373737
+      );
+    }
+    img {
+      height: 1.2em;
+      transform: translateY(0.15em);
+    }
+  }
+`
