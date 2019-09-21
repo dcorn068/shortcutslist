@@ -1,27 +1,36 @@
 import styled from "styled-components/macro"
 export const KeyboardStyles = styled.div`
   .kbd {
-    display: inline-block;
+    display: inline;
     margin: 0 0.4em;
     min-width: 1.5em;
     text-align: center;
     color: white;
     padding: 0.1em 0.3em;
-    border-radius: 5px;
+    &.letter {
+      padding: 0.1em 0.4em;
+      &.small {
+        padding: 0.1em 0.5em;
+      }
+      &.smaller {
+        padding: 0.1em 0.6em;
+      }
+    }
+    border-radius: 4px;
     background-image: linear-gradient(
       to right top,
-      #373737,
-      #3d3d3d,
-      #444444,
-      #4a4a4a,
-      #515151,
-      #515151,
-      #515151,
-      #515151,
-      #4a4a4a,
-      #444444,
-      #3d3d3d,
-      #373737
+      #272727,
+      #343434,
+      #414141,
+      #4f4f4f,
+      #5d5d5d,
+      #5d5d5d,
+      #5d5d5d,
+      #5d5d5d,
+      #4f4f4f,
+      #414141,
+      #343434,
+      #272727
     );
     position: relative;
     z-index: 1;
@@ -36,18 +45,18 @@ export const KeyboardStyles = styled.div`
       right: -2.5px;
       background-image: linear-gradient(
         to right bottom,
-        #373737,
-        #3d3d3d,
-        #444444,
-        #4a4a4a,
-        #515151,
-        #515151,
-        #515151,
-        #515151,
-        #4a4a4a,
-        #444444,
-        #3d3d3d,
-        #373737
+        #272727,
+        #343434,
+        #414141,
+        #4f4f4f,
+        #5d5d5d,
+        #5d5d5d,
+        #5d5d5d,
+        #5d5d5d,
+        #4f4f4f,
+        #414141,
+        #343434,
+        #272727
       );
     }
     img {

@@ -167,7 +167,7 @@ export const demos = [
         description: "🎈 Emoji menu 😎✨",
         shortcut: (
           <div>
-            <Windows />+<Key letter="." />
+            <Windows />+<Key smaller={true} letter="." />
           </div>
         ),
       },
