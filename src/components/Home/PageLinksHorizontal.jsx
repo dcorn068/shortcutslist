@@ -9,6 +9,9 @@ const GRID_GAP_HZ = 10
 const LINK_HEIGHT = 48
 
 const PageLinksHorizontalStyles = styled.div`
+  @media (min-width: ${BREAKPOINTS.TABLET}px) {
+    margin-top: -127px;
+  }
   padding: ${LINK_HEIGHT}px;
   display: grid;
   grid-template-columns: repeat(
