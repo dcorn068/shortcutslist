@@ -17,6 +17,7 @@ export const DemosGridStyles = styled.div`
       width: 100%;
       height: 100%;
       padding: 2em;
+
       .header {
         display: grid;
         place-items: center;
@@ -29,14 +30,14 @@ export const DemosGridStyles = styled.div`
       .shortcutRow {
         display: grid;
         place-items: center;
-        margin: 1em 0;
+        margin: 1em 0 1.5em;
         grid-gap: 0.25em;
       }
       .header,
       .name,
       .shortcut {
-        /* line-height: 1.2em; */
-        font-size: 0.8em;
+        line-height: 1.6em;
+        font-size: 1.2em;
       }
     }
 
@@ -49,6 +50,7 @@ export const DemosGridStyles = styled.div`
       padding: 4em 1em;
       img {
         width: 100%;
+        box-shadow: 0px 2px 9px 6px hsla(0, 0%, 0%, 0.18);
       }
     }
 
@@ -56,32 +58,61 @@ export const DemosGridStyles = styled.div`
       .shortcutRow {
         display: grid;
         place-items: unset !important;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1.3fr;
         grid-gap: 1.45em !important;
         .name {
           text-align: left;
           justify-self: end;
+          white-space: nowrap;
+        }
+        .name,
+        .shortcut {
+          font-size: 1.1em;
+        }
+      }
+    }
+    @media (min-width: 600px) {
+      .shortcutRow {
+        .name,
+        .shortcut {
+          font-size: 1.2em;
         }
       }
     }
     @media (min-width: ${BREAKPOINTS.TABLET}px) {
-      .header,
-      .name,
-      .shortcut {
-        font-size: 1em;
-      }
-      .shortcutRow {
-        grid-template-columns: 1fr 1fr;
-        margin: 0.5em 0;
-      }
-      height: ${DEMO_BOX_WIDTH}px;
       grid-template-columns: 1fr 1fr;
+      .shortcutsColumn {
+        .header,
+        .name,
+        .shortcut {
+          line-height: 1.9em;
+          font-size: 0.9em;
+        }
+        .shortcutRow {
+          grid-template-columns: 1fr 1.5fr;
+          margin: 0.5em 0;
+        }
+        @media (min-width: ${BREAKPOINTS.DESKTOP}px) {
+          .header,
+          .name,
+          .shortcut {
+            font-size: 1em;
+          }
+          .shortcutRow {
+            grid-template-columns: 1fr 1.3fr;
+          }
+        }
+      }
       .imageColumn {
         padding: 0;
+        img {
+          box-shadow: none;
+        }
       }
     }
-    @media (min-width: ${DEMO_BOX_WIDTH * 2}px) {
-      width: ${DEMO_BOX_WIDTH * 2}px;
+    @media (min-width: ${BREAKPOINTS.DESKTOP}px) {
+      height: ${DEMO_BOX_WIDTH}px;
+      max-width: ${DEMO_BOX_WIDTH * 2}px;
     }
   }
 `

@@ -1,6 +1,7 @@
 export const BREAKPOINTS = {
   MOBILE: 480,
   TABLET: 800,
+  DESKTOP: 1040,
 }
 
 export const getPageLinks = () => [
