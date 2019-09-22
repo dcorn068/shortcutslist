@@ -19,4 +19,7 @@ export const COLORS = {
   BLUE_BRIGHT: "hsl(198, 88%, 51%)",
   BLUE_LINK: "hsl(198, 78%, 45%)",
   YELLOW_HIGHLIGHT: "hsl(60,80%,80%)",
+  BLUE_BACKGROUND: "hsl(209, 58%, 19%)",
+  TEAL_BACKGROUND: "hsl(173, 54%, 56%)",
+  PURPLE_BACKGROUND: "hsl(273, 21%, 27%)",
 }

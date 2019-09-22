@@ -4,6 +4,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import DemosGrid from "../components/Home/DemosGrid/DemosGrid"
 import PageLinksHorizontal from "../components/Home/PageLinksHorizontal"
+import GboardGrid from "../components/Home/GboardGrid/GboardGrid"
 
 const IndexPage = () => {
   return (
@@ -12,6 +13,7 @@ const IndexPage = () => {
       <HeroVideo />
       <PageLinksHorizontal />
       <DemosGrid />
+      <GboardGrid />
     </Layout>
   )
 }

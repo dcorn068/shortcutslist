@@ -32,6 +32,7 @@ export const DemosGridStyles = styled.div`
         .title {
           padding: 0.5em 0 1em 0;
           font-size: 2em;
+          font-family: "Montserrat", sans-serif;
         }
       }
       .shortcutRow {

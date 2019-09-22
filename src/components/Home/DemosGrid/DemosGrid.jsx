@@ -47,7 +47,7 @@ const SectionTitleStyles = styled.div`
     margin-bottom: 0.6em;
   }
   h2 {
-    font-family: "Roboto", sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-size: 2em;
     font-weight: 500;
   }

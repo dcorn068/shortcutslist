@@ -1,8 +1,8 @@
 import React from "react"
 
-import basicShortcuts from "../../../images/basic-shortcuts.gif"
-import virtualDesktopsDemo from "../../../images/virtual-desktops-demo.gif"
-import chromeTabsDemo from "../../../images/chrome-tabs-demo.gif"
+import basicShortcuts from "../../../images/demosGrid/basic-shortcuts.gif"
+import virtualDesktopsDemo from "../../../images/demosGrid/virtual-desktops-demo.gif"
+import chromeTabsDemo from "../../../images/demosGrid/chrome-tabs-demo.gif"
 import notepadLogo from "../../../images/icons/notepad-logo.jpg"
 import windows10Logo from "../../../images/icons/windows-10-logo.jpg"
 import chromeLogo from "../../../images/icons/chrome-logo.jpg"
@@ -233,7 +233,7 @@ export const demos = [
         description: "Quick-search text",
         shortcut: (
           <div>
-            <strong>Select</strong> text then <strong>drag to tab strip</strong>
+            <strong>Select text</strong> then <strong>drag to tab strip</strong>
           </div>
         ),
       },
