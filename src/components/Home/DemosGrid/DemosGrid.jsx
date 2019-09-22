@@ -65,27 +65,23 @@ export default () => {
       <DemosGridStyles>
         {demos.map(({ shortcuts, imageSrc, logo, title }, idx) => {
           const isEven = idx % 2 === 0
+          const shortcutsColumnProps = {
+            isEven,
+            logo,
+            title,
+            shortcuts,
+          }
           return (
             <div className={`demoRow`} key={title}>
               {isEven || !isTabletOrLarger ? (
                 <>
-                  <ShortcutsColumn
-                    isEven={isEven}
-                    logo={logo}
-                    title={title}
-                    shortcuts={shortcuts}
-                  />
+                  <ShortcutsColumn {...shortcutsColumnProps} />
                   <ImageColumn imageSrc={imageSrc} />
                 </>
               ) : (
                 <>
                   <ImageColumn imageSrc={imageSrc} />
-                  <ShortcutsColumn
-                    isEven={isEven}
-                    logo={logo}
-                    title={title}
-                    shortcuts={shortcuts}
-                  />
+                  <ShortcutsColumn {...shortcutsColumnProps} />
                 </>
               )}
             </div>

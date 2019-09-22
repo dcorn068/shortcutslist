@@ -5,6 +5,13 @@ const DEMO_BOX_WIDTH = 600
 export const DemosGridStyles = styled.div`
   display: grid;
 
+  .logoImage {
+    height: 64px;
+    img {
+      height: 100%;
+    }
+  }
+
   .demoRow {
     display: grid;
     grid-template-columns: 1fr;
@@ -38,6 +45,12 @@ export const DemosGridStyles = styled.div`
       .shortcut {
         line-height: 1.6em;
         font-size: 1.2em;
+      }
+      .shortcut {
+        font-family: "Ubuntu Mono";
+        .kbd {
+          font-family: "Roboto", system-ui, sans-serif;
+        }
       }
     }
 
@@ -82,6 +95,8 @@ export const DemosGridStyles = styled.div`
     @media (min-width: ${BREAKPOINTS.TABLET}px) {
       grid-template-columns: 1fr 1fr;
       .shortcutsColumn {
+        box-shadow: 0px 7px 7px 0px rgba(0, 0, 0, 0.42);
+        z-index: 1;
         .header,
         .name,
         .shortcut {
@@ -111,7 +126,7 @@ export const DemosGridStyles = styled.div`
       }
     }
     @media (min-width: ${BREAKPOINTS.DESKTOP}px) {
-      height: ${DEMO_BOX_WIDTH}px;
+      min-height: ${DEMO_BOX_WIDTH}px;
       max-width: ${DEMO_BOX_WIDTH * 2}px;
     }
   }
