@@ -7,6 +7,7 @@ import PageLinksHorizontal from "../components/Home/PageLinksHorizontal"
 import GboardGrid from "../components/Home/GboardGrid/GboardGrid"
 import DemosSectionTitle from "../components/Home/DemosGrid/DemosSectionTitle"
 import { demos1, demos2 } from "../components/Home/DemosGrid/demosGridData"
+import BottomQuoteAndContact from "../components/Home/BottomQuoteAndContact"
 
 const IndexPage = () => {
   return (
@@ -18,6 +19,7 @@ const IndexPage = () => {
       <DemosGrid demos={demos1} />
       <GboardGrid />
       <DemosGrid demos={demos2} />
+      <BottomQuoteAndContact />
     </Layout>
   )
 }

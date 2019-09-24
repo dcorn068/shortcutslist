@@ -20,7 +20,7 @@ const ShortcutsColumn = ({ logo, title, shortcuts, isEvenGridItem }) => {
       {shortcuts.map(({ description, shortcut }, idx) => (
         <div
           className={`shortcutRow${idx % 2 === 0 ? "" : " oddShortcutRow"}`}
-          key={description}
+          key={idx}
         >
           {isEvenGridItem ? (
             <>
@@ -64,7 +64,7 @@ export default ({ demos }) => {
         return (
           <div
             className={`demoRow${isEvenGridItem ? "" : " oddDemoRow"}`}
-            key={title}
+            key={idx}
           >
             {isEvenGridItem || !isTabletOrLarger ? (
               <>

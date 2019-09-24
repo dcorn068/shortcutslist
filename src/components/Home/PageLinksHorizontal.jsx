@@ -56,17 +56,34 @@ const useIsMounted = () => {
   return isMounted
 }
 
+export const useRandomRotate = () => {
+  const [randomNumbers, setRandomNumbers] = useState([0, 0, 0])
+  const [rotateDeg, setRotateDeg] = useState(0)
+  return {
+    randomNumbers,
+    setRandomNumbers,
+    rotateDeg,
+    setRotateDeg,
+  }
+}
+
 export default () => {
   const PAGE_LINKS = getPageLinks().slice(1)
   const isMounted = useIsMounted()
-  const [randomNumbers, setRandomNumbers] = useState([0, 0, 0])
-  const [rotateDeg, setRotateDeg] = useState(0)
-  const [isMousedOverIdx, setIsMousedOverIdx] = useState(null)
   const trailSpringLeftOnEnter = useTrail(PAGE_LINKS.length, {
     transform: `translate(${isMounted ? 0 : 250}px, 0px)`,
     opacity: isMounted ? 1 : 0,
     config: { friction: 20, tension: 140, mass: 1.4 },
   })
+
+  const {
+    randomNumbers,
+    setRandomNumbers,
+    rotateDeg,
+    setRotateDeg,
+  } = useRandomRotate()
+
+  const [isMousedOverIdx, setIsMousedOverIdx] = useState(null)
 
   return (
     <PageLinksHorizontalStyles>
