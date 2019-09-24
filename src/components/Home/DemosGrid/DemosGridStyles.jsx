@@ -48,8 +48,7 @@ export const DemosGridStyles = styled.div`
         padding: 1em 0.5em 1.5em;
         grid-gap: 0.25em;
       }
-      .header,
-      .description {
+      .header {
         line-height: 1.6em;
       }
       .header,
@@ -101,6 +100,11 @@ export const DemosGridStyles = styled.div`
       }
     }
     @media (min-width: ${BREAKPOINTS.TABLET}px) {
+      &:not(.oddDemoRow) {
+        .shortcut {
+          line-height: 2em;
+        }
+      }
       grid-template-columns: 1fr 1fr;
       .shortcutsColumn {
         box-shadow: 0px 7px 7px 0px rgba(0, 0, 0, 0.42);
@@ -110,14 +114,13 @@ export const DemosGridStyles = styled.div`
         .shortcut {
           font-size: 0.9em;
         }
-        .header,
-        .description {
+        .header {
           line-height: 1.9em;
         }
         .shortcutRow {
           grid-template-columns: 1fr 1.5fr;
           padding: 0.5em 0.5em;
-          &.oddRow {
+          &.oddShortcutRow {
             background: hsla(0, 0%, 0%, 0.08);
           }
         }

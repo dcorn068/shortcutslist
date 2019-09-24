@@ -1,13 +1,14 @@
 import React from "react"
 import windowsKey from "../../images/windows-key.png"
+import styled from "styled-components/macro"
 
-export const Key = ({ letter, small = false, smaller = false }) => (
+export const Key = ({ children, small = false, smaller = false }) => (
   <div
-    className={`kbd letter${small || !isNaN(Number(letter)) ? " small" : ""}${
+    className={`kbd letter${small || !isNaN(Number(children)) ? " small" : ""}${
       smaller ? " smaller" : ""
     }`}
   >
-    {letter}
+    {children}
   </div>
 )
 export const Ctrl = () => <div className="kbd">Ctrl</div>
@@ -18,8 +19,22 @@ export const Tab = () => <div className="kbd">Tab</div>
 export const Alt = () => <div className="kbd">Alt</div>
 export const Left = () => <div className="kbd">←</div>
 export const Right = () => <div className="kbd">→</div>
+export const Down = () => (
+  <div className="kbd" style={{ padding: "0.1em 0.4em" }}>
+    ↓
+  </div>
+)
+export const Up = () => <div className="kbd">↑</div>
 export const Windows = () => (
   <div className="kbd">
     <img alt="windows key" src={windowsKey} />
   </div>
 )
+
+const CodeStyles = styled.div`
+  font-family: "Ubuntu Mono";
+  background: hsla(0, 0%, 0%, 0.12);
+  padding: 0 1ch;
+  font-weight: 600;
+`
+export const Code = ({ children }) => <CodeStyles>{children}</CodeStyles>

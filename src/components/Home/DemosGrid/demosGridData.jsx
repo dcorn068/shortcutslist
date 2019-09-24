@@ -4,14 +4,21 @@ import basicShortcuts from "../../../images/demosGrid/basic-shortcuts.gif"
 import virtualDesktopsDemo from "../../../images/demosGrid/virtual-desktops-demo.gif"
 import chromeTabsDemo from "../../../images/demosGrid/chrome-tabs-demo.gif"
 import emmetVsCodeDemo from "../../../images/demosGrid/emmet-vscode-demo.gif"
+import terminalDemo from "../../../images/demosGrid/terminal-demo.gif"
+import linuxDemo from "../../../images/demosGrid/linux-demo.gif"
+
 import notepadLogo from "../../../images/icons/notepad-logo.jpg"
 import windows10Logo from "../../../images/icons/windows-10-logo.jpg"
 import chromeLogo from "../../../images/icons/chrome-logo.jpg"
 import vscodeLogo from "../../../images/icons/vscode-logo.png"
+import terminalLogo from "../../../images/icons/terminal-logo.svg"
+import ubuntuLogo from "../../../images/icons/ubuntu-logo.png"
+
 import {
   Ctrl,
   Left,
   Right,
+  Down,
   Shift,
   Windows,
   End,
@@ -19,6 +26,7 @@ import {
   Alt,
   Tab,
   Key,
+  Code,
 } from "../../Keyboard/Keys"
 
 export const demos1 = [
@@ -102,6 +110,14 @@ export const demos1 = [
           </>
         ),
       },
+      {
+        description: "Close window",
+        shortcut: (
+          <>
+            <Alt />+<Key>F4</Key>
+          </>
+        ),
+      },
     ],
   },
   {
@@ -113,7 +129,7 @@ export const demos1 = [
         description: "Open file explorer",
         shortcut: (
           <>
-            <Windows />+<Key letter="E" />
+            <Windows />+<Key>E</Key>
           </>
         ),
       },
@@ -121,7 +137,7 @@ export const demos1 = [
         description: "Action panel",
         shortcut: (
           <>
-            <Windows />+<Key letter="A" />
+            <Windows />+<Key>A</Key>
           </>
         ),
       },
@@ -129,7 +145,7 @@ export const demos1 = [
         description: "Connections (bluetooth)",
         shortcut: (
           <>
-            <Windows />+<Key letter="K" />
+            <Windows />+<Key>K</Key>
           </>
         ),
       },
@@ -137,7 +153,7 @@ export const demos1 = [
         description: "Sticky notes",
         shortcut: (
           <>
-            <Windows />+<Key letter="W" />
+            <Windows />+<Key>W</Key>
           </>
         ),
       },
@@ -153,9 +169,9 @@ export const demos1 = [
         description: "Launch Nth taskbar program",
         shortcut: (
           <>
-            <Windows />+<Key letter="0" />
+            <Windows />+<Key>0</Key>
             to
-            <Key letter="9" />
+            <Key>9</Key>
           </>
         ),
       },
@@ -163,7 +179,7 @@ export const demos1 = [
         description: "Toggle desktop view",
         shortcut: (
           <>
-            <Windows />+<Key letter="D" />
+            <Windows />+<Key>D</Key>
           </>
         ),
       },
@@ -171,7 +187,7 @@ export const demos1 = [
         description: "🎈 Emoji menu 😎✨",
         shortcut: (
           <>
-            <Windows />+<Key smaller={true} letter="." />
+            <Windows />+<Key smaller={true}>.</Key>
           </>
         ),
       },
@@ -186,7 +202,7 @@ export const demos1 = [
         description: "New tab",
         shortcut: (
           <>
-            <Ctrl />+<Key letter="N" />
+            <Ctrl />+<Key>N</Key>
           </>
         ),
       },
@@ -210,7 +226,7 @@ export const demos1 = [
         description: "Close tab",
         shortcut: (
           <>
-            <Ctrl />+<Key letter="W" />
+            <Ctrl />+<Key>W</Key>
           </>
         ),
       },
@@ -218,7 +234,7 @@ export const demos1 = [
         description: "Reopen last closed tab",
         shortcut: (
           <>
-            <Ctrl />+<Shift />+<Key letter="T" />
+            <Ctrl />+<Shift />+<Key>T</Key>
           </>
         ),
       },
@@ -279,7 +295,7 @@ export const demos1 = [
 export const demos2 = [
   {
     title: (
-      <div style={{ position: "relative" }}>
+      <div style={{ position: "relative", paddingBottom: "0.5em" }}>
         <div>Visual Studio Code</div>
         <small
           style={{
@@ -287,8 +303,8 @@ export const demos2 = [
             position: "absolute",
             overflow: "visible",
             whiteSpace: "nowrap",
-            left: -40,
-            right: -40,
+            left: -200,
+            right: -200,
             textAlign: "center",
           }}
         >
@@ -309,7 +325,7 @@ export const demos2 = [
         description: "Command palette",
         shortcut: (
           <>
-            <Ctrl />+<Shift />+<Key letter="P" />
+            <Ctrl />+<Shift />+<Key>P</Key>
           </>
         ),
       },
@@ -317,7 +333,7 @@ export const demos2 = [
         description: "Navigate files",
         shortcut: (
           <>
-            <Ctrl />+<Key letter="P" />
+            <Ctrl />+<Key>P</Key>
           </>
         ),
       },
@@ -325,7 +341,7 @@ export const demos2 = [
         description: "Comment out lines",
         shortcut: (
           <>
-            <Ctrl />+<Key letter="/" />
+            <Ctrl />+<Key>/</Key>
           </>
         ),
       },
@@ -333,7 +349,7 @@ export const demos2 = [
         description: "Duplicate lines",
         shortcut: (
           <>
-            <Ctrl />+<Shift />+<Key letter="D" />
+            <Ctrl />+<Shift />+<Key>D</Key>
           </>
         ),
       },
@@ -341,7 +357,7 @@ export const demos2 = [
         description: "Add cursor at next instance of selection",
         shortcut: (
           <>
-            <Ctrl />+<Key letter="D" />
+            <Ctrl />+<Key>D</Key>
           </>
         ),
       },
@@ -349,7 +365,7 @@ export const demos2 = [
         description: "Add cursors to selection line ends",
         shortcut: (
           <>
-            <Ctrl />+<Shift />+<Key letter="L" />
+            <Ctrl />+<Shift />+<Key>L</Key>
           </>
         ),
       },
@@ -357,7 +373,7 @@ export const demos2 = [
         description: "Delete lines",
         shortcut: (
           <>
-            <Ctrl />+<Shift />+<Key letter="K" />
+            <Ctrl />+<Shift />+<Key>K</Key>
           </>
         ),
       },
@@ -365,7 +381,7 @@ export const demos2 = [
         description: "Join lines",
         shortcut: (
           <>
-            <Ctrl />+<Key letter="J" />
+            <Ctrl />+<Key>J</Key>
           </>
         ),
       },
@@ -373,7 +389,7 @@ export const demos2 = [
         description: "Toggle text wrap",
         shortcut: (
           <>
-            <Alt />+<Key letter="Z" />
+            <Alt />+<Key>Z</Key>
           </>
         ),
       },
@@ -382,6 +398,124 @@ export const demos2 = [
         shortcut: (
           <>
             <Shift />+<Alt />+<Right />
+          </>
+        ),
+      },
+    ],
+  },
+  {
+    title: (
+      <div style={{ position: "relative", paddingBottom: "0.5em" }}>
+        <div>Terminal</div>
+        <small
+          style={{
+            fontSize: "0.4em",
+            position: "absolute",
+            overflow: "visible",
+            whiteSpace: "nowrap",
+            left: -200,
+            right: -200,
+            textAlign: "center",
+          }}
+        >
+          Note: on Windows, use{" "}
+          <a href="https://git-scm.com/downloads" rel="noopener noreferrer">
+            git bash
+          </a>{" "}
+          (easy) or{" "}
+          <a
+            href="https://itsfoss.com/install-bash-on-windows/"
+            rel="noopener noreferrer"
+          >
+            Linux bash
+          </a>{" "}
+          (powerful)
+        </small>
+      </div>
+    ),
+    imageSrc: terminalDemo,
+    logo: terminalLogo,
+    shortcuts: [
+      {
+        description: "Change directory",
+        shortcut: <Code>cd [directory]</Code>,
+      },
+      {
+        description: "Up one level",
+        shortcut: <Code>cd ..</Code>,
+      },
+      {
+        description: "Create files",
+        shortcut: <Code>touch [file names]</Code>,
+      },
+      {
+        description: "Create folders",
+        shortcut: <Code>mkdir [folder names]</Code>,
+      },
+      {
+        description: "Open file explorer here (Windows)",
+        shortcut: <Code>start .</Code>,
+      },
+      {
+        description: "Open file explorer here (Linux)",
+        shortcut: <Code>nautilus .</Code>,
+      },
+      {
+        description: "Open VS Code here",
+        shortcut: <Code>code .</Code>,
+      },
+    ],
+  },
+  {
+    title: "Ubuntu (Linux)",
+    imageSrc: linuxDemo,
+    logo: ubuntuLogo,
+    shortcuts: [
+      {
+        description: "Open terminal",
+        shortcut: (
+          <>
+            <Ctrl />+<Alt />+<Key>T</Key>
+          </>
+        ),
+      },
+      {
+        description: "New terminal tab",
+        shortcut: (
+          <>
+            <Ctrl />+<Shift />+<Key>T</Key>
+          </>
+        ),
+      },
+      {
+        description: "Go to terminal tab [N]",
+        shortcut: (
+          <>
+            <Alt />+<Key>0</Key>to<Key>9</Key>
+          </>
+        ),
+      },
+      {
+        description: "Close terminal tab",
+        shortcut: (
+          <>
+            <Ctrl />+<Key>D</Key> or <Ctrl />+<Shift />+<Key>W</Key>
+          </>
+        ),
+      },
+      {
+        description: "Cancel terminal command",
+        shortcut: (
+          <>
+            <Ctrl />+<Key>C</Key>
+          </>
+        ),
+      },
+      {
+        description: "Switch virtual desktops",
+        shortcut: (
+          <>
+            <Ctrl />+<Alt />+<Down />
           </>
         ),
       },

@@ -3,7 +3,7 @@ import styled from "styled-components/macro"
 import { useMediaQuery } from "@material-ui/core"
 import { BREAKPOINTS, COLORS } from "../../../constants"
 import gboardLogo from "../../../images/icons/gboard-logo.svg"
-import { gboardDemos } from "./gboardGridUtils"
+import { gboardDemos } from "./gboardGridData"
 
 const GboardGridStyles = styled.div`
   background: ${COLORS.BLUE_BACKGROUND};
