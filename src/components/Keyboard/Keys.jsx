@@ -24,7 +24,11 @@ export const Down = () => (
     ↓
   </div>
 )
-export const Up = () => <div className="kbd">↑</div>
+export const Up = () => (
+  <div className="kbd" style={{ padding: "0.1em 0.4em" }}>
+    ↑
+  </div>
+)
 export const Windows = () => (
   <div className="kbd">
     <img alt="windows key" src={windowsKey} />

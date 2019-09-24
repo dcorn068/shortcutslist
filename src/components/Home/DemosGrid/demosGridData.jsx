@@ -27,6 +27,7 @@ import {
   Tab,
   Key,
   Code,
+  Up,
 } from "../../Keyboard/Keys"
 
 export const demos1 = [
@@ -191,6 +192,22 @@ export const demos1 = [
           </>
         ),
       },
+      {
+        description: "Custom shortcuts",
+        shortcut: (
+          <>
+            Check out{" "}
+            <a
+              href="https://www.autohotkey.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Autohotkey
+            </a>{" "}
+            — many scripts are already available!
+          </>
+        ),
+      },
     ],
   },
   {
@@ -311,6 +328,7 @@ export const demos2 = [
           Note: some of these require{" "}
           <a
             href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.sublime-keybindings"
+            target="_blank"
             rel="noopener noreferrer"
           >
             Sublime Text keymap extension
@@ -419,12 +437,17 @@ export const demos2 = [
           }}
         >
           Note: on Windows, use{" "}
-          <a href="https://git-scm.com/downloads" rel="noopener noreferrer">
+          <a
+            href="https://git-scm.com/downloads"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             git bash
           </a>{" "}
           (easy) or{" "}
           <a
             href="https://itsfoss.com/install-bash-on-windows/"
+            target="_blank"
             rel="noopener noreferrer"
           >
             Linux bash
@@ -515,7 +538,24 @@ export const demos2 = [
         description: "Switch virtual desktops",
         shortcut: (
           <>
-            <Ctrl />+<Alt />+<Down />
+            <Ctrl />+<Alt />+<Down /> or <Up />
+          </>
+        ),
+      },
+      {
+        description: "Save area screenshot to clipboard",
+        shortcut: (
+          <>
+            <Windows />, type "Keyboard", scroll to "screenshots" and set a
+            shortcut
+          </>
+        ),
+      },
+      {
+        description: "Run any terminal command",
+        shortcut: (
+          <>
+            <Windows />, type "Keyboard", scroll to bottom, add custom shortcut
           </>
         ),
       },
