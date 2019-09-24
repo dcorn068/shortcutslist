@@ -6,6 +6,7 @@ import { useRandomRotate } from "./PageLinksHorizontal"
 import { BREAKPOINTS } from "../../constants"
 
 const BottomQuoteStyles = styled.div`
+  margin: auto;
   color: white;
   display: grid;
   @media (min-width: ${BREAKPOINTS.TABLET}px) {
