@@ -4,6 +4,13 @@ const DEMO_BOX_WIDTH = 600
 
 export const DemosGridStyles = styled.div`
   display: grid;
+  padding-bottom: 8.5em;
+
+  .kbd {
+    align-items: center;
+    max-height: 29px;
+    font-family: "Roboto", system-ui, sans-serif;
+  }
 
   .logoImage {
     height: 64px;
@@ -38,20 +45,20 @@ export const DemosGridStyles = styled.div`
       .shortcutRow {
         display: grid;
         place-items: center;
-        margin: 1em 0 1.5em;
+        padding: 1em 0.5em 1.5em;
         grid-gap: 0.25em;
       }
       .header,
-      .name,
-      .shortcut {
+      .description {
         line-height: 1.6em;
+      }
+      .header,
+      .description,
+      .shortcut {
         font-size: 1.2em;
       }
       .shortcut {
         font-family: "Ubuntu Mono";
-        .kbd {
-          font-family: "Roboto", system-ui, sans-serif;
-        }
       }
     }
 
@@ -74,20 +81,20 @@ export const DemosGridStyles = styled.div`
         place-items: unset !important;
         grid-template-columns: 1fr 1.3fr;
         grid-gap: 1.45em !important;
-        .name {
-          text-align: left;
+        .description {
+          text-align: right;
           justify-self: end;
-          white-space: nowrap;
         }
-        .name,
+        .description,
         .shortcut {
+          align-self: center;
           font-size: 1.1em;
         }
       }
     }
     @media (min-width: 600px) {
       .shortcutRow {
-        .name,
+        .description,
         .shortcut {
           font-size: 1.2em;
         }
@@ -99,18 +106,24 @@ export const DemosGridStyles = styled.div`
         box-shadow: 0px 7px 7px 0px rgba(0, 0, 0, 0.42);
         z-index: 1;
         .header,
-        .name,
+        .description,
         .shortcut {
-          line-height: 1.9em;
           font-size: 0.9em;
+        }
+        .header,
+        .description {
+          line-height: 1.9em;
         }
         .shortcutRow {
           grid-template-columns: 1fr 1.5fr;
-          margin: 0.5em 0;
+          padding: 0.5em 0.5em;
+          &.oddRow {
+            background: hsla(0, 0%, 0%, 0.08);
+          }
         }
         @media (min-width: ${BREAKPOINTS.DESKTOP}px) {
           .header,
-          .name,
+          .description,
           .shortcut {
             font-size: 1em;
           }

@@ -12,9 +12,9 @@ const GboardGridStyles = styled.div`
   margin: auto;
   padding-bottom: 8em;
   .sectionTitle {
-    padding: 4em 0 2em;
+    padding: 0 0 2em;
     h2 {
-      padding-top: 0.5em;
+      margin-top: -0.15em;
       font-family: "Montserrat", sans-serif;
       font-size: 2em;
       font-weight: 500;
@@ -23,6 +23,7 @@ const GboardGridStyles = styled.div`
   .logoContainer {
     height: 64px;
     img {
+      margin-top: -2.25em;
       height: 100%;
     }
   }

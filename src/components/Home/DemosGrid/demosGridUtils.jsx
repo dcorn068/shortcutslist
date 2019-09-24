@@ -3,9 +3,11 @@ import React from "react"
 import basicShortcuts from "../../../images/demosGrid/basic-shortcuts.gif"
 import virtualDesktopsDemo from "../../../images/demosGrid/virtual-desktops-demo.gif"
 import chromeTabsDemo from "../../../images/demosGrid/chrome-tabs-demo.gif"
+import emmetVsCodeDemo from "../../../images/demosGrid/emmet-vscode-demo.gif"
 import notepadLogo from "../../../images/icons/notepad-logo.jpg"
 import windows10Logo from "../../../images/icons/windows-10-logo.jpg"
 import chromeLogo from "../../../images/icons/chrome-logo.jpg"
+import vscodeLogo from "../../../images/icons/vscode-logo.png"
 import {
   Ctrl,
   Left,
@@ -19,7 +21,7 @@ import {
   Key,
 } from "../../Keyboard/Keys"
 
-export const demos = [
+export const demos1 = [
   {
     imageSrc: basicShortcuts,
     logo: notepadLogo,
@@ -28,76 +30,76 @@ export const demos = [
       {
         description: "Jump entire words",
         shortcut: (
-          <div>
+          <>
             <Ctrl />+<Left />
             or
             <Right />
-          </div>
+          </>
         ),
       },
       {
         description: "Select characters",
         shortcut: (
-          <div>
+          <>
             <Shift />+<Left />
             or
             <Right />
-          </div>
+          </>
         ),
       },
       {
         description: "Select entire words",
         shortcut: (
-          <div>
+          <>
             <Ctrl />+<Shift />+
             <Left />
             or
             <Right />
-          </div>
+          </>
         ),
       },
       {
         description: "Jump to line ends",
         shortcut: (
-          <div>
+          <>
             <Home />
             or
             <End />
-          </div>
+          </>
         ),
       },
       {
         description: "Select to line ends",
         shortcut: (
-          <div>
+          <>
             <Shift />+<Home />
             or
             <End />
-          </div>
+          </>
         ),
       },
       {
         description: "Next field",
         shortcut: (
-          <div>
+          <>
             <Tab />
-          </div>
+          </>
         ),
       },
       {
         description: "Previous field",
         shortcut: (
-          <div>
+          <>
             <Shift />+<Tab />
-          </div>
+          </>
         ),
       },
       {
         description: "Switch windows",
         shortcut: (
-          <div>
+          <>
             <Alt />+<Tab />
-          </div>
+          </>
         ),
       },
     ],
@@ -110,67 +112,67 @@ export const demos = [
       {
         description: "Open file explorer",
         shortcut: (
-          <div>
+          <>
             <Windows />+<Key letter="E" />
-          </div>
+          </>
         ),
       },
       {
         description: "Action panel",
         shortcut: (
-          <div>
+          <>
             <Windows />+<Key letter="A" />
-          </div>
+          </>
         ),
       },
       {
         description: "Connections (bluetooth)",
         shortcut: (
-          <div>
+          <>
             <Windows />+<Key letter="K" />
-          </div>
+          </>
         ),
       },
       {
         description: "Sticky notes",
         shortcut: (
-          <div>
+          <>
             <Windows />+<Key letter="W" />
-          </div>
+          </>
         ),
       },
       {
         description: "Task view",
         shortcut: (
-          <div>
+          <>
             <Windows />+<Tab />
-          </div>
+          </>
         ),
       },
       {
         description: "Launch Nth taskbar program",
         shortcut: (
-          <div>
+          <>
             <Windows />+<Key letter="0" />
             to
             <Key letter="9" />
-          </div>
+          </>
         ),
       },
       {
         description: "Toggle desktop view",
         shortcut: (
-          <div>
+          <>
             <Windows />+<Key letter="D" />
-          </div>
+          </>
         ),
       },
       {
         description: "🎈 Emoji menu 😎✨",
         shortcut: (
-          <div>
+          <>
             <Windows />+<Key smaller={true} letter="." />
-          </div>
+          </>
         ),
       },
     ],
@@ -183,82 +185,82 @@ export const demos = [
       {
         description: "New tab",
         shortcut: (
-          <div>
+          <>
             <Ctrl />+<Key letter="N" />
-          </div>
+          </>
         ),
       },
       {
         description: "Next tab",
         shortcut: (
-          <div>
+          <>
             <Ctrl />+<Tab />
-          </div>
+          </>
         ),
       },
       {
         description: "Previous tab",
         shortcut: (
-          <div>
+          <>
             <Ctrl />+<Shift />+<Tab />
-          </div>
+          </>
         ),
       },
       {
         description: "Close tab",
         shortcut: (
-          <div>
+          <>
             <Ctrl />+<Key letter="W" />
-          </div>
+          </>
         ),
       },
       {
         description: "Reopen last closed tab",
         shortcut: (
-          <div>
+          <>
             <Ctrl />+<Shift />+<Key letter="T" />
-          </div>
+          </>
         ),
       },
       {
         description: "Open link in new tab",
         shortcut: (
-          <div>
+          <>
             <Ctrl />+ <strong>Click</strong> or{" "}
             <strong>Mousewheel-Click</strong>
-          </div>
+          </>
         ),
       },
       {
         description: "Quick-search text",
         shortcut: (
-          <div>
+          <>
             <strong>Select text</strong> then <strong>drag to tab strip</strong>
-          </div>
+          </>
         ),
       },
       {
         description: "Select multiple tabs",
         shortcut: (
-          <div>
+          <>
             <Shift />
             or
             <Ctrl />+ <strong>Click</strong> tabs
-          </div>
+          </>
         ),
       },
       {
         description: "Split tabs into new window",
         shortcut: (
-          <div>
+          <>
             <strong>Drag tabs</strong> out of the tab strip
-          </div>
+          </>
         ),
       },
       {
-        description: "Save groups of tabs for later",
+        description: "Save group of tabs for later",
         shortcut: (
-          <div>
+          <>
             <strong>Save session</strong> in{" "}
             <a
               href="https://chrome.google.com/webstore/detail/toby-for-chrome/hddnkoipeenegfoeaoibdmnaalmgkpip?hl=en"
@@ -267,7 +269,120 @@ export const demos = [
             >
               Toby tab manager
             </a>
-          </div>
+          </>
+        ),
+      },
+    ],
+  },
+]
+
+export const demos2 = [
+  {
+    title: (
+      <div style={{ position: "relative" }}>
+        <div>Visual Studio Code</div>
+        <small
+          style={{
+            fontSize: "0.4em",
+            position: "absolute",
+            overflow: "visible",
+            whiteSpace: "nowrap",
+            left: -40,
+            right: -40,
+            textAlign: "center",
+          }}
+        >
+          Note: some of these require{" "}
+          <a
+            href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.sublime-keybindings"
+            rel="noopener noreferrer"
+          >
+            Sublime Text keymap extension
+          </a>
+        </small>
+      </div>
+    ),
+    imageSrc: emmetVsCodeDemo,
+    logo: vscodeLogo,
+    shortcuts: [
+      {
+        description: "Command palette",
+        shortcut: (
+          <>
+            <Ctrl />+<Shift />+<Key letter="P" />
+          </>
+        ),
+      },
+      {
+        description: "Navigate files",
+        shortcut: (
+          <>
+            <Ctrl />+<Key letter="P" />
+          </>
+        ),
+      },
+      {
+        description: "Comment out lines",
+        shortcut: (
+          <>
+            <Ctrl />+<Key letter="/" />
+          </>
+        ),
+      },
+      {
+        description: "Duplicate lines",
+        shortcut: (
+          <>
+            <Ctrl />+<Shift />+<Key letter="D" />
+          </>
+        ),
+      },
+      {
+        description: "Add cursor at next instance of selection",
+        shortcut: (
+          <>
+            <Ctrl />+<Key letter="D" />
+          </>
+        ),
+      },
+      {
+        description: "Add cursors to selection line ends",
+        shortcut: (
+          <>
+            <Ctrl />+<Shift />+<Key letter="L" />
+          </>
+        ),
+      },
+      {
+        description: "Delete lines",
+        shortcut: (
+          <>
+            <Ctrl />+<Shift />+<Key letter="K" />
+          </>
+        ),
+      },
+      {
+        description: "Join lines",
+        shortcut: (
+          <>
+            <Ctrl />+<Key letter="J" />
+          </>
+        ),
+      },
+      {
+        description: "Toggle text wrap",
+        shortcut: (
+          <>
+            <Alt />+<Key letter="Z" />
+          </>
+        ),
+      },
+      {
+        description: "Expand selection",
+        shortcut: (
+          <>
+            <Shift />+<Alt />+<Right />
+          </>
         ),
       },
     ],
