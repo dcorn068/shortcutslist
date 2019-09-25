@@ -30,7 +30,10 @@ export const DemosGridStyles = styled.div`
       background: #ffffff;
       width: 100%;
       height: 100%;
-      padding: 2em;
+      padding: 2em 1em;
+      @media (min-width: ${BREAKPOINTS.TABLET}px) {
+        padding: 2em;
+      }
 
       .header {
         display: grid;
@@ -45,19 +48,31 @@ export const DemosGridStyles = styled.div`
       .shortcutRow {
         display: grid;
         place-items: center;
-        padding: 1em 0.5em 1.5em;
+        padding: 1em 0;
         grid-gap: 0.25em;
-      }
-      .header {
-        line-height: 1.6em;
+        &.oddShortcutRow {
+          background: hsla(0, 0%, 0%, 0.08);
+        }
+        [alt="windows key"] {
+          margin-top: -2px;
+        }
       }
       .header,
       .description,
       .shortcut {
         font-size: 1.2em;
       }
+      .header {
+        line-height: 1.6em;
+      }
       .shortcut {
+        line-height: 1.8em;
         font-family: "Ubuntu Mono";
+      }
+    }
+    &.oddDemoRow {
+      .shortcut {
+        line-height: 1.4em;
       }
     }
 
@@ -120,9 +135,6 @@ export const DemosGridStyles = styled.div`
         .shortcutRow {
           grid-template-columns: 1fr 1.5fr;
           padding: 0.5em 0.5em;
-          &.oddShortcutRow {
-            background: hsla(0, 0%, 0%, 0.08);
-          }
         }
         @media (min-width: ${BREAKPOINTS.DESKTOP}px) {
           .header,

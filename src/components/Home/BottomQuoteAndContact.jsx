@@ -22,6 +22,7 @@ const BottomQuoteStyles = styled.div`
     padding: 2em;
     text-align: center;
     height: 100%;
+    min-height: 372px;
   }
   .left {
     background: #4054b2;
