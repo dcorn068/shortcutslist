@@ -195,17 +195,18 @@ export const demos1 = [
       {
         description: "Custom shortcuts",
         shortcut: (
-          <>
+          <div>
             Check out{" "}
             <a
               href="https://www.autohotkey.com"
               target="_blank"
               rel="noopener noreferrer"
+              style={{ display: "inline" }}
             >
               Autohotkey
             </a>{" "}
             — many scripts are already available!
-          </>
+          </div>
         ),
       },
     ],

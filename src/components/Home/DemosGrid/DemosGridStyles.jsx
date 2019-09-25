@@ -48,7 +48,7 @@ export const DemosGridStyles = styled.div`
       .shortcutRow {
         display: grid;
         place-items: center;
-        padding: 1em 0;
+        padding: 1em 0.5em;
         grid-gap: 0.25em;
         &.oddShortcutRow {
           background: hsla(0, 0%, 0%, 0.08);
