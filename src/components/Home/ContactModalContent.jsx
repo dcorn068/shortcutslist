@@ -39,28 +39,44 @@ const ModalContentStyles = styled.div`
     }
   }
 `
+const GOOGLE_FORM_MESSAGE_ID = "entry.834901610"
+const GOOGLE_FORM_EMAIL_ID = "entry.1062921287"
+const GOOGLE_FORM_NAME_ID = "entry.557025916"
+const GOOGLE_FORM_ACTION_URL =
+  "https://docs.google.com/forms/u/1/d/e/1FAIpQLSdDaXE51QwlELPX_Vi1D4B8D35yjG2eUP1NYIpR7kmzU8hvMA/formResponse"
+const CORS_PROXY = "https://cors-proxy-danielslist-2.herokuapp.com/"
+const initialValues = {
+  name: "",
+  email: "",
+  message: "",
+}
 export default ({ handleClose }) => {
   const [btnText, setBtnText] = useState("Submit")
-  const [values, setValues] = useState({
-    name: "",
-    email: "",
-    message: "",
-  })
+  const [values, setValues] = useState(initialValues)
   const handleChange = name => event => {
     setValues({ ...values, [name]: event.target.value })
   }
-  const handleSubmit = async () => {
-    // TODO: send email
-    await new Promise(resolve => {
-      setBtnText("Sending...")
+  const sendMessage = () => {
+    const formData = new FormData()
+    formData.append(GOOGLE_FORM_MESSAGE_ID, values.message)
+    formData.append(GOOGLE_FORM_EMAIL_ID, values.email)
+    formData.append(GOOGLE_FORM_NAME_ID, values.name)
+
+    fetch(CORS_PROXY + GOOGLE_FORM_ACTION_URL, {
+      method: "POST",
+      mode: "no-cors",
+      body: formData,
+    }).then(data => {
+      setValues(initialValues)
+      setBtnText("Sent!")
       setTimeout(() => {
-        resolve()
+        handleClose()
       }, 500)
     })
-    setBtnText("Sent!")
-    setTimeout(() => {
-      handleClose()
-    }, 500)
+  }
+  const handleSubmit = () => {
+    setBtnText("Sending...")
+    sendMessage()
   }
   return (
     <ModalContentStyles>
@@ -76,6 +92,7 @@ export default ({ handleClose }) => {
           onChange={handleChange("name")}
         ></TextField>
         <TextField
+          type="email"
           variant="outlined"
           id="email"
           label="Email"
@@ -93,7 +110,11 @@ export default ({ handleClose }) => {
           multiline={true}
         ></TextField>
         <div className="actions">
-          <Button variant="outlined" onClick={handleSubmit}>
+          <Button
+            disabled={!values.email || !values.message}
+            variant="outlined"
+            onClick={handleSubmit}
+          >
             {btnText}
           </Button>
         </div>
