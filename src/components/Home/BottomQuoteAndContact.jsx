@@ -4,6 +4,7 @@ import quotesIcon from "../../images/icons/quotes-icon.png"
 import { Modal, Button } from "@material-ui/core"
 import { useRandomRotate } from "./PageLinksHorizontal"
 import { BREAKPOINTS } from "../../constants"
+import ContactModalContent from "./ContactModalContent"
 
 const BottomQuoteStyles = styled.div`
   margin: auto;
@@ -74,20 +75,7 @@ const BottomQuoteStyles = styled.div`
     }
   }
 `
-const ModalContentStyles = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  display: grid;
-  place-items: center center;
-  pointer-events: none;
-  .content {
-    pointer-events: auto;
-    background: white;
-  }
-`
+
 export default () => {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [isMousedOver, setIsMousedOver] = useState(false)
@@ -98,7 +86,7 @@ export default () => {
     rotateDeg,
     setRotateDeg,
   } = useRandomRotate()
-
+  const handleClose = () => setIsModalOpen(false)
   return (
     <>
       <BottomQuoteStyles>
@@ -165,10 +153,8 @@ export default () => {
             </div>
           </div>
         </div>
-        <Modal open={isModalOpen} onClose={() => setIsModalOpen(false)}>
-          <ModalContentStyles>
-            <div className="content">🛠 coming soon 🛠</div>
-          </ModalContentStyles>
+        <Modal open={isModalOpen} onClose={handleClose}>
+          <ContactModalContent handleClose={handleClose} />
         </Modal>
       </BottomQuoteStyles>
     </>
