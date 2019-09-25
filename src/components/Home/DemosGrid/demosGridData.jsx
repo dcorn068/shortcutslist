@@ -203,7 +203,7 @@ export const demos1 = [
               rel="noopener noreferrer"
               style={{ display: "inline" }}
             >
-              Autohotkey
+              AutoHotkey
             </a>{" "}
             — many scripts are already available!
           </div>
