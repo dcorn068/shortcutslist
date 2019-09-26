@@ -1,10 +1,11 @@
-import React, { useState } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import styled from "styled-components/macro"
 import quotesIcon from "../../images/icons/quotes-icon.png"
 import { Modal, Button } from "@material-ui/core"
 import { useRandomRotate } from "./PageLinksHorizontal"
 import { BREAKPOINTS } from "../../constants"
 import ContactModalContent from "./ContactModalContent"
+import { animated, useSpring } from "react-spring"
 
 const BottomQuoteStyles = styled.div`
   margin: auto;
@@ -80,6 +81,13 @@ const BottomQuoteStyles = styled.div`
 export default () => {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [isMousedOver, setIsMousedOver] = useState(false)
+  const [isModalMounted, setIsModalMounted] = useState(false)
+
+  const springUpDown = useSpring({
+    transform: `translate(0px,${isModalMounted ? 0 : 50}px)`,
+    opacity: isModalMounted ? 1 : 0,
+    config: { tension: 340, friction: 20 },
+  })
 
   const {
     randomNumbers,
@@ -87,7 +95,29 @@ export default () => {
     rotateDeg,
     setRotateDeg,
   } = useRandomRotate()
-  const handleClose = () => setIsModalOpen(false)
+  const timerRef = useRef()
+  const handleClose = () => {
+    setIsModalMounted(false)
+    timerRef.current = setTimeout(() => {
+      setIsModalOpen(false)
+    }, 250)
+  }
+  useEffect(() => () => {
+    // if (timerRef.current) {
+    //   clearTimeout(timerRef.current)
+    // }
+  })
+  const springRotateOnClick = useSpring({
+    position: "relative",
+    transform: `translateY(${isModalOpen ? 30 : 0}px) rotate(${
+      isModalOpen ? 1080 : 0
+    }deg) scale(${isModalOpen ? 0.5 : 1})`,
+    opacity: isModalOpen ? 0 : 1,
+    config: {
+      friction: isModalOpen ? 80 : 24,
+      mass: 2,
+    },
+  })
   return (
     <>
       <BottomQuoteStyles>
@@ -112,10 +142,12 @@ export default () => {
               <p>Want to help develop this site?</p>
             </div>
             <p>Let me know! 🙌</p>
-            <div style={{ position: "relative" }}>
+            <animated.div style={springRotateOnClick}>
               <Button
                 variant="outlined"
-                onClick={() => setIsModalOpen(true)}
+                onClick={() => {
+                  setIsModalOpen(true)
+                }}
                 disabled={isModalOpen}
                 style={{
                   position: "absolute",
@@ -126,7 +158,7 @@ export default () => {
                   whiteSpace: "nowrap",
                   ...(isMousedOver
                     ? {
-                        transform: `scale(1.07) translateY(-3px) rotate(${rotateDeg}deg)`,
+                        transform: `scale(1.17) translateY(-3px) rotate(${rotateDeg}deg)`,
                         color: `hsl(${randomNumbers[0] * 360},90%,80%)`,
                         borderColor: `hsl(${randomNumbers[1] * 360},90%,80%)`,
                         boxShadow: `0px 0px 20px 0px hsla(${randomNumbers[2] *
@@ -136,7 +168,7 @@ export default () => {
                 }}
                 onMouseEnter={() => {
                   const randomRotateDeg =
-                    (Math.random() > 0.5 ? -1 : 1) * Math.random() * 8
+                    (Math.random() > 0.5 ? -1 : 1) * Math.random() * 16
                   setRotateDeg(randomRotateDeg)
                   setRandomNumbers([
                     Math.random(),
@@ -151,11 +183,16 @@ export default () => {
               >
                 GET IN TOUCH
               </Button>
-            </div>
+            </animated.div>
           </div>
         </div>
         <Modal open={isModalOpen} onClose={handleClose}>
-          <ContactModalContent handleClose={handleClose} />
+          <animated.div style={springUpDown}>
+            <ContactModalContent
+              setIsModalMounted={setIsModalMounted}
+              handleClose={handleClose}
+            />
+          </animated.div>
         </Modal>
       </BottomQuoteStyles>
     </>

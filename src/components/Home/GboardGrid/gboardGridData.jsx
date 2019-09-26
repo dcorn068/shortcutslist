@@ -10,7 +10,9 @@ import symbolHints from "../../../images/gboardGrid/gboard-symbol-hints.jpg"
 export const gboardDemos = [
   {
     imageSrc: voiceTyping,
-    content: <p>Slide your finger across the space bar to move the cursor</p>,
+    content: (
+      <p>Talk to write in most places where you can type with a keyboard</p>
+    ),
     title: "Voice Typing",
   },
   {
