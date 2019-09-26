@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import styled from "styled-components/macro"
 import { IconButton, TextField, Button } from "@material-ui/core"
 import CloseIcon from "@material-ui/icons/Close"
@@ -7,11 +7,15 @@ const ModalContentStyles = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  height: 100vh;
+  bottom: 0;
   right: 0;
+  height: 100vh;
   display: grid;
   place-items: center center;
   pointer-events: none;
+  h1 {
+    text-align: center;
+  }
   .content {
     position: relative;
     .btnClose {
@@ -24,6 +28,7 @@ const ModalContentStyles = styled.div`
     grid-gap: 1em;
     pointer-events: auto;
     background: white;
+    border-radius: 4px;
     width: 50vw;
     min-width: 340px;
     max-width: 600px;
@@ -50,7 +55,10 @@ const initialValues = {
   email: "",
   message: "",
 }
-export default ({ handleClose }) => {
+export default ({ handleClose, setIsModalMounted }) => {
+  useEffect(() => {
+    setIsModalMounted(true)
+  }, [])
   const [btnText, setBtnText] = useState("Submit")
   const [values, setValues] = useState(initialValues)
   const handleChange = name => event => {
@@ -84,6 +92,12 @@ export default ({ handleClose }) => {
         <IconButton className="btnClose" onClick={handleClose}>
           <CloseIcon />
         </IconButton>
+        <h1>
+          Hey, thanks in advance!{" "}
+          <span aria-label="cheers-beers" role="img">
+            🍻
+          </span>
+        </h1>
         <TextField
           variant="outlined"
           id="name"
