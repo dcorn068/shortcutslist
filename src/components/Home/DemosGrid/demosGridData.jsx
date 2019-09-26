@@ -191,6 +191,7 @@ export const demos1 = [
             <Windows />+<Key smaller={true}>.</Key>
           </>
         ),
+        moreInfo: "HEY I'm a more info over here",
       },
       {
         description: "Custom shortcuts",

@@ -56,11 +56,13 @@ const NavbarStyles = styled.nav`
     &:hover,
     &.active {
       transform: scale(1);
-      color: ${COLORS.YELLOW_HIGHLIGHT};
       span:after {
         opacity: 1;
         width: calc(100% + 1px);
       }
+    }
+    &:hover {
+      color: ${COLORS.YELLOW_HIGHLIGHT};
     }
     &.active {
       pointer-events: none;
