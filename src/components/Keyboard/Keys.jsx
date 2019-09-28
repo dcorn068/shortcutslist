@@ -31,7 +31,7 @@ export const Up = () => (
 )
 export const Windows = () => (
   <div className="kbd">
-    <img alt="windows key" src={windowsKey} />
+    <img alt="windows key" style={{ marginBottom: -2 }} src={windowsKey} />
   </div>
 )
 
