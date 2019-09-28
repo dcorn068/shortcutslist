@@ -60,7 +60,7 @@ export const windowsShortcutsQuickAccess = [
         <Windows />+<Key>E</Key>
       </>
     ),
-    moreInfo: "HEY I'm a more info over here",
+    moreInfo: <p>HEY I'm a more info over here</p>,
   },
   {
     description: "Action panel",
@@ -119,7 +119,7 @@ export const windowsShortcutsQuickAccess = [
         <Windows />+<Key smaller={true}>.</Key>
       </>
     ),
-    moreInfo: "HEY I'm a more info over here",
+    moreInfo: <p>HEY I'm a more info over here</p>,
   },
   {
     description: "Custom shortcuts",
