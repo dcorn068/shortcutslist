@@ -4,12 +4,14 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import styled from "styled-components/macro"
 import Collapse from "@material-ui/core/Collapse"
-import { IconButton, Tooltip } from "@material-ui/core"
+import { IconButton, Tooltip, Divider } from "@material-ui/core"
 import RightArrowIcon from "@material-ui/icons/ArrowForwardIos"
 import {
   windowsShortcutsQuickAccess,
   windowsShortcutsBasics,
 } from "../shortcuts/windowsShortcuts"
+import { Ctrl, Alt, Shift } from "../components/Keyboard/Keys"
+import TopTip from "../components/TopTip"
 
 const sections = [
   { sectionTitle: "Basics", shortcuts: windowsShortcutsBasics },
@@ -23,12 +25,22 @@ const ShortcutRowStyles = styled.div`
     grid-template-columns: 64px 1fr 1fr;
     grid-gap: 1em;
     align-items: center;
-    &.evenRow {
-      background: hsl(0, 0%, 85%);
-    }
+    min-height: 64px;
+  }
+  .moreInfoSection {
+    padding: 1.5em 1.5em 0.5em;
   }
   .iconButton {
     height: 64px;
+  }
+  &.evenRow {
+    .shortcutRow,
+    .moreInfoSection {
+      background: hsl(0, 0%, 85%);
+    }
+    hr {
+      background: hsl(0, 0%, 75%);
+    }
   }
 `
 const ListItemCollapsible = ({
@@ -39,8 +51,8 @@ const ListItemCollapsible = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false)
   return (
-    <ShortcutRowStyles>
-      <div className={`shortcutRow${isEvenRow ? " evenRow" : ""}`}>
+    <ShortcutRowStyles className={`${isEvenRow ? "evenRow" : ""}`}>
+      <div className={`shortcutRow`}>
         {moreInfo ? (
           <Tooltip title="More info">
             <IconButton
@@ -59,7 +71,8 @@ const ListItemCollapsible = ({
       </div>
       {moreInfo && (
         <Collapse in={isOpen}>
-          <div className="moreInfo">{moreInfo}</div>
+          <Divider />
+          <div className="moreInfoSection">{moreInfo}</div>
         </Collapse>
       )}
     </ShortcutRowStyles>
@@ -72,6 +85,9 @@ const WindowsPageStyles = styled.div`
   section {
     max-width: 900px;
     margin: auto;
+  }
+  .sectionShortcuts {
+    padding-bottom: 3em;
   }
   .iconButton {
     transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -100,6 +116,11 @@ const WindowsPageStyles = styled.div`
 export default () => (
   <Layout>
     <SEO title="Windows" />
+    <TopTip>
+      <Ctrl />, <Alt />, and <Shift /> are your <strong>modifier</strong> keys —{" "}
+      <strong>hold them down</strong> while pressing other keys to modify the
+      effects.
+    </TopTip>
     <WindowsPageStyles>
       <section>
         <h1 className="title">Windows</h1>

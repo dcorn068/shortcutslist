@@ -1,5 +1,12 @@
 import React from "react"
-import { Windows, Alt, Tab, Key } from "../components/Keyboard/Keys"
+import {
+  Windows,
+  Alt,
+  Tab,
+  Key,
+  Ctrl,
+  Shift,
+} from "../components/Keyboard/Keys"
 
 export const windowsShortcutsBasics = [
   {
@@ -9,7 +16,31 @@ export const windowsShortcutsBasics = [
         <Alt />+<Tab />
       </>
     ),
-    moreInfo: <>Hold Alt</>,
+    moreInfo: (
+      <>
+        <p>
+          Hold <Alt />, then tap <Tab /> repeatedly until you land on the
+          desired program, then release <Alt />.
+        </p>
+        <p>Convenient for rapidly switching between two programs.</p>
+      </>
+    ),
+  },
+  {
+    description: "Task manager - diagnose problems, slow computer",
+    shortcut: (
+      <>
+        <Ctrl />+<Shift />+<Key>Esc</Key>
+      </>
+    ),
+  },
+  {
+    description: "Task manager menu - use when computer freezes",
+    shortcut: (
+      <>
+        <Ctrl />+<Alt />+<Key>Delete</Key>
+      </>
+    ),
   },
   {
     description: "Close program",
