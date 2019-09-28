@@ -58,7 +58,7 @@ const initialValues = {
 export default ({ handleClose, setIsModalMounted }) => {
   useEffect(() => {
     setIsModalMounted(true)
-  }, [])
+  }, [setIsModalMounted])
   const [btnText, setBtnText] = useState("Submit")
   const [values, setValues] = useState(initialValues)
   const handleChange = name => event => {

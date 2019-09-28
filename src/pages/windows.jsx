@@ -2,13 +2,19 @@ import React, { useState } from "react"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { demos1 } from "../components/Home/DemosGrid/demosGridData"
 import styled from "styled-components/macro"
 import Collapse from "@material-ui/core/Collapse"
 import { IconButton, Tooltip } from "@material-ui/core"
 import RightArrowIcon from "@material-ui/icons/ArrowForwardIos"
+import {
+  windowsShortcutsQuickAccess,
+  windowsShortcutsBasics,
+} from "../shortcuts/windowsShortcuts"
 
-const sections = [{ sectionTitle: "Basics", shortcuts: demos1[1].shortcuts }]
+const sections = [
+  { sectionTitle: "Basics", shortcuts: windowsShortcutsBasics },
+  { sectionTitle: "Quick Access", shortcuts: windowsShortcutsQuickAccess },
+]
 
 const ShortcutRowStyles = styled.div`
   .shortcutRow {
@@ -22,7 +28,7 @@ const ShortcutRowStyles = styled.div`
     }
   }
   .iconButton {
-    margin-bottom: -4px;
+    height: 64px;
   }
 `
 const ListItemCollapsible = ({
@@ -83,6 +89,11 @@ const WindowsPageStyles = styled.div`
     display: grid;
     grid-template-columns: 64px 1fr 1fr;
     grid-gap: 1em;
+    position: sticky;
+    top: 0px;
+    h3 {
+      font-family: "Montserrat", serif;
+    }
   }
 `
 
@@ -97,8 +108,8 @@ export default () => (
             <h2 className="sectionTitle">{sectionTitle}</h2>
             <div className="sectionHeaders">
               <div />
-              <div>Effect</div>
-              <div>Shortcut</div>
+              <h3>Effect</h3>
+              <h3>Shortcut</h3>
             </div>
             <div className="sectionShortcuts">
               {shortcuts.map(({ shortcut, description, moreInfo }, idx) => (

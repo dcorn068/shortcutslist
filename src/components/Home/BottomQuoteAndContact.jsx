@@ -141,7 +141,12 @@ export default () => {
               <p>Comments or suggestions?</p>
               <p>Want to help develop this site?</p>
             </div>
-            <p>Let me know! 🙌</p>
+            <p>
+              Let me know!{" "}
+              <span role="img" aria-label="hands-raised">
+                🙌
+              </span>
+            </p>
             <animated.div style={springRotateOnClick}>
               <Button
                 variant="outlined"

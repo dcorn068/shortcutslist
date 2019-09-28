@@ -1,5 +1,6 @@
 import React from "react"
 import windowsKey from "../../images/windows-key.png"
+import tabKey from "../../images/tab-key.png"
 import styled from "styled-components/macro"
 
 export const Key = ({ children, small = false, smaller = false }) => (
@@ -15,7 +16,24 @@ export const Ctrl = () => <div className="kbd">Ctrl</div>
 export const Shift = () => <div className="kbd">Shift</div>
 export const Home = () => <div className="kbd">Home</div>
 export const End = () => <div className="kbd">End</div>
-export const Tab = () => <div className="kbd">Tab</div>
+export const Tab = () => (
+  <div className="kbd">
+    <span>
+      <span>Tab</span>
+      <img
+        alt="tab symbol"
+        style={{
+          opacity: 0.9,
+          marginLeft: 4,
+          marginBottom: 2,
+          width: 12,
+          height: "auto",
+        }}
+        src={tabKey}
+      />
+    </span>
+  </div>
+)
 export const Alt = () => <div className="kbd">Alt</div>
 export const Left = () => <div className="kbd">←</div>
 export const Right = () => <div className="kbd">→</div>
