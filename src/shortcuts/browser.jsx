@@ -2,7 +2,7 @@ import React from "react"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { windowsShortcuts } from "../shortcuts/windowsShortcuts"
+import { browserShortcuts } from "../shortcuts/browserShortcuts"
 import TopTip from "../components/TopTip"
 import { ShortcutsSection } from "../components/PageComponents/ShortcutsSection"
 import PageStyles from "../components/PageComponents/PageStyles"
@@ -13,8 +13,8 @@ export default () => (
     <TopTip />
     <PageStyles>
       <section>
-        <h1 className="title">Windows</h1>
-        {Object.entries(windowsShortcuts).map(([sectionTitle, shortcuts]) => (
+        <h1 className="title">Browser</h1>
+        {Object.entries(browserShortcuts).map(([sectionTitle, shortcuts]) => (
           <ShortcutsSection
             key={sectionTitle}
             shortcuts={shortcuts}

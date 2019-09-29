@@ -17,7 +17,7 @@ export const Shift = () => <div className="kbd">Shift</div>
 export const Home = () => <div className="kbd">Home</div>
 export const End = () => <div className="kbd">End</div>
 export const Tab = () => (
-  <div className="kbd">
+  <div className="kbd" style={{ whiteSpace: "nowrap" }}>
     <span>
       <span>Tab</span>
       <img

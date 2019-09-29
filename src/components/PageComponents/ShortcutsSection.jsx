@@ -42,7 +42,7 @@ const ListItemCollapsible = ({
     <ShortcutRowStyles className={`${isEvenRow ? "evenRow" : ""}`}>
       <div className={`shortcutRow`}>
         {moreInfo ? (
-          <Tooltip title="More info">
+          <Tooltip title={`${!isOpen ? "More" : "Less"} info`}>
             <IconButton
               className="iconButton"
               style={{ transform: `rotate(${isOpen ? 270 : 90}deg)` }}

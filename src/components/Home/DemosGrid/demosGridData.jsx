@@ -30,6 +30,7 @@ import {
   Up,
 } from "../../Keyboard/Keys"
 import { windowsShortcuts } from "../../../shortcuts/windowsShortcuts"
+import { browserShortcuts } from "../../../shortcuts/browserShortcuts"
 
 export const demos1 = [
   {
@@ -132,98 +133,7 @@ export const demos1 = [
     title: "Google Chrome",
     imageSrc: chromeTabsDemo,
     logo: chromeLogo,
-    shortcuts: [
-      {
-        description: "New tab",
-        shortcut: (
-          <>
-            <Ctrl />+<Key>N</Key>
-          </>
-        ),
-      },
-      {
-        description: "Next tab",
-        shortcut: (
-          <>
-            <Ctrl />+<Tab />
-          </>
-        ),
-      },
-      {
-        description: "Previous tab",
-        shortcut: (
-          <>
-            <Ctrl />+<Shift />+<Tab />
-          </>
-        ),
-      },
-      {
-        description: "Close tab",
-        shortcut: (
-          <>
-            <Ctrl />+<Key>W</Key>
-          </>
-        ),
-      },
-      {
-        description: "Reopen last closed tab",
-        shortcut: (
-          <>
-            <Ctrl />+<Shift />+<Key>T</Key>
-          </>
-        ),
-      },
-      {
-        description: "Open link in new tab",
-        shortcut: (
-          <>
-            <Ctrl />+ <strong>Click</strong> or{" "}
-            <strong>Mousewheel-Click</strong>
-          </>
-        ),
-      },
-      {
-        description: "Quick-search text",
-        shortcut: (
-          <>
-            <strong>Select text</strong> then <strong>drag to tab strip</strong>
-          </>
-        ),
-      },
-      {
-        description: "Select multiple tabs",
-        shortcut: (
-          <>
-            <Shift />
-            or
-            <Ctrl />+ <strong>Click</strong> tabs
-          </>
-        ),
-      },
-      {
-        description: "Split tabs into new window",
-        shortcut: (
-          <>
-            <strong>Drag tabs</strong> out of the tab strip
-          </>
-        ),
-      },
-      {
-        description: "Save group of tabs for later",
-        shortcut: (
-          <>
-            <strong>Save session</strong> in{" "}
-            <a
-              href="https://chrome.google.com/webstore/detail/toby-for-chrome/hddnkoipeenegfoeaoibdmnaalmgkpip?hl=en"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Toby tab manager
-            </a>
-          </>
-        ),
-      },
-    ],
+    shortcuts: browserShortcuts.basics,
   },
 ]
 
