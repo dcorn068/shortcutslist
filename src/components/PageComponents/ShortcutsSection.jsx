@@ -71,17 +71,23 @@ export const ShortcutsSection = ({ shortcuts, sectionTitle }) => {
   const [isSectionExpanded, setIsSectionExpanded] = useState(true)
   return (
     <>
-      <div className="sectionTitleRow">
-        <Tooltip title={isSectionExpanded ? "Collapse" : "Expand"}>
-          <IconButton
-            className="iconButton"
-            style={{ transform: `rotate(${isSectionExpanded ? 270 : 90}deg)` }}
-            onClick={() => setIsSectionExpanded(!isSectionExpanded)}
-          >
-            <RightArrowIcon />
-          </IconButton>
-        </Tooltip>
-        <h2 className="sectionTitle">{startCase(sectionTitle)}</h2>
+      <div classNamee="sectionTitleRow">
+        <div
+          className="sectionTitleButton"
+          onClick={() => setIsSectionExpanded(!isSectionExpanded)}
+        >
+          <Tooltip title={isSectionExpanded ? "Collapse" : "Expand"}>
+            <IconButton
+              className="iconButton"
+              style={{
+                transform: `rotate(${isSectionExpanded ? 270 : 90}deg)`,
+              }}
+            >
+              <RightArrowIcon />
+            </IconButton>
+          </Tooltip>
+          <h2 className="sectionTitle">{startCase(sectionTitle)}</h2>
+        </div>
       </div>
       <Collapse in={isSectionExpanded}>
         <div className="sectionHeaders">

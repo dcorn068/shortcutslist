@@ -19,7 +19,8 @@ export default styled.div`
     font-family: "Montserrat", serif;
     font-size: 3em;
   }
-  .sectionTitleRow {
+  .sectionTitleButton {
+    cursor: pointer;
     display: flex;
     align-items: center;
     margin-bottom: 1em;
