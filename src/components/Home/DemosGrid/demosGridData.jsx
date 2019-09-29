@@ -29,7 +29,7 @@ import {
   Code,
   Up,
 } from "../../Keyboard/Keys"
-import { windowsShortcutsQuickAccess } from "../../../shortcuts/windowsShortcuts"
+import { windowsShortcuts } from "../../../shortcuts/windowsShortcuts"
 
 export const demos1 = [
   {
@@ -126,7 +126,7 @@ export const demos1 = [
     title: "Windows 10",
     imageSrc: virtualDesktopsDemo,
     logo: windows10Logo,
-    shortcuts: windowsShortcutsQuickAccess,
+    shortcuts: windowsShortcuts.quickAccess,
   },
   {
     title: "Google Chrome",

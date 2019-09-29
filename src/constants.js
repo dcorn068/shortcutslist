@@ -23,3 +23,5 @@ export const COLORS = {
   TEAL_BACKGROUND: "hsl(173, 54%, 56%)",
   PURPLE_BACKGROUND: "hsl(273, 21%, 27%)",
 }
+
+export const MAX_WIDTH = 900

@@ -6,17 +6,11 @@ import styled from "styled-components/macro"
 import Collapse from "@material-ui/core/Collapse"
 import { IconButton, Tooltip, Divider } from "@material-ui/core"
 import RightArrowIcon from "@material-ui/icons/ArrowForwardIos"
-import {
-  windowsShortcutsQuickAccess,
-  windowsShortcutsBasics,
-} from "../shortcuts/windowsShortcuts"
+import { windowsShortcuts } from "../shortcuts/windowsShortcuts"
 import { Ctrl, Alt, Shift } from "../components/Keyboard/Keys"
 import TopTip from "../components/TopTip"
-
-const sections = [
-  { sectionTitle: "Basics", shortcuts: windowsShortcutsBasics },
-  { sectionTitle: "Quick Access", shortcuts: windowsShortcutsQuickAccess },
-]
+import { MAX_WIDTH } from "../constants"
+import { startCase } from "lodash"
 
 const ShortcutRowStyles = styled.div`
   .shortcutRow {
@@ -83,7 +77,7 @@ const WindowsPageStyles = styled.div`
   padding: 3em 1em;
   background: white;
   section {
-    max-width: 900px;
+    max-width: ${MAX_WIDTH}px;
     margin: auto;
   }
   .sectionShortcuts {
@@ -96,9 +90,18 @@ const WindowsPageStyles = styled.div`
     font-family: "Montserrat", serif;
     font-size: 3em;
   }
+  .sectionTitleRow {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1em;
+    .iconButton {
+      margin-right: 0.125em;
+    }
+  }
   .sectionTitle {
     font-family: "Montserrat", serif;
     font-size: 2em;
+    margin: 0;
   }
   .sectionHeaders {
     padding: 0.5em 1em;
@@ -113,37 +116,61 @@ const WindowsPageStyles = styled.div`
   }
 `
 
+const ShortcutsSection = ({ shortcuts, sectionTitle }) => {
+  const [isSectionExpanded, setIsSectionExpanded] = useState(true)
+  return (
+    <>
+      <div className="sectionTitleRow">
+        <Tooltip title="More info">
+          <IconButton
+            className="iconButton"
+            style={{ transform: `rotate(${isSectionExpanded ? 270 : 90}deg)` }}
+            onClick={() => setIsSectionExpanded(!isSectionExpanded)}
+          >
+            <RightArrowIcon />
+          </IconButton>
+        </Tooltip>
+        <h2 className="sectionTitle">{startCase(sectionTitle)}</h2>
+      </div>
+      <Collapse in={isSectionExpanded}>
+        <div className="sectionHeaders">
+          <div />
+          <h3>Effect</h3>
+          <h3>Shortcut</h3>
+        </div>
+        <div className="sectionShortcuts">
+          {shortcuts.map(({ shortcut, description, moreInfo }, idx) => (
+            <ListItemCollapsible
+              isEvenRow={idx % 2 === 0}
+              key={description}
+              description={description}
+              shortcut={shortcut}
+              moreInfo={moreInfo}
+            />
+          ))}
+        </div>
+      </Collapse>
+    </>
+  )
+}
+
 export default () => (
   <Layout>
     <SEO title="Windows" />
     <TopTip>
-      <Ctrl />, <Alt />, and <Shift /> are your <strong>modifier</strong> keys —{" "}
+      <Ctrl />, <Alt />, and <Shift /> are <strong>modifier</strong> keys —{" "}
       <strong>hold them down</strong> while pressing other keys to modify the
       effects.
     </TopTip>
     <WindowsPageStyles>
       <section>
         <h1 className="title">Windows</h1>
-        {sections.map(({ sectionTitle, shortcuts }) => (
-          <div key={sectionTitle}>
-            <h2 className="sectionTitle">{sectionTitle}</h2>
-            <div className="sectionHeaders">
-              <div />
-              <h3>Effect</h3>
-              <h3>Shortcut</h3>
-            </div>
-            <div className="sectionShortcuts">
-              {shortcuts.map(({ shortcut, description, moreInfo }, idx) => (
-                <ListItemCollapsible
-                  isEvenRow={idx % 2 === 0}
-                  key={description}
-                  description={description}
-                  shortcut={shortcut}
-                  moreInfo={moreInfo}
-                />
-              ))}
-            </div>
-          </div>
+        {Object.entries(windowsShortcuts).map(([sectionTitle, shortcuts]) => (
+          <ShortcutsSection
+            key={sectionTitle}
+            shortcuts={shortcuts}
+            sectionTitle={sectionTitle}
+          />
         ))}
       </section>
     </WindowsPageStyles>
