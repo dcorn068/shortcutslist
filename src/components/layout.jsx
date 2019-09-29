@@ -14,7 +14,6 @@ import styled from "styled-components/macro"
 import { COLORS } from "../constants"
 
 const LayoutStyles = styled.div`
-  overflow-x: hidden;
   display: flex;
   flex-direction: column;
   padding: 0px 0px 1.45rem;
