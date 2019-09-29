@@ -40,8 +40,12 @@ export default styled.div`
     grid-gap: 1em;
     position: sticky;
     top: 0px;
+    box-shadow: 0px 6px 9px -5px rgba(0, 0, 0, 0.3);
+    background: white;
+    z-index: 10;
     h3 {
       font-family: "Montserrat", serif;
+      margin: 0;
     }
   }
 `
