@@ -64,10 +64,10 @@ export const windowsShortcuts = {
       ),
       moreInfo: (
         <>
-          <p>
+          <div>
             Hold <Alt />, then tap <Tab /> repeatedly until you land on the
             desired program, then release <Alt />.
-          </p>
+          </div>
           <p>Convenient for rapidly switching between two programs.</p>
         </>
       ),

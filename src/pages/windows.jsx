@@ -7,7 +7,6 @@ import Collapse from "@material-ui/core/Collapse"
 import { IconButton, Tooltip, Divider } from "@material-ui/core"
 import RightArrowIcon from "@material-ui/icons/ArrowForwardIos"
 import { windowsShortcuts } from "../shortcuts/windowsShortcuts"
-import { Ctrl, Alt, Shift } from "../components/Keyboard/Keys"
 import TopTip from "../components/TopTip"
 import { MAX_WIDTH } from "../constants"
 import { startCase } from "lodash"
@@ -121,7 +120,7 @@ const ShortcutsSection = ({ shortcuts, sectionTitle }) => {
   return (
     <>
       <div className="sectionTitleRow">
-        <Tooltip title="More info">
+        <Tooltip title={isSectionExpanded ? "Collapse" : "Expand"}>
           <IconButton
             className="iconButton"
             style={{ transform: `rotate(${isSectionExpanded ? 270 : 90}deg)` }}
@@ -157,11 +156,7 @@ const ShortcutsSection = ({ shortcuts, sectionTitle }) => {
 export default () => (
   <Layout>
     <SEO title="Windows" />
-    <TopTip>
-      <Ctrl />, <Alt />, and <Shift /> are <strong>modifier</strong> keys —{" "}
-      <strong>hold them down</strong> while pressing other keys to modify the
-      effects.
-    </TopTip>
+    <TopTip />
     <WindowsPageStyles>
       <section>
         <h1 className="title">Windows</h1>
