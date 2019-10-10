@@ -139,6 +139,16 @@ export const windowsShortcuts = {
         </>
       ),
     },
+    {
+      description: "Move window between multiple monitors",
+      shortcut: (
+        <>
+          <Shift/>+<Windows />+<Left />
+          or
+          <Right />
+        </>
+      ),
+    },
   ],
   quickAccess: [
     {
