@@ -133,7 +133,7 @@ export const demos1 = [
     title: "Google Chrome",
     imageSrc: chromeTabsDemo,
     logo: chromeLogo,
-    shortcuts: browserShortcuts.basics,
+    shortcuts: [...browserShortcuts.basics, ...browserShortcuts.tabs],
   },
 ]
 

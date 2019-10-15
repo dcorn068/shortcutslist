@@ -6,9 +6,9 @@ export const BREAKPOINTS = {
 
 export const getPageLinks = () => [
   { to: "/", title: "Home" },
-  { to: "/windows", title: "Windows" },
   { to: "/browser", title: "Browser" },
-  { to: "/android", title: "Android" },
+  { to: "/windows", title: "Windows" },
+  { to: "/linux", title: "Linux" },
   { to: "/vs-code", title: "VS Code" },
   { to: "/terminal", title: "Terminal" },
 ]
