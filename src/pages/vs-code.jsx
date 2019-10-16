@@ -2,7 +2,7 @@ import React from "react"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { linuxShortcuts } from "../shortcuts/linuxShortcuts"
+import { vsCodeShortcuts } from "../shortcuts/vsCodeShortcuts"
 import TopTip from "../components/TopTip"
 import { ShortcutsSection } from "../components/PageComponents/ShortcutsSection"
 import PageStyles from "../components/PageComponents/PageStyles"
@@ -13,8 +13,8 @@ export default () => (
     <TopTip />
     <PageStyles>
       <section>
-        <h1 className="title">Linux</h1>
-        {Object.entries(linuxShortcuts).map(([sectionTitle, shortcuts]) => (
+        <h1 className="title">VS Code</h1>
+        {Object.entries(vsCodeShortcuts).map(([sectionTitle, shortcuts]) => (
           <ShortcutsSection
             key={sectionTitle}
             shortcuts={shortcuts}
