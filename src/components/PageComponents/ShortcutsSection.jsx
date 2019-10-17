@@ -10,9 +10,15 @@ const ShortcutRowStyles = styled.div`
     padding: 0.5em 1em;
     display: grid;
     grid-template-columns: 64px 1fr 1fr;
+    &.noShortcut {
+      grid-template-columns: 64px 1fr;
+    }
     grid-gap: 1em;
     align-items: center;
     min-height: 64px;
+    &.withMoreInfo {
+      cursor: pointer;
+    }
   }
   .moreInfoSection {
     padding: 1.5em 1.5em 0.5em;
@@ -40,13 +46,18 @@ const ListItemCollapsible = ({
   const [isOpen, setIsOpen] = useState(false)
   return (
     <ShortcutRowStyles className={`${isEvenRow ? "evenRow" : ""}`}>
-      <div className={`shortcutRow`}>
+      <div
+        className={`shortcutRow${moreInfo ? " withMoreInfo" : ""}${
+          !shortcut ? " noShortcut" : ""
+        }`}
+        onClick={() => setIsOpen(!isOpen)}
+      >
         {moreInfo ? (
           <Tooltip title={`${!isOpen ? "More" : "Less"} info`}>
             <IconButton
               className="iconButton"
               style={{ transform: `rotate(${isOpen ? 270 : 90}deg)` }}
-              onClick={() => setIsOpen(!isOpen)}
+              // onClick={() => setIsOpen(!isOpen)}
             >
               <RightArrowIcon />
             </IconButton>
@@ -55,7 +66,7 @@ const ListItemCollapsible = ({
           <div />
         )}
         <div className="description">{description}</div>
-        <div className="shortcut">{shortcut}</div>
+        {shortcut && <div className="shortcut">{shortcut}</div>}
       </div>
       {moreInfo && (
         <Collapse in={isOpen}>

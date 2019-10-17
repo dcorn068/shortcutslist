@@ -13,6 +13,123 @@ import {
 } from "../components/Keyboard/Keys"
 
 export const linuxShortcuts = {
+  basics: [
+    {
+      description: "Open any program",
+      shortcut: (
+        <>
+          <Windows />, then type what you want to open
+        </>
+      ),
+    },
+    {
+      description: "Copy",
+      shortcut: (
+        <>
+          <Ctrl />+<Key>C</Key>
+        </>
+      ),
+    },
+    {
+      description: "Paste",
+      shortcut: (
+        <>
+          <Ctrl />+<Key>V</Key>
+        </>
+      ),
+    },
+    {
+      description: "Cut (copy + delete)",
+      shortcut: (
+        <>
+          <Ctrl />+<Key>X</Key>
+        </>
+      ),
+    },
+    {
+      description: "Undo",
+      shortcut: (
+        <>
+          <Ctrl />+<Key>Z</Key>
+        </>
+      ),
+    },
+    {
+      description: "Close system dialog boxes / pop-ups",
+      shortcut: (
+        <>
+          <Key>Esc</Key>
+        </>
+      ),
+    },
+    {
+      description: "Quick-switch programs",
+      shortcut: (
+        <>
+          <Alt />+<Tab />
+        </>
+      ),
+      moreInfo: (
+        <>
+          <div>
+            Hold <Alt />, then tap <Tab /> repeatedly until you land on the
+            desired program, then release <Alt />.
+          </div>
+          <p>Convenient for rapidly switching between two programs.</p>
+        </>
+      ),
+    },
+    {
+      description: "Close program",
+      shortcut: (
+        <>
+          <Alt />+<Key>F4</Key>
+        </>
+      ),
+    },
+    {
+      description: "Snap window to sides",
+      shortcut: (
+        <>
+          <Windows />+<Left />
+          or
+          <Right />
+        </>
+      ),
+      moreInfo: (
+        <p>Try it with one window on each side for side-by-side mode!</p>
+      ),
+    },
+    {
+      description: "Maximize, restore, minimize window",
+      shortcut: (
+        <>
+          <Windows />+<Up />
+          or
+          <Down />
+        </>
+      ),
+    },
+    {
+      description: "Move window between multiple monitors",
+      shortcut: (
+        <>
+          <Shift />+<Windows />+<Left />
+          or
+          <Right />
+        </>
+      ),
+    },
+    {
+      description: "Set up your own custom shortcuts",
+      shortcut: (
+        <>
+          <Windows />, type "keyboard" to open Keyboard Settings, then scroll to
+          the bottom.
+        </>
+      ),
+    },
+  ],
   terminal: [
     {
       description: "New terminal",

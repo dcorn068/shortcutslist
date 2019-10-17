@@ -9,7 +9,7 @@ import PageStyles from "../components/PageComponents/PageStyles"
 
 export default () => (
   <Layout>
-    <SEO title="Windows" />
+    <SEO title="Browser" />
     <TopTip />
     <PageStyles>
       <section>

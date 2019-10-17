@@ -16,6 +16,14 @@ import taskManager from "../images/windows/task-manager-end-task.jpg"
 export const windowsShortcuts = {
   basics: [
     {
+      description: "Open any program",
+      shortcut: (
+        <>
+          <Windows />, then type what you want to open
+        </>
+      ),
+    },
+    {
       description: "Copy",
       shortcut: (
         <>
@@ -143,7 +151,7 @@ export const windowsShortcuts = {
       description: "Move window between multiple monitors",
       shortcut: (
         <>
-          <Shift/>+<Windows />+<Left />
+          <Shift />+<Windows />+<Left />
           or
           <Right />
         </>

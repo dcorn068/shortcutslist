@@ -217,13 +217,13 @@ export const browserShortcuts = {
             here. Watch out, sometimes the query may appear more than once in
             the full address
           </p>
-          <p>
+          <div style={{ marginBottom: "1em" }}>
             Now in your address bar you can type the keyword, hit{" "}
             <Key>Space</Key> and you're off to the races!{" "}
             <span role="img" alt="horse race">
               🐎
             </span>
-          </p>
+          </div>
         </>
       ),
     },
