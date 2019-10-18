@@ -82,7 +82,7 @@ export const ShortcutsSection = ({ shortcuts, sectionTitle }) => {
   const [isSectionExpanded, setIsSectionExpanded] = useState(true)
   return (
     <>
-      <div classNamee="sectionTitleRow">
+      <div className="sectionTitleRow">
         <div
           className="sectionTitleButton"
           onClick={() => setIsSectionExpanded(!isSectionExpanded)}
@@ -110,7 +110,9 @@ export const ShortcutsSection = ({ shortcuts, sectionTitle }) => {
           {shortcuts.map(({ shortcut, description, moreInfo }, idx) => (
             <ListItemCollapsible
               isEvenRow={idx % 2 === 0}
-              key={description}
+              key={
+                idx
+              } /* we can use idx here since the order/shortcuts array will never change */
               description={description}
               shortcut={shortcut}
               moreInfo={moreInfo}

@@ -54,9 +54,10 @@ export const Windows = () => (
 )
 
 const CodeStyles = styled.div`
+  display: inline;
   font-family: "Ubuntu Mono";
   background: hsla(0, 0%, 0%, 0.12);
-  padding: 0 1ch;
+  padding: 0.25em 1ch;
   font-weight: 600;
 `
 export const Code = ({ children }) => <CodeStyles>{children}</CodeStyles>

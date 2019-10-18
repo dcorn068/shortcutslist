@@ -10,6 +10,7 @@ import {
   Right,
   Down,
   Up,
+  Code,
 } from "../components/Keyboard/Keys"
 
 export const vsCodeShortcuts = {
@@ -82,6 +83,69 @@ export const vsCodeShortcuts = {
             Type what you want to do, and the command palette will show you your
             options, and any shortcut keys associated with them.
           </p>
+        </>
+      ),
+    },
+  ],
+  writingHtmlWithEmmet: [
+    {
+      description: (
+        <div style={{ margin: "0.5em 0 0.5em", width: "90%" }}>
+          Write HTML with maximum efficiency using Emmet shortcuts -- head on
+          over to the{" "}
+          <a
+            style={{ fontWeight: "bold" }}
+            href="https://docs.emmet.io/cheat-sheet/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Emmet Cheat Sheet
+          </a>{" "}
+          for a full specification.
+        </div>
+      ),
+    },
+    {
+      description: `<div class="foo"></div>`,
+      shortcut: (
+        <>
+          <Code>div.foo</Code> or simply <Code>.foo</Code>
+        </>
+      ),
+    },
+    {
+      description: `<p id="bar"></p>`,
+      shortcut: (
+        <>
+          <Code>p#bar</Code>
+        </>
+      ),
+    },
+    {
+      description: `<h1 id="weirdo" class="salty sweet sour"></h1>`,
+      shortcut: (
+        <>
+          <Code>h1#weirdo.salty.sweet.sour</Code>
+        </>
+      ),
+    },
+    {
+      description: (
+        <pre>
+          {`<section class="list-container">
+  <li>
+    <ul>item 1</ul>
+    <ul>item 2</ul>
+    <ul>item 3</ul>
+  </li>
+</section>`}
+        </pre>
+      ),
+      shortcut: (
+        <>
+          <Code>
+            section.list-container>li>ul*3{"{"}item ${"}"}
+          </Code>
         </>
       ),
     },
