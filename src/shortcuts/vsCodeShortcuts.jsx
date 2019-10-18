@@ -224,6 +224,20 @@ export const vsCodeShortcuts = {
       ),
     },
     {
+      description: "Add cursor by clicking",
+      shortcut: (
+        <>
+          <Ctrl />+ click or <Alt />+ click
+        </>
+      ),
+      moreInfo: (
+        <p>
+          Search your settings for 'Editor: Multi Cursor Modifier' to change
+          between <strong>Ctrl</strong> and <strong>Alt</strong>
+        </p>
+      ),
+    },
+    {
       description: "Split selection on line ends",
       shortcut: (
         <>
