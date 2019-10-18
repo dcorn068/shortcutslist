@@ -131,7 +131,7 @@ export const vsCodeShortcuts = {
     },
     {
       description: (
-        <pre>
+        <pre style={{ margin: "0.5em 0", padding: "0.5em 1em" }}>
           {`<section class="list-container">
   <li>
     <ul>item 1</ul>
@@ -166,6 +166,76 @@ export const vsCodeShortcuts = {
             </a>{" "}
             for a(n arguably) better shortcuts experience.
           </p>
+        </>
+      ),
+    },
+    /* TODO: find shortcuts without sublime keymapper */
+    {
+      description: "Add cursor at next instance of current selection",
+      shortcut: (
+        <>
+          <Ctrl />+<Key>D</Key>
+        </>
+      ),
+      moreInfo: (
+        <>
+          <p>
+            Select any repeating pattern or word, then use this shortcut
+            repeatedly to select multiple instances.
+          </p>
+        </>
+      ),
+    },
+    {
+      description:
+        "While adding cursors using Ctrl + D, skip the current selected instance",
+      shortcut: (
+        <>
+          <Ctrl />+<Key>K</Key>
+        </>
+      ),
+      moreInfo: (
+        <>
+          <p>
+            For example: to select all the <strong>'selectme'</strong> in{" "}
+            <strong>'selectme selectme dontselectme selectme'</strong>:
+          </p>
+          <div style={{ marginBottom: "1em" }}>
+            Select the first 'selectme', then hold <Ctrl />, then <Key>D</Key>,{" "}
+            <Key>D</Key>, <Key>K</Key>, <Key>D</Key>.
+          </div>
+        </>
+      ),
+    },
+    {
+      description: "Select all instances of selection",
+      shortcut: (
+        <>
+          <Alt />+<Key>F3</Key>
+        </>
+      ),
+    },
+    {
+      description: "Add cursor above or below",
+      shortcut: (
+        <>
+          <Shift />+<Alt />+<Up /> or <Down />
+        </>
+      ),
+    },
+    {
+      description: "Split selection on line ends",
+      shortcut: (
+        <>
+          <Ctrl />+<Shift />+<Key>L</Key>
+        </>
+      ),
+    },
+    {
+      description: "Rectangular selection",
+      shortcut: (
+        <>
+          <strong>Middle-mouse-drag</strong>
         </>
       ),
     },
