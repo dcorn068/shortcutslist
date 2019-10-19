@@ -14,21 +14,18 @@ import {
 } from "../components/Keyboard/Keys"
 
 const SUBLIME_TEXT_NOTICE = {
-  description: `NOTE: this section's shortcuts use the extension "Sublime Text Keymap and Settings Importer" — find the equivalent shortcuts in the expansion panels.`,
-  moreInfo: (
-    <>
-      <p>
-        Check out the extension{" "}
-        <a
-          href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.sublime-keybindings"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Sublime Text Keymap and Settings Importer
-        </a>{" "}
-        for a(n arguably) better shortcuts experience.
-      </p>
-    </>
+  description: (
+    <div style={{}}>
+      NOTE: this section's shortcuts use the extension{" "}
+      <a
+        href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.sublime-keybindings"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Sublime Text Keymap and Settings Importer
+      </a>{" "}
+      — find the equivalent shortcuts in the expansion panels.
+    </div>
   ),
 }
 
@@ -124,12 +121,19 @@ export const vsCodeShortcuts = {
         </>
       ),
     },
-
     {
       description: "Toggle integrated terminal",
       shortcut: (
         <>
           <Ctrl />+<Shift />+<Key>`</Key>
+        </>
+      ),
+    },
+    {
+      description: "Settings",
+      shortcut: (
+        <>
+          <Ctrl />+<Key>,</Key>
         </>
       ),
     },
@@ -171,7 +175,7 @@ export const vsCodeShortcuts = {
   writingHtmlWithEmmet: [
     {
       description: (
-        <div style={{ margin: "0.5em 0 0.5em", width: "90%" }}>
+        <div>
           Write HTML with maximum efficiency using Emmet shortcuts -- head on
           over to the{" "}
           <a
@@ -414,6 +418,381 @@ export const vsCodeShortcuts = {
     {
       description: "Quick-select entire lines",
       shortcut: <>Drag mouse along the line numbers</>,
+    },
+  ],
+  extensions: [
+    {
+      description: (
+        <>
+          <a
+            href="https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Prettier - Code formatter
+          </a>{" "}
+          — auto-format code on save
+        </>
+      ),
+      shortcut: (
+        <>
+          Go to Settings with
+          <Ctrl />+<Key>,</Key>, search for "format on save" and tick the
+          checkbox
+        </>
+      ),
+    },
+    {
+      description: (
+        <>
+          <a
+            href="https://marketplace.visualstudio.com/items?itemName=ChakrounAnas.turbo-console-log"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Turbo Console Log
+          </a>{" "}
+          — never type console.log again!
+        </>
+      ),
+      shortcut: (
+        <>
+          Select something, then
+          <Ctrl />+<Alt />+<Key>L</Key> — customize the log prefix in Settings
+        </>
+      ),
+    },
+    {
+      description: (
+        <>
+          <a
+            href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Live Server
+          </a>{" "}
+          — local development server that reloads on save
+        </>
+      ),
+      shortcut: (
+        <>
+          In an <Code>index.html</Code> file, hit "Go Live" button at the bottom
+          of your editor
+        </>
+      ),
+    },
+    {
+      description: (
+        <>
+          <a
+            href="https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Better Comments
+          </a>
+        </>
+      ),
+      shortcut: (
+        <>
+          <div
+            style={{ color: "hsl(20,70%,50%)", background: "hsl(0,0%,20%)" }}
+          >
+            <Code>{`// TODO: learn all the shortcuts!`}</Code>
+          </div>
+          <div
+            style={{ color: "hsl(80,70%,50%)", background: "hsl(0,0%,20%)" }}
+          >
+            <Code>{`// * watch out for this thing`}</Code>
+          </div>
+          <div
+            style={{ color: "hsl(200,70%,50%)", background: "hsl(0,0%,20%)" }}
+          >
+            <Code>{`// ? is this really necessary?`}</Code>
+          </div>
+        </>
+      ),
+    },
+    {
+      description: (
+        <>
+          <a
+            href="https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer-2"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Bracket Pair Colorizer 2
+          </a>
+        </>
+      ),
+      shortcut: (
+        <>
+          <div style={{ color: "hsl(20,0%,70%)", background: "hsl(0,0%,20%)" }}>
+            <Code>
+              <span style={{ color: "hsl(280,70%,50%)" }}>{`{`}</span>
+            </Code>
+          </div>
+          <div style={{ color: "hsl(20,0%,70%)", background: "hsl(0,0%,20%)" }}>
+            <Code>
+              <span style={{ marginLeft: "3ch" }} />
+              bracketsArray.forEach
+              <span style={{ color: "hsl(55,80%,50%)" }}>{`(`}</span>
+            </Code>
+          </div>
+          <div style={{ color: "hsl(20,0%,70%)", background: "hsl(0,0%,20%)" }}>
+            <Code>
+              <span style={{ marginLeft: "5ch" }} />
+              bracket =>
+              <span style={{ color: "hsl(220,80%,70%)" }}>{` { `}</span>
+              colorize
+              <span style={{ color: "hsl(55,70%,50%)" }}>{`(`}</span>
+              bracket
+              <span style={{ color: "hsl(55,70%,50%)" }}>{`)`}</span>
+              <span style={{ color: "hsl(220,80%,70%)" }}>{` }`}</span>
+              <span style={{ color: "hsl(55,70%,50%)" }}>{`)`}</span>
+            </Code>
+          </div>
+          <div style={{ color: "hsl(20,0%,70%)", background: "hsl(0,0%,20%)" }}>
+            <Code>
+              <span style={{ color: "hsl(280,70%,50%)" }}>{`}`}</span>
+            </Code>
+          </div>
+        </>
+      ),
+    },
+    {
+      description: (
+        <>
+          <a
+            href="https://marketplace.visualstudio.com/items?itemName=naumovs.color-highlight"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Color Highlight
+          </a>
+        </>
+      ),
+      shortcut: (
+        <>
+          <div style={{ color: "hsl(20,0%,70%)", background: "hsl(0,0%,20%)" }}>
+            <Code>
+              <span
+                style={{
+                  color: "white",
+                  background: "hsl(60,90%,40%)",
+                }}
+              >
+                hsl(60,90%,40%)
+              </span>
+            </Code>
+          </div>
+          <div style={{ color: "hsl(20,0%,70%)", background: "hsl(0,0%,20%)" }}>
+            <Code>
+              <span
+                style={{
+                  color: "white",
+                  background: "rgba(100,200,255,0.5)",
+                }}
+              >
+                rgba(100,200,255,0.5)
+              </span>
+            </Code>
+          </div>
+          <div style={{ color: "hsl(20,0%,70%)", background: "hsl(0,0%,20%)" }}>
+            <Code>
+              <span
+                style={{
+                  color: "white",
+                  background: "#7f10e8",
+                }}
+              >
+                #7f10e8
+              </span>
+            </Code>
+          </div>
+        </>
+      ),
+    },
+    {
+      description: (
+        <>
+          <a
+            href="https://marketplace.visualstudio.com/items?itemName=bradgashler.htmltagwrap"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            vscode-icons
+          </a>{" "}
+          — sweet, sweet file icons
+        </>
+      ),
+      shortcut: (
+        <>
+          Since this adds folder icons, you can turn off folder arrows with{" "}
+          <Ctrl />+<Shift />+<Key>P</Key>, then "Toggle Explorer Folder Arrows
+          Visibility"
+        </>
+      ),
+    },
+    {
+      description: (
+        <>
+          <a
+            href="https://marketplace.visualstudio.com/items?itemName=bradgashler.htmltagwrap"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            htmltagwrap
+          </a>
+        </>
+      ),
+      shortcut: (
+        <>
+          Select some HTML, then <Alt />+<Key>W</Key> to wrap
+        </>
+      ),
+    },
+    {
+      description: (
+        <>
+          <a
+            href="https://marketplace.visualstudio.com/items?itemName=planbcoding.vscode-react-refactor"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            VSCode React Refactor
+          </a>{" "}
+          — like right-click -> refactor but for JSX
+        </>
+      ),
+      shortcut: (
+        <>
+          Select some JSX, then click the{" "}
+          <span role="img" aria-label="lightbulb">
+            💡
+          </span>{" "}
+          icon -> refactor
+        </>
+      ),
+    },
+    {
+      description: (
+        <>
+          <a
+            href="https://marketplace.visualstudio.com/items?itemName=wmaurer.change-case"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            change-case
+          </a>{" "}
+          — command palette utility to switch between cases
+        </>
+      ),
+      shortcut: (
+        <>
+          <div style={{ color: "hsl(20,0%,70%)", background: "hsl(0,0%,20%)" }}>
+            <Code>camelCase</Code>
+          </div>
+          <div style={{ color: "hsl(20,0%,70%)", background: "hsl(0,0%,20%)" }}>
+            <Code>CONSTANT_CASE</Code>
+          </div>
+          <div style={{ color: "hsl(20,0%,70%)", background: "hsl(0,0%,20%)" }}>
+            <Code>snake_case</Code>
+          </div>
+          <div style={{ color: "hsl(20,0%,70%)", background: "hsl(0,0%,20%)" }}>
+            <Code>kebab-case</Code>
+          </div>
+          <div style={{ color: "hsl(20,0%,70%)", background: "hsl(0,0%,20%)" }}>
+            <Code>Sentence case</Code>
+          </div>
+          <div style={{ color: "hsl(20,0%,70%)", background: "hsl(0,0%,20%)" }}>
+            <Code>Title Case</Code>
+          </div>
+        </>
+      ),
+    },
+    {
+      description: (
+        <>
+          <a
+            href="https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-pack"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Live Share Extension Pack
+          </a>{" "}
+          — code with your pals! Includes audio call{" "}
+          <span role="img" aria-label="speaker">
+            🔊
+          </span>
+        </>
+      ),
+      shortcut: (
+        <>
+          <Ctrl />+<Shift />+<Key>P</Key>, then "Live Share: Start Collaboration
+          Session"
+        </>
+      ),
+    },
+    {
+      description: (
+        <>
+          <a
+            href="https://marketplace.visualstudio.com/items?itemName=BriteSnow.vscode-toggle-quotes"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Toggle Quotes
+          </a>{" "}
+          — cycle between " -> ' -> `
+        </>
+      ),
+      shortcut: (
+        <>
+          <Ctrl />+<Key>'</Key>
+        </>
+      ),
+    },
+    {
+      description: (
+        <>
+          <a
+            href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.sublime-keybindings"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Sublime Text Keymap and Settings Importer
+          </a>
+        </>
+      ),
+      shortcut: (
+        <>
+          Better keymappings than the defaults — fight me{" "}
+          <span role="img" aria-label="boxing glove">
+            🥊
+          </span>
+        </>
+      ),
+    },
+    {
+      description: (
+        <>
+          <a
+            href="https://marketplace.visualstudio.com/items?itemName=jpoissonnier.vscode-styled-components"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            vscode-styled-components
+          </a>
+        </>
+      ),
+      shortcut: (
+        <>
+          syntax highlighting and autocompletion for the styled-components
+          css-in-js library
+        </>
+      ),
     },
   ],
 }

@@ -15,7 +15,7 @@ const TopTipStyles = styled.div`
 
 const tips = [
   <>
-    <Ctrl />, <Alt />, and <Shift /> are <strong>modifier</strong> keys —{" "}
+    <Ctrl />, <Alt />, and <Shift /> are <em>modifier</em> keys —{" "}
     <strong>hold them down</strong> while pressing other keys to modify the
     effects.
   </>,
