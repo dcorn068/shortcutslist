@@ -35,6 +35,29 @@ const SUBLIME_TEXT_NOTICE = {
 export const vsCodeShortcuts = {
   basics: [
     {
+      description: "Command palette — perform any action",
+      shortcut: (
+        <>
+          <Ctrl />+<Shift />+<Key>P</Key>
+        </>
+      ),
+      moreInfo: (
+        <>
+          <div style={{ margin: "1em 0" }}>
+            The one shortcut to rule them all.{" "}
+            <span role="img" aria-label="ring">
+              💍
+            </span>
+          </div>
+          <p>
+            Type what you want to do, and the command palette will show you your
+            options, and any shortcut keys associated with them.
+          </p>
+        </>
+      ),
+    },
+
+    {
       description: "Comment out lines of code",
       shortcut: (
         <>
@@ -66,6 +89,8 @@ export const vsCodeShortcuts = {
         </>
       ),
     },
+  ],
+  quickAccess: [
     {
       description: "Go to any file",
       shortcut: (
@@ -84,24 +109,10 @@ export const vsCodeShortcuts = {
       ),
     },
     {
-      description: "Command palette — perform any action",
+      description: "Go to line number",
       shortcut: (
         <>
-          <Ctrl />+<Shift />+<Key>P</Key>
-        </>
-      ),
-      moreInfo: (
-        <>
-          <div style={{ margin: "1em 0" }}>
-            The one shortcut to rule them all.{" "}
-            <span role="img" aria-label="ring">
-              💍
-            </span>
-          </div>
-          <p>
-            Type what you want to do, and the command palette will show you your
-            options, and any shortcut keys associated with them.
-          </p>
+          <Ctrl />+<Key>G</Key>
         </>
       ),
     },
