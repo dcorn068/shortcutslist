@@ -116,6 +116,57 @@ export const vsCodeShortcuts = {
         </>
       ),
     },
+    {
+      description: "Toggle sidebar",
+      shortcut: (
+        <>
+          <Ctrl />+<Key>B</Key>
+        </>
+      ),
+    },
+
+    {
+      description: "Toggle integrated terminal",
+      shortcut: (
+        <>
+          <Ctrl />+<Shift />+<Key>`</Key>
+        </>
+      ),
+    },
+  ],
+  sidebar: [
+    {
+      description: "File explorer",
+      shortcut: (
+        <>
+          <Ctrl />+<Shift />+<Key>E</Key>
+        </>
+      ),
+    },
+    {
+      description: "Extensions",
+      shortcut: (
+        <>
+          <Ctrl />+<Shift />+<Key>X</Key>
+        </>
+      ),
+    },
+    {
+      description: "Search all files",
+      shortcut: (
+        <>
+          <Ctrl />+<Shift />+<Key>F</Key>
+        </>
+      ),
+    },
+    {
+      description: "Git (source control)",
+      shortcut: (
+        <>
+          <Ctrl />+<Shift />+<Key>G</Key>
+        </>
+      ),
+    },
   ],
   writingHtmlWithEmmet: [
     {
