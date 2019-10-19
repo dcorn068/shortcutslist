@@ -278,14 +278,6 @@ export const vsCodeShortcuts = {
       ),
     },
     {
-      description: "Duplicate line(s)",
-      shortcut: (
-        <>
-          <Ctrl />+<Shift />+<Key>D</Key>
-        </>
-      ),
-    },
-    {
       description: "Multi-copy-paste",
       shortcut: <>multi-select + copy, multi-select + paste</>,
       moreInfo: (
@@ -297,6 +289,69 @@ export const vsCodeShortcuts = {
           </p>
         </>
       ),
+    },
+    {
+      description: "Duplicate line(s)",
+      shortcut: (
+        <>
+          <Ctrl />+<Shift />+<Key>D</Key>
+        </>
+      ),
+    },
+    {
+      description: "Delete line(s)",
+      shortcut: (
+        <>
+          <Ctrl />+<Shift />+<Key>K</Key>
+        </>
+      ),
+    },
+  ],
+  lineManipulation: [
+    SUBLIME_TEXT_NOTICE,
+    {
+      description: "Bubble selected lines up or down",
+      shortcut: (
+        <>
+          <Ctrl />+<Shift />+<Up /> or <Down />
+        </>
+      ),
+    },
+    {
+      description: "New line below",
+      shortcut: (
+        <>
+          <Ctrl />+<Key>Enter</Key>
+        </>
+      ),
+    },
+    {
+      description: "New line above",
+      shortcut: (
+        <>
+          <Ctrl />+<Shift />+<Key>Enter</Key>
+        </>
+      ),
+    },
+    {
+      description: "Join lines (and trim whitespace)",
+      shortcut: (
+        <>
+          <Ctrl />+<Key>J</Key>
+        </>
+      ),
+    },
+    {
+      description: "Expand selection to line ends",
+      shortcut: (
+        <>
+          <Ctrl />+<Key>L</Key>
+        </>
+      ),
+    },
+    {
+      description: "Quick-select entire lines",
+      shortcut: <>Drag mouse along the line numbers</>,
     },
   ],
 }
