@@ -6,6 +6,7 @@ import { Alt, Ctrl, Shift, Key } from "./Keyboard/Keys"
 const TopTipStyles = styled.div`
   background: hsl(200, 50%, 75%);
   padding: 0.5em 2em;
+  line-height: 1.8em;
   .tipContent {
     max-width: ${MAX_WIDTH}px;
     margin: auto;
@@ -19,6 +20,9 @@ const tips = [
     effects.
   </>,
   <>
+    <span role="img" aria-label="lightbulb">
+      💡
+    </span>{" "}
     The best way to understand a shortcut is to try it out and see what happens!
   </>,
   <>
