@@ -13,6 +13,25 @@ import {
   Code,
 } from "../components/Keyboard/Keys"
 
+const SUBLIME_TEXT_NOTICE = {
+  description: `NOTE: this section's shortcuts use the extension "Sublime Text Keymap and Settings Importer" — find the equivalent shortcuts in the expansion panels.`,
+  moreInfo: (
+    <>
+      <p>
+        Check out the extension{" "}
+        <a
+          href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.sublime-keybindings"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Sublime Text Keymap and Settings Importer
+        </a>{" "}
+        for a(n arguably) better shortcuts experience.
+      </p>
+    </>
+  ),
+}
+
 export const vsCodeShortcuts = {
   basics: [
     {
@@ -150,26 +169,50 @@ export const vsCodeShortcuts = {
       ),
     },
   ],
-  selectionAndMultipleCursors: [
+  multipleCursors: [
+    SUBLIME_TEXT_NOTICE,
+    /* TODO: find shortcuts without sublime keymapper */
     {
-      description: `NOTE: this section's shortcuts use the extension "Sublime Text Keymap and Settings Importer" — find the equivalent shortcuts in the expansion panels.`,
-      moreInfo: (
+      description: "Add cursor above or below",
+      shortcut: (
         <>
-          <p>
-            Check out the extension{" "}
-            <a
-              href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.sublime-keybindings"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Sublime Text Keymap and Settings Importer
-            </a>{" "}
-            for a(n arguably) better shortcuts experience.
-          </p>
+          <Shift />+<Alt />+<Up /> or <Down />
         </>
       ),
     },
-    /* TODO: find shortcuts without sublime keymapper */
+    {
+      description: "Add cursor by clicking",
+      shortcut: (
+        <>
+          <Ctrl />+ click or <Alt />+ click
+        </>
+      ),
+      moreInfo: (
+        <p>
+          Search your settings for 'Editor: Multi Cursor Modifier' to change
+          between <strong>Ctrl</strong> and <strong>Alt</strong>.
+        </p>
+      ),
+    },
+    {
+      description: "Split a selection on line ends",
+      shortcut: (
+        <>
+          <Ctrl />+<Shift />+<Key>L</Key>
+        </>
+      ),
+    },
+    {
+      description: "Rectangular selection",
+      shortcut: (
+        <>
+          <strong>Middle-mouse-drag</strong>
+        </>
+      ),
+    },
+  ],
+  multipleSelections: [
+    SUBLIME_TEXT_NOTICE,
     {
       description: "Add cursor at next instance of current selection",
       shortcut: (
@@ -215,41 +258,43 @@ export const vsCodeShortcuts = {
         </>
       ),
     },
+  ],
+  copyPaste: [
+    SUBLIME_TEXT_NOTICE,
     {
-      description: "Add cursor above or below",
+      description: "Copy entire line",
       shortcut: (
         <>
-          <Shift />+<Alt />+<Up /> or <Down />
+          with no selection, <Ctrl />+<Key>C</Key>
         </>
       ),
     },
     {
-      description: "Add cursor by clicking",
+      description: "Cut (copy+delete) entire line",
       shortcut: (
         <>
-          <Ctrl />+ click or <Alt />+ click
+          with no selection, <Ctrl />+<Key>X</Key>
         </>
       ),
+    },
+    {
+      description: "Duplicate line(s)",
+      shortcut: (
+        <>
+          <Ctrl />+<Shift />+<Key>D</Key>
+        </>
+      ),
+    },
+    {
+      description: "Multi-copy-paste",
+      shortcut: <>multi-select + copy, multi-select + paste</>,
       moreInfo: (
-        <p>
-          Search your settings for 'Editor: Multi Cursor Modifier' to change
-          between <strong>Ctrl</strong> and <strong>Alt</strong>
-        </p>
-      ),
-    },
-    {
-      description: "Split selection on line ends",
-      shortcut: (
         <>
-          <Ctrl />+<Shift />+<Key>L</Key>
-        </>
-      ),
-    },
-    {
-      description: "Rectangular selection",
-      shortcut: (
-        <>
-          <strong>Middle-mouse-drag</strong>
+          <p>
+            Note: this will only work as expected if the number of selections
+            when copying equals the number of cursors or selections when
+            pasting.
+          </p>
         </>
       ),
     },
