@@ -177,7 +177,31 @@ export const vsCodeShortcuts = {
       description: "Toggle integrated terminal",
       shortcut: (
         <>
+          <Ctrl />+<Key>`</Key>
+        </>
+      ),
+    },
+    {
+      description: "Create new terminal",
+      shortcut: (
+        <>
           <Ctrl />+<Shift />+<Key>`</Key>
+        </>
+      ),
+    },
+    {
+      description: "Toggle Problems panel",
+      shortcut: (
+        <>
+          <Ctrl />+<Shift />+<Key>`</Key>
+        </>
+      ),
+    },
+    {
+      description: "Go to nearest/matching bracket",
+      shortcut: (
+        <>
+          <Ctrl />+<Key>M</Key>
         </>
       ),
     },
