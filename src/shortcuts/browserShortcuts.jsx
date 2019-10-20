@@ -243,4 +243,80 @@ export const browserShortcuts = {
       ),
     },
   ],
+  videos: [
+    {
+      description: "Youtube shortcuts",
+      shortcut: (
+        <>
+          <Shift />+<Key>?</Key>
+        </>
+      ),
+      moreInfo: (
+        <div style={{ maxWidth: 500 }}>
+          <div style={{ marginBottom: "1.5em" }}>
+            Reveal Youtube's built-in shortcuts with <Shift />+<Key>F</Key>:
+          </div>
+          <ul>
+            <li style={{ display: "grid", gridTemplateColumns: "1fr 183px" }}>
+              <div>Speed up / slow down: </div>
+              <div>
+                <Shift />+<Key>{">"}</Key>/<Key>{"<"}</Key>
+              </div>
+            </li>
+            <li style={{ display: "grid", gridTemplateColumns: "1fr 183px" }}>
+              <div>Captions: </div>
+              <div>
+                <Key>C</Key>
+              </div>
+            </li>
+            <li style={{ display: "grid", gridTemplateColumns: "1fr 183px" }}>
+              <div>Play/pause without requiring focus:</div>
+              <div>
+                <Key>K</Key>
+              </div>
+            </li>
+            <li style={{ display: "grid", gridTemplateColumns: "1fr 183px" }}>
+              <div>Mute:</div>
+              <div>
+                <Key>M</Key>
+              </div>
+            </li>
+          </ul>
+        </div>
+      ),
+    },
+    {
+      description: (
+        <a
+          href="https://chrome.google.com/webstore/detail/video-speed-controller/nffaoalbilbmmfgbnbgppjihopabppdk?hl=en"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Video Speed Controller extension for Chrome
+        </a>
+      ),
+      shortcut: (
+        <>
+          <Key>D</Key> / <Key>S</Key>
+        </>
+      ),
+      moreInfo: (
+        <>
+          <p>
+            Fine-tune video playback speed on any web player by increments of
+            0.1X.
+          </p>
+          <p>
+            Try this: play a video at a much higher rate than you’re comfortable
+            with, then dial back the speed bit by bit until you hit your
+            preferred speed.
+          </p>
+          <p>
+            If you’re not sure a video will be interesting, you can skim over it
+            to see by speeding it up, up to 16X.
+          </p>
+        </>
+      ),
+    },
+  ],
 }
