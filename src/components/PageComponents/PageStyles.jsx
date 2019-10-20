@@ -18,6 +18,9 @@ export default styled.div`
     text-align: center;
     font-family: "Montserrat", serif;
     font-size: 3em;
+    &.subtitle {
+      font-size: 1em;
+    }
   }
   .sectionTitleButton {
     cursor: pointer;

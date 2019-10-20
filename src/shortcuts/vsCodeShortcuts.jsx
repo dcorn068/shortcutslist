@@ -13,6 +13,35 @@ import {
   Code,
 } from "../components/Keyboard/Keys"
 
+export const ReferenceSheets = () => (
+  <>
+    <a
+      style={{ marginLeft: "0.5em" }}
+      href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Windows
+    </a>
+    <a
+      style={{ marginLeft: "0.5em" }}
+      href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Mac
+    </a>
+    <a
+      style={{ marginLeft: "0.5em" }}
+      href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Linux
+    </a>
+  </>
+)
+
 const SUBLIME_TEXT_NOTICE = {
   description: (
     <div style={{}}>
@@ -24,7 +53,7 @@ const SUBLIME_TEXT_NOTICE = {
       >
         Sublime Text Keymap and Settings Importer
       </a>{" "}
-      — find the equivalent shortcuts in the expansion panels.
+      — equivalent shortcuts: <ReferenceSheets />
     </div>
   ),
 }
@@ -32,7 +61,7 @@ const SUBLIME_TEXT_NOTICE = {
 export const vsCodeShortcuts = {
   basics: [
     {
-      description: "Command palette — perform any action",
+      description: "Show Command Palette — perform any action",
       shortcut: (
         <>
           <Ctrl />+<Shift />+<Key>P</Key>
@@ -53,7 +82,6 @@ export const vsCodeShortcuts = {
         </>
       ),
     },
-
     {
       description: "Comment out lines of code",
       shortcut: (
@@ -83,6 +111,30 @@ export const vsCodeShortcuts = {
       shortcut: (
         <>
           <Ctrl />+<Shift />+<Key>/</Key>
+        </>
+      ),
+    },
+    {
+      description: "Toggle text wrap",
+      shortcut: (
+        <>
+          <Alt />+<Key>Z</Key>
+        </>
+      ),
+    },
+    {
+      description: "Trigger suggestion/autocomplete",
+      shortcut: (
+        <>
+          <Ctrl />+<Key>Space</Key>
+        </>
+      ),
+    },
+    {
+      description: "Keyboard Shortcuts",
+      shortcut: (
+        <>
+          <Ctrl />+<Key>K</Key> <Ctrl />+<Key>S</Key>
         </>
       ),
     },
@@ -269,10 +321,10 @@ export const vsCodeShortcuts = {
       ),
     },
     {
-      description: "Rectangular selection",
+      description: "Column (box) selection",
       shortcut: (
         <>
-          <strong>Middle-mouse-drag</strong>
+          <Shift />+<Alt />+ drag mouse or <strong>Middle-mouse-drag</strong>
         </>
       ),
     },
@@ -290,7 +342,7 @@ export const vsCodeShortcuts = {
         <>
           <p>
             Select any repeating pattern or word, then use this shortcut
-            repeatedly to select multiple instances.
+            repeatedly to select multiple occurrences.
           </p>
         </>
       ),
@@ -317,7 +369,7 @@ export const vsCodeShortcuts = {
       ),
     },
     {
-      description: "Select all instances of selection",
+      description: "Select all occurrences of current selection",
       shortcut: (
         <>
           <Alt />+<Key>F3</Key>
@@ -325,10 +377,76 @@ export const vsCodeShortcuts = {
       ),
     },
   ],
+  searchAndReplace: [
+    {
+      description: "Find next/previous",
+      shortcut: (
+        <>
+          <Key>F3</Key> / <Shift />+<Key>F3</Key>
+        </>
+      ),
+    },
+    {
+      description: "Find",
+      shortcut: (
+        <>
+          <Ctrl />+<Key>F</Key>
+        </>
+      ),
+    },
+    {
+      description: "Replace",
+      shortcut: (
+        <>
+          <Ctrl />+<Key>H</Key>
+        </>
+      ),
+    },
+    {
+      description: "Global find",
+      shortcut: (
+        <>
+          <Ctrl />+<Shift />+<Key>F</Key>
+        </>
+      ),
+    },
+    {
+      description: "Global replace",
+      shortcut: (
+        <>
+          <Ctrl />+<Shift />+<Key>H</Key>
+        </>
+      ),
+      moreInfo: (
+        <>
+          <p>To replace a match globally, follow the steps:</p>
+          <ol style={{ lineHeight: "1.5em", marginTop: "-0.5em" }}>
+            <li>Select a word</li>
+            <li>
+              <Ctrl />+<Shift />+<Key>F</Key>
+            </li>
+            <li>
+              <Key>Enter</Key>
+            </li>
+            <li>
+              <Ctrl />+<Shift />+<Key>H</Key>
+            </li>
+            <li>
+              <Tab />
+            </li>
+            <li>Type the replacement word</li>
+            <li>
+              <Ctrl />+<Alt />+<Key>Enter</Key>
+            </li>
+          </ol>
+        </>
+      ),
+    },
+  ],
   copyPaste: [
     SUBLIME_TEXT_NOTICE,
     {
-      description: "Copy entire line",
+      description: "Copy line (with empty selection)",
       shortcut: (
         <>
           with no selection, <Ctrl />+<Key>C</Key>
@@ -336,7 +454,7 @@ export const vsCodeShortcuts = {
       ),
     },
     {
-      description: "Cut (copy+delete) entire line",
+      description: "Cut (copy+delete) line (with empty selection)",
       shortcut: (
         <>
           with no selection, <Ctrl />+<Key>X</Key>
@@ -384,18 +502,10 @@ export const vsCodeShortcuts = {
       ),
     },
     {
-      description: "New line below",
+      description: "Insert line below/above",
       shortcut: (
         <>
-          <Ctrl />+<Key>Enter</Key>
-        </>
-      ),
-    },
-    {
-      description: "New line above",
-      shortcut: (
-        <>
-          <Ctrl />+<Shift />+<Key>Enter</Key>
+          <Ctrl />+<Key>Enter</Key> / <Ctrl />+<Shift />+<Key>Enter</Key>
         </>
       ),
     },
@@ -408,7 +518,7 @@ export const vsCodeShortcuts = {
       ),
     },
     {
-      description: "Expand selection to line ends",
+      description: "Select current line(s)",
       shortcut: (
         <>
           <Ctrl />+<Key>L</Key>
@@ -751,6 +861,20 @@ export const vsCodeShortcuts = {
       shortcut: (
         <>
           <Ctrl />+<Key>'</Key>
+        </>
+      ),
+    },
+    {
+      description: (
+        <>
+          <a
+            href="https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Auto Rename Tag
+          </a>{" "}
+          — auto-rename the matching HTML tag
         </>
       ),
     },
