@@ -166,29 +166,12 @@ export const windowsShortcuts = {
           <Windows />+<Key>E</Key>
         </>
       ),
-      moreInfo: <p>HEY I'm a more info over here</p>,
     },
     {
-      description: "Action panel",
+      description: "Open file explorer",
       shortcut: (
         <>
-          <Windows />+<Key>A</Key>
-        </>
-      ),
-    },
-    {
-      description: "Connections (bluetooth)",
-      shortcut: (
-        <>
-          <Windows />+<Key>K</Key>
-        </>
-      ),
-    },
-    {
-      description: "Sticky notes",
-      shortcut: (
-        <>
-          <Windows />+<Key>W</Key>
+          <Windows />+<Key>E</Key>
         </>
       ),
     },
@@ -211,10 +194,104 @@ export const windowsShortcuts = {
       ),
     },
     {
+      description: "Action panel",
+      shortcut: (
+        <>
+          <Windows />+<Key>A</Key>
+        </>
+      ),
+    },
+    {
       description: "Toggle desktop view",
       shortcut: (
         <>
           <Windows />+<Key>D</Key>
+        </>
+      ),
+    },
+    {
+      description: "Connections (bluetooth)",
+      shortcut: (
+        <>
+          <Windows />+<Key>K</Key>
+        </>
+      ),
+    },
+    {
+      description: "Sticky notes, screen sketch",
+      shortcut: (
+        <>
+          <Windows />+<Key>W</Key>
+        </>
+      ),
+    },
+    {
+      description: "OneNote quick note",
+      shortcut: (
+        <>
+          <Windows />+<Key>N</Key>
+        </>
+      ),
+    },
+    {
+      description: "Magnifier",
+      shortcut: (
+        <>
+          <Windows />+<Key>+</Key>
+        </>
+      ),
+      moreInfo: (
+        <div
+          style={{ marginBottom: "1em", display: "grid", lineHeight: "2em" }}
+        >
+          <div>
+            Increase magnification: <Windows />+<Key>+</Key>
+          </div>
+          <div>
+            Decrease magnification: <Windows />+<Key>-</Key>
+          </div>
+          <div>
+            Exit magnifier: <Windows />+<Key>Esc</Key>
+          </div>
+        </div>
+      ),
+    },
+
+    {
+      description: "Admin menu",
+      shortcut: (
+        <>
+          <Windows />+<Key>X</Key>
+        </>
+      ),
+      moreInfo: (
+        <div style={{ marginBottom: "1em" }}>
+          Once open, type the underlined letters to follow the menu items.
+        </div>
+      ),
+    },
+    {
+      description: "Search with voice control",
+      shortcut: (
+        <>
+          <Windows />+<Key>Q</Key>
+        </>
+      ),
+    },
+    {
+      description:
+        "Ease of Access Center (magnifier, screen keyboard, high contrast etc.)",
+      shortcut: (
+        <>
+          <Windows />+<Key>U</Key>
+        </>
+      ),
+    },
+    {
+      description: "Lock the computer",
+      shortcut: (
+        <>
+          <Windows />+<Key>L</Key>
         </>
       ),
     },
@@ -242,6 +319,144 @@ export const windowsShortcuts = {
           </a>{" "}
           — many scripts are already available!
         </div>
+      ),
+    },
+  ],
+  fileExplorer: [
+    {
+      description: "Search programs, files, web",
+      shortcut: (
+        <>
+          <Windows />, then <strong>type what you want</strong>
+        </>
+      ),
+    },
+    {
+      description: "Open file explorer",
+      shortcut: (
+        <>
+          <Windows />+<Key>E</Key>
+        </>
+      ),
+    },
+    {
+      description: "Create a new folder",
+      shortcut: (
+        <>
+          <Ctrl />+<Shift />+<Key>N</Key>
+        </>
+      ),
+    },
+    {
+      description: "Rename selected file/folder",
+      shortcut: (
+        <>
+          <Key>F2</Key>
+        </>
+      ),
+    },
+    {
+      description: "Close file explorer",
+      shortcut: (
+        <>
+          <Ctrl />+<Key>W</Key> or <Alt />+<Key>F4</Key>
+        </>
+      ),
+    },
+    {
+      description: "Create a new file",
+      shortcut: (
+        <>
+          <strong>right-click</strong>, <Key>W</Key>, <Key>T</Key>
+        </>
+      ),
+      moreInfo: (
+        <div style={{ marginBottom: "1em" }}>
+          This creates a text file by default; just hit <Ctrl />+<Key>A</Key>{" "}
+          and change the file extension.
+        </div>
+      ),
+    },
+    {
+      description: "Jump to a file in the current directory",
+      shortcut: (
+        <>
+          <strong>click</strong> anywhere in the folder, then{" "}
+          <strong>start typing</strong> the file name
+        </>
+      ),
+    },
+    {
+      description: "Find a file or folder",
+      shortcut: (
+        <>
+          <Ctrl />+<Key>F</Key>
+        </>
+      ),
+    },
+    {
+      description: "Access any command in the top menus",
+      shortcut: (
+        <>
+          <Alt />, then <strong>type the letters</strong> that appear on top of
+          the menu items
+        </>
+      ),
+    },
+    {
+      description:
+        "Focus the address bar (e.g. to copy the address or navigate to a copied address)",
+      shortcut: (
+        <>
+          <Key>F4</Key> or <Ctrl />+<Key>L</Key>
+        </>
+      ),
+    },
+  ],
+  virtualDesktops: [
+    {
+      description: "Note: Windows 10 only",
+    },
+    {
+      description: "Add a virtual desktop",
+      shortcut: (
+        <>
+          <Ctrl />+<Windows />+<Key>D</Key>
+        </>
+      ),
+    },
+    {
+      description: "Switch between virtual desktops",
+      shortcut: (
+        <>
+          <Ctrl />+<Windows />+<Left /> or <Right />
+        </>
+      ),
+    },
+    {
+      description: "Close virtual desktop",
+      shortcut: (
+        <>
+          <Ctrl />+<Key>F4</Key>
+        </>
+      ),
+    },
+    {
+      description: "Task View: perform any of above using mouse",
+      shortcut: (
+        <>
+          <Windows />+<Tab />
+        </>
+      ),
+    },
+    {
+      description: "Show a window or program on all desktops",
+      shortcut: (
+        <>
+          In Task View, <strong>right-click</strong> a window >{" "}
+          <strong>"show this window on all desktops"</strong> or{" "}
+          <strong>"show windows from this app on all desktops"</strong>
+        </>
       ),
     },
   ],

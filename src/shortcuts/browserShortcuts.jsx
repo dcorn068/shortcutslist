@@ -1,6 +1,5 @@
 import React from "react"
 import {
-  Windows,
   Alt,
   Tab,
   Key,
@@ -8,8 +7,6 @@ import {
   Shift,
   Left,
   Right,
-  Down,
-  Up,
 } from "../components/Keyboard/Keys"
 
 export const browserShortcuts = {

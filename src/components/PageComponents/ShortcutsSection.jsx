@@ -12,8 +12,8 @@ const ShortcutRowStyles = styled.div`
     grid-template-columns: 64px 1fr 1fr;
     &.noShortcut {
       grid-template-columns: 64px 1fr;
-      &:not(.withMoreInfo){
-      grid-template-columns: 0 1fr;
+      &:not(.withMoreInfo) {
+        grid-template-columns: 0 1fr;
       }
     }
     grid-gap: 1em;
@@ -21,6 +21,9 @@ const ShortcutRowStyles = styled.div`
     min-height: 64px;
     &.withMoreInfo {
       cursor: pointer;
+    }
+    .shortcut {
+      line-height: 2em;
     }
   }
   .moreInfoSection {
