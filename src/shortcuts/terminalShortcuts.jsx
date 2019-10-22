@@ -1,26 +1,15 @@
 import React from "react"
-import {
-  Windows,
-  Alt,
-  Tab,
-  Key,
-  Ctrl,
-  Shift,
-  Left,
-  Right,
-  Down,
-  Up,
-} from "../components/Keyboard/Keys"
+import { Alt, Key, Ctrl } from "../components/Keyboard/Keys"
 
 export const terminalShortcuts = {
-  comingSoon: [
+  bash: [
     {
-      // description: "New terminal",
-      // shortcut: (
-      //   <>
-      //     <Ctrl />+<Alt />+<Key>T</Key>
-      //   </>
-      // ),
+      description: "New terminal",
+      shortcut: (
+        <>
+          <Ctrl />+<Alt />+<Key>T</Key>
+        </>
+      ),
     },
   ],
 }

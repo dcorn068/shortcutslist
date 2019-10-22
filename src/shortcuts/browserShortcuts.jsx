@@ -217,7 +217,7 @@ export const browserShortcuts = {
           <div style={{ marginBottom: "1em" }}>
             Now in your address bar you can type the keyword, hit{" "}
             <Key>Space</Key> and you're off to the races!{" "}
-            <span role="img" alt="horse race">
+            <span role="img" aria-label="horse">
               🐎
             </span>
           </div>
