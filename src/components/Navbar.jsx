@@ -73,7 +73,7 @@ const NavbarStyles = styled.nav`
 export default () => {
   const data = useStaticQuery(graphql`
     query {
-      placeholderImage: file(relativePath: { eq: "shortcutslist-icon.png" }) {
+      placeholderImage: file(relativePath: { eq: "shortcutsschool-icon.png" }) {
         childImageSharp {
           fixed(width: 64, height: 64) {
             ...GatsbyImageSharpFixed
