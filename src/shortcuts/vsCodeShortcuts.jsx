@@ -21,7 +21,7 @@ export const ReferenceSheets = () => (
       Windows
     </a>
     <a
-      style={{ marginLeft: "0.5em" }}
+      style={{ marginLeft: "1em" }}
       href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf"
       target="_blank"
       rel="noopener noreferrer"
@@ -29,7 +29,7 @@ export const ReferenceSheets = () => (
       Mac
     </a>
     <a
-      style={{ marginLeft: "0.5em" }}
+      style={{ marginLeft: "1em" }}
       href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf"
       target="_blank"
       rel="noopener noreferrer"
@@ -289,7 +289,7 @@ export const vsCodeShortcuts = {
     },
     {
       description: (
-        <pre style={{ margin: "0.5em 0", padding: "0.5em 1em" }}>
+        <pre>
           {`<section class="list-container">
   <li>
     <ul>item 1</ul>

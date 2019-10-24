@@ -1,19 +1,29 @@
 import React, { useState } from "react"
 import Collapse from "@material-ui/core/Collapse"
-import { IconButton, Tooltip, Divider } from "@material-ui/core"
+import { IconButton, Tooltip, Divider, useMediaQuery } from "@material-ui/core"
 import RightArrowIcon from "@material-ui/icons/ArrowForwardIos"
 import { startCase } from "lodash"
 import styled from "styled-components/macro"
+import { BREAKPOINTS } from "../../constants"
 
 const ShortcutRowStyles = styled.div`
   .shortcutRow {
     padding: 0.5em 1em;
     display: grid;
-    grid-template-columns: 64px 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    @media (min-width: ${BREAKPOINTS.MOBILE}px) {
+      grid-template-columns: 64px 1fr 1fr;
+    }
     &.noShortcut {
-      grid-template-columns: 64px 1fr;
+      grid-template-columns: 1fr;
+      @media (min-width: ${BREAKPOINTS.MOBILE}px) {
+        grid-template-columns: 64px 1fr;
+      }
       &:not(.withMoreInfo) {
-        grid-template-columns: 0 1fr;
+        grid-template-columns: 1fr;
+        @media (min-width: ${BREAKPOINTS.MOBILE}px) {
+          grid-template-columns: 0 1fr;
+        }
       }
     }
     grid-gap: 1em;
@@ -24,24 +34,59 @@ const ShortcutRowStyles = styled.div`
     }
     .shortcut {
       line-height: 2em;
+      overflow: hidden;
     }
   }
   .moreInfoSection {
     padding: 1.5em 1.5em 0.5em;
   }
   .iconButton {
-    height: 64px;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    @media (min-width: ${BREAKPOINTS.MOBILE}px) {
+      height: 64px;
+    }
   }
   &.evenRow {
     .shortcutRow,
-    .moreInfoSection {
+    .moreInfoSection,
+    .expandButtonRow {
       background: hsl(0, 0%, 85%);
     }
     hr {
       background: hsl(0, 0%, 75%);
     }
   }
+  .expandButtonRow {
+    display: grid;
+    justify-items: center;
+    margin-top: -0.75em;
+    cursor: pointer;
+  }
+  pre {
+    margin: 0 0 0 -1em;
+    padding: 0;
+  }
+  @media (min-width: ${BREAKPOINTS.MOBILE}px) {
+    pre {
+      margin: 0.5em 0;
+      padding: 0.5em 1em;
+    }
+  }
 `
+const ExpandButton = ({ isOpen, isTabletOrLarger }) => (
+  <Tooltip
+    title={`${!isOpen ? "More" : "Less"} info`}
+    placement={isTabletOrLarger ? "bottom" : "right"}
+  >
+    <IconButton
+      className="iconButton"
+      style={{ transform: `rotate(${isOpen ? 270 : 90}deg)` }}
+      // onClick={() => setIsOpen(!isOpen)}
+    >
+      <RightArrowIcon />
+    </IconButton>
+  </Tooltip>
+)
 
 const ListItemCollapsible = ({
   shortcut,
@@ -50,6 +95,8 @@ const ListItemCollapsible = ({
   isEvenRow,
 }) => {
   const [isOpen, setIsOpen] = useState(false)
+  const isTabletOrLarger = useMediaQuery(`(min-width: ${BREAKPOINTS.MOBILE}px)`)
+
   return (
     <ShortcutRowStyles className={`${isEvenRow ? "evenRow" : ""}`}>
       <div
@@ -58,22 +105,19 @@ const ListItemCollapsible = ({
         }`}
         onClick={() => setIsOpen(!isOpen)}
       >
-        {moreInfo ? (
-          <Tooltip title={`${!isOpen ? "More" : "Less"} info`}>
-            <IconButton
-              className="iconButton"
-              style={{ transform: `rotate(${isOpen ? 270 : 90}deg)` }}
-              // onClick={() => setIsOpen(!isOpen)}
-            >
-              <RightArrowIcon />
-            </IconButton>
-          </Tooltip>
+        {!isTabletOrLarger ? null : moreInfo ? (
+          <ExpandButton isTabletOrLarger={isTabletOrLarger} isOpen={isOpen} />
         ) : (
           <div />
         )}
         <div className="description">{description}</div>
         {shortcut && <div className="shortcut">{shortcut}</div>}
       </div>
+      {!isTabletOrLarger && moreInfo ? (
+        <div className={`expandButtonRow`} onClick={() => setIsOpen(!isOpen)}>
+          <ExpandButton isTabletOrLarger={isTabletOrLarger} isOpen={isOpen} />
+        </div>
+      ) : null}
       {moreInfo && (
         <Collapse in={isOpen}>
           <Divider />
