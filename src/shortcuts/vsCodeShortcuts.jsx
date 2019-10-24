@@ -39,6 +39,35 @@ export const ReferenceSheets = () => (
   </>
 )
 
+export const JsResources = () => (
+  <div style={{ lineHeight: "1.5em" }}>
+    <a
+      style={{ marginLeft: "0.5em" }}
+      href="https://www.youtube.com/watch?v=BMUiFMZr7vk&list=PL0zVEGEvSaeEd9hlmCXrk5yUyqUag-n84"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Functional Programming in JavaScript
+    </a>
+    <a
+      style={{ marginLeft: "1em" }}
+      href="https://www.youtube.com/watch?v=VuN8qwZoego&list=PLu8EoSxDXHP6CGK4YVJhL_VWetA865GOH"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      JavaScript30
+    </a>
+    <a
+      style={{ marginLeft: "1em" }}
+      href="https://www.youtube.com/watch?v=W6NZfCO5SIk"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      JavaScript in 1 Hour
+    </a>
+  </div>
+)
+
 const SUBLIME_TEXT_NOTICE = {
   description: (
     <div style={{}}>

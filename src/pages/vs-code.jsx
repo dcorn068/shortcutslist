@@ -2,7 +2,11 @@ import React from "react"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { vsCodeShortcuts, ReferenceSheets } from "../shortcuts/vsCodeShortcuts"
+import {
+  vsCodeShortcuts,
+  ReferenceSheets,
+  JsResources,
+} from "../shortcuts/vsCodeShortcuts"
 import TopTip from "../components/TopTip"
 import { ShortcutsSection } from "../components/PageComponents/ShortcutsSection"
 import PageStyles from "../components/PageComponents/PageStyles"
@@ -16,6 +20,9 @@ export default () => (
         <h1 className="title">VS Code</h1>
         <h3 className="title subtitle">
           Reference sheets: <ReferenceSheets />
+        </h3>
+        <h3 className="title subtitle">
+          New to JavaScript? <JsResources />
         </h3>
         {Object.entries(vsCodeShortcuts).map(([sectionTitle, shortcuts]) => (
           <ShortcutsSection
