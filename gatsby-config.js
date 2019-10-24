@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Shortcuts List`,
+    title: `Shortcuts School`,
     description: `Shortcuts for desktop and mobile. Do more with less. Enjoy life — don't push harder; lower the resistance.`,
     author: `@danielacorner`,
   },
@@ -19,13 +19,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `shortcuts-list`,
-        short_name: `shortcutslist`,
+        name: `shortcuts-school`,
+        short_name: `shortcutsschool`,
         start_url: `/`,
         background_color: `hsl(255,50%,45%)`,
         theme_color: `hsl(255,50%,45%)`,
         display: `minimal-ui`,
-        icon: `src/images/shortcutslist-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/shortcutsschool-icon.png`, // This path is relative to the root of the site.
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

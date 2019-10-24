@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "shortcut.school",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "description": "Shortcut School: master your keyboard",
+  "version": "1.0.0",
+  "author": "Daniel Corner <danielcorner7@gmail.com>",
   "dependencies": {
     "@material-ui/core": "^4.4.2",
     "@material-ui/icons": "^4.4.1",
@@ -32,7 +32,10 @@
     "prettier": "^1.18.2"
   },
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "shortcut",
+    "shortcuts",
+    "keyboard"
   ],
   "license": "MIT",
   "scripts": {
@@ -45,9 +48,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/dcorn068/shortcutslist"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/dcorn068/shortcutslist/issues"
   }
 }
