@@ -50,13 +50,29 @@ const HeroStyles = styled.section`
     justify-content: center;
     padding: 0 1em;
     h1 {
-      font-size: 48px;
       font-family: "Permanent Marker", Sans-serif;
+      font-size: 19vw;
     }
     h3 {
       font-size: 20px;
       font-family: "Roboto", sans-serif;
       font-weight: normal;
+    }
+    @media (min-width: ${BREAKPOINTS.MOBILE}px) {
+      h1 {
+        font-size: 96px;
+      }
+      h3 {
+        font-size: 24px;
+      }
+    }
+    @media (min-width: ${BREAKPOINTS.DESKTOP + 100}px) {
+      h1 {
+        font-size: 128px;
+      }
+      h3 {
+        font-size: 32px;
+      }
     }
     position: absolute;
     top: 0;
