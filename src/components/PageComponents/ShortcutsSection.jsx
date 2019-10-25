@@ -11,21 +11,29 @@ const ShortcutRowStyles = styled.div`
     padding: 0.5em 1em;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    @media (min-width: ${BREAKPOINTS.MOBILE}px) {
+    @media (min-width: ${BREAKPOINTS.TABLET}px) {
       grid-template-columns: 64px 1fr 1fr;
     }
-    &.noShortcut {
+    &.withoutShortcut {
       grid-template-columns: 1fr;
-      @media (min-width: ${BREAKPOINTS.MOBILE}px) {
+      @media (min-width: ${BREAKPOINTS.TABLET}px) {
         grid-template-columns: 64px 1fr;
       }
-      &:not(.withMoreInfo) {
+      &.withoutMoreInfo {
         grid-template-columns: 1fr;
-        @media (min-width: ${BREAKPOINTS.MOBILE}px) {
+        @media (min-width: ${BREAKPOINTS.TABLET}px) {
           grid-template-columns: 0 1fr;
         }
       }
     }
+    /* &.withShortcut {
+      &.withoutMoreInfo {
+        grid-template-columns: 1fr 1fr;
+        @media (min-width: ${BREAKPOINTS.TABLET}px) {
+          grid-template-columns: 64px 1fr 1fr;
+        }
+      }
+    } */
     grid-gap: 1em;
     align-items: center;
     min-height: 64px;
@@ -66,6 +74,9 @@ const ShortcutRowStyles = styled.div`
     margin: 0 0 0 -1em;
     padding: 0;
   }
+  .description{
+    max-width:45vw;
+  }
   @media (min-width: ${BREAKPOINTS.MOBILE}px) {
     pre {
       margin: 0.5em 0;
@@ -95,14 +106,14 @@ const ListItemCollapsible = ({
   isEvenRow,
 }) => {
   const [isOpen, setIsOpen] = useState(false)
-  const isTabletOrLarger = useMediaQuery(`(min-width: ${BREAKPOINTS.MOBILE}px)`)
+  const isTabletOrLarger = useMediaQuery(`(min-width: ${BREAKPOINTS.TABLET}px)`)
 
   return (
     <ShortcutRowStyles className={`${isEvenRow ? "evenRow" : ""}`}>
       <div
-        className={`shortcutRow${moreInfo ? " withMoreInfo" : ""}${
-          !shortcut ? " noShortcut" : ""
-        }`}
+        className={`shortcutRow${
+          moreInfo ? " withMoreInfo" : " withoutMoreInfo"
+        }${shortcut ? " withShortcut" : " withoutShortcut"}`}
         onClick={() => setIsOpen(!isOpen)}
       >
         {!isTabletOrLarger ? null : moreInfo ? (
