@@ -582,6 +582,14 @@ export const vsCodeShortcuts = {
   ],
   extensions: [
     {
+      description: "Extensions sidebar",
+      shortcut: (
+        <>
+          <Ctrl />+<Shift />+<Key>X</Key>
+        </>
+      ),
+    },
+    {
       description: (
         <>
           <a
@@ -619,6 +627,34 @@ export const vsCodeShortcuts = {
         <>
           Select something, then
           <Ctrl />+<Alt />+<Key>L</Key> — customize the log prefix in Settings
+        </>
+      ),
+    },
+    {
+      description: (
+        <>
+          <a
+            href="https://marketplace.visualstudio.com/items?itemName=ChakrounAnas.turbo-console-log"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            ESLint - JavaScript linter
+          </a>{" "}
+          (checks for programmatic and stylistic errors)
+        </>
+      ),
+    },
+    {
+      description: (
+        <>
+          <a
+            href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            TSLint - TypeScript linter
+          </a>{" "}
+          (like ESLint if you're using TypeScript)
         </>
       ),
     },
