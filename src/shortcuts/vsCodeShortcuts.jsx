@@ -65,6 +65,14 @@ export const JsResources = () => (
     >
       JavaScript in 1 Hour
     </a>
+    <a
+      style={{ marginLeft: "1em" }}
+      href="https://www.youtube.com/watch?v=8gNrZ4lAnAw"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      2019 Frontend Dev Crash Course
+    </a>
   </div>
 )
 
