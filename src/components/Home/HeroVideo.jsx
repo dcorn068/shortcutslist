@@ -6,6 +6,7 @@ import useMediaQuery from "@material-ui/core/useMediaQuery"
 import { BREAKPOINTS } from "../../constants"
 import Img from "gatsby-image"
 import { useStaticQuery, graphql } from "gatsby"
+import PageLinksHorizontal from "./PageLinksHorizontal"
 
 const HERO_HEIGHT = 480
 
@@ -171,6 +172,7 @@ export default () => {
             </h1>
             <h3>You can do this — Grab some shortcuts and get moving!</h3>
           </div>
+          {isTabletOrLarger && <PageLinksHorizontal />}
         </HeroStyles>
       )}
     </ContainerDimensions>

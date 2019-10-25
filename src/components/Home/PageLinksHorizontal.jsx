@@ -7,22 +7,24 @@ import { BREAKPOINTS, getPageLinks } from "../../constants"
 const LINK_WIDTH = 155
 const GRID_GAP_HZ = 10
 const LINK_HEIGHT = 48
-
 const PageLinksHorizontalStyles = styled.div`
   @media (min-width: ${BREAKPOINTS.TABLET}px) {
-    margin-top: -127px;
+    position: absolute;
+    bottom: 0;
   }
-  padding: ${LINK_HEIGHT}px;
+  width: 100%;
+  padding: 0 ${LINK_HEIGHT / 2}px ${LINK_HEIGHT}px;
   display: grid;
   grid-template-columns: repeat(
     auto-fit,
-    minmax(${LINK_WIDTH + GRID_GAP_HZ}px, 1fr)
+    minmax(${LINK_WIDTH * 0.8 + GRID_GAP_HZ}px, 1fr)
   );
   grid-gap: ${GRID_GAP_HZ * 2}px ${GRID_GAP_HZ}px;
   place-items: center;
   .link div {
     height: ${LINK_HEIGHT * 0.8}px;
     width: ${LINK_WIDTH * 0.9}px;
+    transform: scale(0.8);
     text-decoration: none;
     text-transform: uppercase;
     font-size: 1.2em;
@@ -44,6 +46,17 @@ const PageLinksHorizontalStyles = styled.div`
     @media (min-width: ${BREAKPOINTS.MOBILE}px) {
       height: ${LINK_HEIGHT}px;
       width: ${LINK_WIDTH}px;
+    }
+  }
+  @media (min-width: ${821}px) {
+  }
+  @media (min-width: ${960}px) {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(${LINK_WIDTH + GRID_GAP_HZ}px, 1fr)
+    );
+    .link div {
+      transform: unset;
     }
   }
 `
