@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Shortcut School`,
-    description: `Shortcuts for desktop and mobile. Do more with less. Enjoy life — don't push harder; lower the resistance.`,
+    description: `Shortcuts for desktop and mobile. Don't push harder; lower the resistance.`,
     author: `@danielacorner`,
   },
   plugins: [
