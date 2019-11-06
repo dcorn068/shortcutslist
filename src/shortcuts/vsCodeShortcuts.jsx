@@ -1,4 +1,5 @@
 import React from "react"
+import styled from "styled-components/macro"
 import {
   Alt,
   Tab,
@@ -39,8 +40,14 @@ export const ReferenceSheets = () => (
   </>
 )
 
+const JsResourcesStyles = styled.div`
+  line-height: 1.5em;
+  a {
+    white-space: nowrap;
+  }
+`
 export const JsResources = () => (
-  <div style={{ lineHeight: "1.5em" }}>
+  <JsResourcesStyles>
     <a
       style={{ marginLeft: "0.5em" }}
       href="https://www.youtube.com/watch?v=BMUiFMZr7vk&list=PL0zVEGEvSaeEd9hlmCXrk5yUyqUag-n84"
@@ -73,7 +80,7 @@ export const JsResources = () => (
     >
       2019 Frontend Dev Crash Course
     </a>
-  </div>
+  </JsResourcesStyles>
 )
 
 const SUBLIME_TEXT_NOTICE = {
