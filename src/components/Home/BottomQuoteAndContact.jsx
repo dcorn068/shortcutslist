@@ -15,6 +15,9 @@ const BottomQuoteStyles = styled.div`
     grid-template-columns: 1fr 1fr;
   }
   max-width: 1200px;
+  .link-left {
+    color: white;
+  }
   .left,
   .right {
     display: grid;
@@ -121,18 +124,25 @@ export default () => {
   return (
     <>
       <BottomQuoteStyles>
-        <div className="left">
-          <div className="quoteImgWrapper">
-            <img src={quotesIcon} alt="quote" />
+        <a
+          className="link-left"
+          href="https://www.lesswrong.com/posts/PmQkensvTGg7nGtJE/absolute-authority"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div className="left">
+            <div className="quoteImgWrapper">
+              <img src={quotesIcon} alt="quote" />
+            </div>
+            <figure>
+              <blockquote>
+                <p>Don't push harder,</p>
+                <p>lower the resistance.</p>
+              </blockquote>
+              <figcaption>Lois Bujold</figcaption>
+            </figure>
           </div>
-          <figure>
-            <blockquote>
-              <p>Don't push harder,</p>
-              <p>lower the resistance.</p>
-            </blockquote>
-            <figcaption>Lois Bujold</figcaption>
-          </figure>
-        </div>
+        </a>
         <div className="right">
           <div className="contentWrapper">
             <h2>Want to help?</h2>
