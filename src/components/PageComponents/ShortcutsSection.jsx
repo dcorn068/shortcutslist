@@ -147,7 +147,7 @@ const ListItemCollapsible = ({
 export const ShortcutsSection = ({ shortcuts, sectionTitle }) => {
   const slug = kebabCase(sectionTitle)
   return (
-    <>
+    <div className="shortcutSection">
       <div className="sectionTitleRow" id={slug}>
         <a href={`#${slug}`} className="iconLink">
           <div className="sectionTitleButton">
@@ -174,6 +174,6 @@ export const ShortcutsSection = ({ shortcuts, sectionTitle }) => {
           />
         ))}
       </div>
-    </>
+    </div>
   )
 }

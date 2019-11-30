@@ -7,6 +7,10 @@ export default styled.div`
   section {
     max-width: ${MAX_WIDTH}px;
     margin: auto;
+    position: relative;
+  }
+  .shortcutSection {
+    position: relative;
   }
   .sectionShortcuts {
     padding-bottom: 3em;
