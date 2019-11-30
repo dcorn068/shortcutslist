@@ -22,19 +22,25 @@ export default styled.div`
       font-size: 1em;
     }
   }
+  .sectionTitleRow {
+    z-index: 99999;
+    position: relative;
+    background: white;
+    padding: 2em 2em 1em;
+    margin: -2em -2em 0;
+  }
   .sectionTitleButton {
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    margin-bottom: 1em;
-    .iconButton {
-      margin-right: 0.125em;
-    }
+    display: grid;
+    grid-template-columns: auto 1fr;
+    place-items: center start;
+    grid-gap: 0.5em;
   }
   .sectionTitle {
     font-family: "Montserrat", serif;
     font-size: 2em;
     margin: 0;
+    color: hsla(0, 0%, 0%, 0.8);
   }
   .sectionHeaders {
     padding: 0.5em 1em;

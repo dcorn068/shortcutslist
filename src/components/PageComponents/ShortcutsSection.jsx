@@ -2,7 +2,8 @@ import React, { useState } from "react"
 import Collapse from "@material-ui/core/Collapse"
 import { IconButton, Tooltip, Divider, useMediaQuery } from "@material-ui/core"
 import RightArrowIcon from "@material-ui/icons/ArrowForwardIos"
-import { startCase } from "lodash"
+import LinkIcon from "@material-ui/icons/Link"
+import { startCase, kebabCase } from "lodash"
 import styled from "styled-components/macro"
 import { BREAKPOINTS } from "../../constants"
 
@@ -54,6 +55,10 @@ const ShortcutRowStyles = styled.div`
       height: 64px;
     }
   }
+  .iconLink{
+    color: hsla(0,0%,30%,1);
+  }
+
   &.evenRow {
     .shortcutRow,
     .moreInfoSection,
@@ -140,47 +145,35 @@ const ListItemCollapsible = ({
 }
 
 export const ShortcutsSection = ({ shortcuts, sectionTitle }) => {
-  const [isSectionExpanded, setIsSectionExpanded] = useState(true)
+  const slug = kebabCase(sectionTitle)
   return (
     <>
-      <div className="sectionTitleRow">
-        <div
-          className="sectionTitleButton"
-          onClick={() => setIsSectionExpanded(!isSectionExpanded)}
-        >
-          <Tooltip title={isSectionExpanded ? "Collapse" : "Expand"}>
-            <IconButton
-              className="iconButton"
-              style={{
-                transform: `rotate(${isSectionExpanded ? 270 : 90}deg)`,
-              }}
-            >
-              <RightArrowIcon />
-            </IconButton>
-          </Tooltip>
-          <h2 className="sectionTitle">{startCase(sectionTitle)}</h2>
-        </div>
+      <div className="sectionTitleRow" id={slug}>
+        <a href={`#${slug}`} className="iconLink">
+          <div className="sectionTitleButton">
+            <LinkIcon />
+            <h2 className="sectionTitle">{startCase(sectionTitle)}</h2>
+          </div>
+        </a>
       </div>
-      <Collapse in={isSectionExpanded}>
-        <div className="sectionHeaders">
-          <div />
-          <h3>Effect</h3>
-          <h3>Shortcut</h3>
-        </div>
-        <div className="sectionShortcuts">
-          {shortcuts.map(({ shortcut, description, moreInfo }, idx) => (
-            <ListItemCollapsible
-              isEvenRow={idx % 2 === 0}
-              key={
-                idx
-              } /* we can use idx here since the order/shortcuts array will never change */
-              description={description}
-              shortcut={shortcut}
-              moreInfo={moreInfo}
-            />
-          ))}
-        </div>
-      </Collapse>
+      <div className="sectionHeaders">
+        <div />
+        <h3>Effect</h3>
+        <h3>Shortcut</h3>
+      </div>
+      <div className="sectionShortcuts">
+        {shortcuts.map(({ shortcut, description, moreInfo }, idx) => (
+          <ListItemCollapsible
+            isEvenRow={idx % 2 === 0}
+            key={
+              idx
+            } /* we can use idx here since the order/shortcuts array will never change */
+            description={description}
+            shortcut={shortcut}
+            moreInfo={moreInfo}
+          />
+        ))}
+      </div>
     </>
   )
 }
