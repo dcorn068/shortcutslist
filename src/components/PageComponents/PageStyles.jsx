@@ -26,8 +26,8 @@ export default styled.div`
     z-index: 99999;
     position: relative;
     background: white;
-    padding: 2em 2em 1em;
-    margin: -2em -2em 0;
+    padding: 1.5em 2em 1em;
+    margin: -1em -2em 0;
   }
   .sectionTitleButton {
     cursor: pointer;
