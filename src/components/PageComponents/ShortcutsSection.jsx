@@ -15,16 +15,13 @@ const ShortcutRowStyles = styled.div`
     @media (min-width: ${BREAKPOINTS.TABLET}px) {
       grid-template-columns: 64px 1fr 1fr;
     }
+    &.withoutMoreInfo {
+      padding-left: calc(64px + 2em);
+    grid-template-columns: 1fr 1fr;
+    }
     &.withoutShortcut {
       grid-template-columns: 1fr;
       @media (min-width: ${BREAKPOINTS.TABLET}px) {
-        grid-template-columns: 64px 1fr;
-      }
-      &.withoutMoreInfo {
-        grid-template-columns: 1fr;
-        @media (min-width: ${BREAKPOINTS.TABLET}px) {
-          grid-template-columns: 0 1fr;
-        }
       }
     }
     /* &.withShortcut {
@@ -121,11 +118,14 @@ const ListItemCollapsible = ({
         }${shortcut ? " withShortcut" : " withoutShortcut"}`}
         onClick={() => setIsOpen(!isOpen)}
       >
-        {!isTabletOrLarger ? null : moreInfo ? (
-          <ExpandButton isTabletOrLarger={isTabletOrLarger} isOpen={isOpen} />
-        ) : (
-          <div />
-        )}
+        {!isTabletOrLarger
+          ? null
+          : moreInfo && (
+              <ExpandButton
+                isTabletOrLarger={isTabletOrLarger}
+                isOpen={isOpen}
+              />
+            )}
         <div className="description">{description}</div>
         {shortcut && <div className="shortcut">{shortcut}</div>}
       </div>
