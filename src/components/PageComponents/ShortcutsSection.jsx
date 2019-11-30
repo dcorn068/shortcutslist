@@ -14,9 +14,11 @@ const ShortcutRowStyles = styled.div`
     grid-template-columns: 1fr 1fr;
     @media (min-width: ${BREAKPOINTS.TABLET}px) {
       grid-template-columns: 64px 1fr 1fr;
+      &.withoutMoreInfo {
+      padding-left: calc(64px + 2em);
+      }
     }
     &.withoutMoreInfo {
-      padding-left: calc(64px + 2em);
     grid-template-columns: 1fr 1fr;
     }
     &.withoutShortcut {
