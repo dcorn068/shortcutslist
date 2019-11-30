@@ -30,8 +30,8 @@ module.exports = {
         name: `shortcut-school`,
         short_name: `shortcutschool`,
         start_url: `/`,
-        background_color: `hsl(255,50%,45%)`,
-        theme_color: `hsl(255,50%,45%)`,
+        background_color: `rgba(0, 184, 172, 0.52)`,
+        theme_color: `rgba(0, 184, 172, 0.52)`,
         display: `minimal-ui`,
         icon: `src/images/shortcutschool-icon.png`, // This path is relative to the root of the site.
       },
