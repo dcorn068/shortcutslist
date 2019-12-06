@@ -105,9 +105,43 @@ const HeroStyles = styled.section`
       transform: translate(-10px, 5px) scale(1.2);
     }
   }
+  .font-effect-anaglyph {
+    position: relative;
+    width: 100%;
+  }
+  .titleContainer {
+  }
+  .emojiBackground {
+    opacity: 0.8;
+    transform: scale(2);
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: grid;
+    place-items: center center;
+  }
+  .titleWord {
+    position: absolute;
+    z-index: 0;
+    &.top {
+      top: 0;
+    }
+    &.bottom {
+      bottom: 0;
+    }
+    left: 0;
+    right: 0;
+    display: grid;
+    place-items: center center;
+    z-index: 1;
+  }
 `
 export default () => {
   const isTabletOrLarger = useMediaQuery(`(min-width:${BREAKPOINTS.TABLET}px)`)
+  const doesFitFullWidthTitle = useMediaQuery(`(min-width:${914}px)`)
 
   const data = useStaticQuery(graphql`
     query {
@@ -168,7 +202,29 @@ export default () => {
           <div className="background-overlay"></div>
           <div className="title">
             <h1 className="font-effect-anaglyph">
-              {data.site.siteMetadata.title}
+              {doesFitFullWidthTitle ? (
+                <>
+                  Shortcut
+                  <span role="img" aria-label="lightning">
+                    ⚡
+                  </span>
+                  School
+                </>
+              ) : (
+                <>
+                  <div className="emojiBackground">
+                    <span role="img" aria-label="lightning">
+                      ⚡
+                    </span>
+                  </div>
+                  <div className="titleContainer">
+                    <div className="titleWord top">Shortcut</div>
+                    <div className="titleWord bottom">School</div>
+                    <div className="">Shortcut</div>
+                    <div className="">School</div>
+                  </div>
+                </>
+              )}
             </h1>
             <h3>You can do this — Grab some shortcuts and get moving!</h3>
           </div>
