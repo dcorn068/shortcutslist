@@ -829,7 +829,36 @@ export const vsCodeShortcuts = {
       description: (
         <>
           <a
-            href="https://marketplace.visualstudio.com/items?itemName=bradgashler.htmltagwrap"
+            href="https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitLens
+          </a>{" "}
+          - Git supercharged
+        </>
+      ),
+      shortcut: (
+        <>
+          Powerful extension: find out who wrote each line and when, track /
+          revert your current changes, or get a full file or line history in the
+          sidebar.{" "}
+          <a
+            href="https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Check out the docs
+          </a>
+          !
+        </>
+      ),
+    },
+    {
+      description: (
+        <>
+          <a
+            href="https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons"
             target="_blank"
             rel="noopener noreferrer"
           >
