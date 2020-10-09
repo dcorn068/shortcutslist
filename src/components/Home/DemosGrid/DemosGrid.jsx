@@ -47,14 +47,15 @@ const ImageColumn = ({ imageSrc }) => (
 )
 
 const ShortcutsColumn = ({ logo, title, link, shortcuts, isEvenGridItem }) => {
+  const LinkOrDiv = props => (link ? <Link {...props} /> : <div {...props} />)
   return (
     <div className="shortcutsColumn">
-      <Link to={link} className={`header ${link ? "header-link" : ""}`}>
+      <LinkOrDiv to={link} className={`header ${link ? "header-link" : ""}`}>
         <div className="logoImage">
           <img src={logo} alt="" />
         </div>
         <div className="title">{title}</div>
-      </Link>
+      </LinkOrDiv>
       {shortcuts.map(({ description, shortcut }, idx) => (
         <div
           className={`shortcutRow${idx % 2 === 0 ? "" : " oddShortcutRow"}`}

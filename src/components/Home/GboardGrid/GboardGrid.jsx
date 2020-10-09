@@ -1,7 +1,6 @@
 import React from "react"
 import styled from "styled-components/macro"
-import { useMediaQuery } from "@material-ui/core"
-import { BREAKPOINTS, COLORS } from "../../../constants"
+import { COLORS } from "../../../constants"
 import gboardLogo from "../../../images/icons/gboard-logo.svg"
 import { gboardDemos } from "./gboardGridData"
 
@@ -68,9 +67,6 @@ const GboardGridStyles = styled.div`
 `
 
 export default () => {
-  const isTabletOrLarger = useMediaQuery(`(min-width: ${BREAKPOINTS.TABLET}px)`)
-  console.log("⚡🚨: isTabletOrLarger", isTabletOrLarger)
-
   return (
     <GboardGridStyles>
       <div className="sectionTitle">
