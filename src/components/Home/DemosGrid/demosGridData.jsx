@@ -37,6 +37,7 @@ export const demos1 = [
     imageSrc: basicShortcuts,
     logo: notepadLogo,
     title: "The Basics",
+    link: null,
     shortcuts: [
       {
         description: "Jump entire words",
@@ -125,12 +126,14 @@ export const demos1 = [
   },
   {
     title: "Windows 10",
+    link: "windows",
     imageSrc: virtualDesktopsDemo,
     logo: windows10Logo,
     shortcuts: windowsShortcuts.quickAccess,
   },
   {
     title: "Google Chrome",
+    link: "browser",
     imageSrc: chromeTabsDemo,
     logo: chromeLogo,
     shortcuts: [...browserShortcuts.basics, ...browserShortcuts.tabs],
@@ -164,6 +167,7 @@ export const demos2 = [
         </small>
       </div>
     ),
+    link: "vs-code",
     imageSrc: emmetVsCodeDemo,
     logo: vscodeLogo,
     shortcuts: [
@@ -284,6 +288,7 @@ export const demos2 = [
         </small>
       </div>
     ),
+    link: "terminal",
     imageSrc: terminalDemo,
     logo: terminalLogo,
     shortcuts: [
@@ -318,7 +323,8 @@ export const demos2 = [
     ],
   },
   {
-    title: "Ubuntu (Linux)",
+    title: "Linux (Ubuntu)",
+    link: "linux",
     imageSrc: linuxDemo,
     logo: ubuntuLogo,
     shortcuts: [

@@ -2,21 +2,59 @@ import React from "react"
 import { DemosGridStyles } from "./DemosGridStyles"
 import { useMediaQuery } from "@material-ui/core"
 import { BREAKPOINTS } from "../../../constants"
+import { Link } from "gatsby"
+
+export default function DemosGrid({ demos }) {
+  const isTabletOrLarger = useMediaQuery(`(min-width: ${BREAKPOINTS.TABLET}px)`)
+  return (
+    <DemosGridStyles>
+      {demos.map(({ shortcuts, link, imageSrc, logo, title }, idx) => {
+        const isEvenGridItem = idx % 2 === 0
+        const shortcutsColumnProps = {
+          isEvenGridItem,
+          logo,
+          title,
+          link,
+          shortcuts,
+        }
+        return (
+          <div
+            className={`demoRow${isEvenGridItem ? "" : " oddDemoRow"}`}
+            key={idx}
+          >
+            {isEvenGridItem || !isTabletOrLarger ? (
+              <>
+                <ShortcutsColumn {...shortcutsColumnProps} />
+                <ImageColumn imageSrc={imageSrc} />
+              </>
+            ) : (
+              <>
+                <ImageColumn imageSrc={imageSrc} />
+                <ShortcutsColumn {...shortcutsColumnProps} />
+              </>
+            )}
+          </div>
+        )
+      })}
+    </DemosGridStyles>
+  )
+}
 
 const ImageColumn = ({ imageSrc }) => (
   <div className="imageColumn">
     <img src={imageSrc} alt="" />
   </div>
 )
-const ShortcutsColumn = ({ logo, title, shortcuts, isEvenGridItem }) => {
+
+const ShortcutsColumn = ({ logo, title, link, shortcuts, isEvenGridItem }) => {
   return (
     <div className="shortcutsColumn">
-      <div className="header">
+      <Link to={link} className={`header ${link ? "header-link" : ""}`}>
         <div className="logoImage">
           <img src={logo} alt="" />
         </div>
         <div className="title">{title}</div>
-      </div>
+      </Link>
       {shortcuts.map(({ description, shortcut }, idx) => (
         <div
           className={`shortcutRow${idx % 2 === 0 ? "" : " oddShortcutRow"}`}
@@ -46,40 +84,5 @@ const ShortcutsColumn = ({ logo, title, shortcuts, isEvenGridItem }) => {
         </div>
       ))}
     </div>
-  )
-}
-
-export default ({ demos }) => {
-  const isTabletOrLarger = useMediaQuery(`(min-width: ${BREAKPOINTS.TABLET}px)`)
-  return (
-    <DemosGridStyles>
-      {demos.map(({ shortcuts, imageSrc, logo, title }, idx) => {
-        const isEvenGridItem = idx % 2 === 0
-        const shortcutsColumnProps = {
-          isEvenGridItem,
-          logo,
-          title,
-          shortcuts,
-        }
-        return (
-          <div
-            className={`demoRow${isEvenGridItem ? "" : " oddDemoRow"}`}
-            key={idx}
-          >
-            {isEvenGridItem || !isTabletOrLarger ? (
-              <>
-                <ShortcutsColumn {...shortcutsColumnProps} />
-                <ImageColumn imageSrc={imageSrc} />
-              </>
-            ) : (
-              <>
-                <ImageColumn imageSrc={imageSrc} />
-                <ShortcutsColumn {...shortcutsColumnProps} />
-              </>
-            )}
-          </div>
-        )
-      })}
-    </DemosGridStyles>
   )
 }
