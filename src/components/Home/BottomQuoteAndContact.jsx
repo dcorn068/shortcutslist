@@ -3,7 +3,7 @@ import styled from "styled-components/macro"
 import quotesIcon from "../../images/icons/quotes-icon.png"
 import { Modal, Button } from "@material-ui/core"
 import { useRandomRotate } from "./PageLinksHorizontal"
-import { BREAKPOINTS } from "../../constants"
+import { BREAKPOINTS } from "../../utils/constants"
 import ContactModalContent from "./ContactModalContent"
 import { animated, useSpring } from "react-spring"
 

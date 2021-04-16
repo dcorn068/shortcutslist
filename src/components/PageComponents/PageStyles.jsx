@@ -1,5 +1,5 @@
 import styled from "styled-components/macro"
-import { MAX_WIDTH } from "../../constants"
+import { MAX_WIDTH } from "../../utils/constants"
 
 export default styled.div`
   padding: 3em 1em;

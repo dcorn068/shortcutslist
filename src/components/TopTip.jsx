@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components/macro"
-import { MAX_WIDTH } from "../constants"
+import { MAX_WIDTH } from "../utils/constants"
 import { Alt, Ctrl, Shift, Key } from "./Keyboard/Keys"
 
 const TopTipStyles = styled.div`

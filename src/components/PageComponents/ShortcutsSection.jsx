@@ -5,7 +5,7 @@ import RightArrowIcon from "@material-ui/icons/ArrowForwardIos"
 import LinkIcon from "@material-ui/icons/Link"
 import { startCase, kebabCase } from "lodash"
 import styled from "styled-components/macro"
-import { BREAKPOINTS } from "../../constants"
+import { BREAKPOINTS } from "../../utils/constants"
 
 const ShortcutRowStyles = styled.div`
   .shortcutRow {

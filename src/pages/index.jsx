@@ -7,12 +7,14 @@ import GboardGrid from "../components/Home/GboardGrid/GboardGrid"
 import DemosSectionTitle from "../components/Home/DemosGrid/DemosSectionTitle"
 import { demos1, demos2 } from "../components/Home/DemosGrid/demosGridData"
 import BottomQuoteAndContact from "../components/Home/BottomQuoteAndContact"
+import { Switch } from "antd"
+import { useLocalStorageState } from "../utils/hooks"
 
 const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Home" />
-      <ToggleMacOrWindowsLinux/>
+      <ToggleMacOrWindowsLinux />
       <HeroVideo />
       <DemosSectionTitle />
       <DemosGrid demos={demos1} />
@@ -25,6 +27,24 @@ const IndexPage = () => {
 
 export default IndexPage
 
-function ToggleMacOrWindowsLinux(){
+function ToggleMacOrWindowsLinux() {
+  const [checked, setChecked] = useLocalStorageState(
+    "isNetworkDebuggerOpen",
+    false
+  )
+  return (
+    <Switch
+      checkedChildren={<Thing />}
+      unCheckedChildren={<Thing />}
+      defaultChecked
+      checked={checked}
+      onChange={checked => {
+        setChecked(checked)
+      }}
+    />
+  )
+}
 
+function Thing() {
+  return <div></div>
 }

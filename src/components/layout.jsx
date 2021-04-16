@@ -11,7 +11,7 @@ import "./layout.css"
 import { KeyboardStyles } from "./Keyboard/KeyboardStyles"
 
 import styled from "styled-components/macro"
-import { COLORS } from "../constants"
+import { COLORS } from "../utils/constants"
 
 const LayoutStyles = styled.div`
   display: flex;

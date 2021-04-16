@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import { animated, useTrail } from "react-spring"
 import { Link } from "gatsby"
 import styled from "styled-components/macro"
-import { BREAKPOINTS, getPageLinks } from "../../constants"
+import { BREAKPOINTS, getPageLinks } from "../../utils/constants"
 
 const LINK_WIDTH = 155
 const GRID_GAP_HZ = 10
