@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import HeroVideo from "../components/Home/HeroVideo"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -11,6 +11,7 @@ import { Switch } from "antd"
 import { useLocalStorageState } from "../utils/hooks"
 import "antd/dist/antd.css" // or 'antd/dist/antd.less'
 import styled from "styled-components/macro"
+import { useStore } from "../utils/store"
 
 const IndexPage = () => {
   return (
@@ -30,19 +31,24 @@ const IndexPage = () => {
 export default IndexPage
 
 function ToggleMacOrWindowsLinux() {
-  const [checked, setChecked] = useLocalStorageState(
-    "isNetworkDebuggerOpen",
-    false
-  )
+  // switch state that syncs with local storage
+  const [isWindowsLS, setIsWindowsLS] = useLocalStorageState("isWindows", false)
+
+  // sync isWindows in the store with switch state
+  const { set } = useStore()
+  useEffect(() => {
+    set({ isWindows: isWindowsLS })
+  }, [isWindowsLS, set])
+
   return (
     <SwitchStyles>
       <Switch
         checkedChildren={<WindowsIcon />}
         unCheckedChildren={<AppleIcon />}
         defaultChecked
-        checked={checked}
+        checked={isWindowsLS}
         onChange={checked => {
-          setChecked(checked)
+          setIsWindowsLS(checked)
         }}
       />
     </SwitchStyles>

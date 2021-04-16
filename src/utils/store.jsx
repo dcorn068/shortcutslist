@@ -5,6 +5,7 @@ import create from "zustand"
 export const useStore = create(set => ({
   paused: false,
   temperature: 1,
+  isWindows: true,
   setTemperature: newValue => set(() => ({ temperature: newValue })),
   set: newState => set(state => ({ ...state, ...newState })),
 }))
