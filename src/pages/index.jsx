@@ -12,6 +12,7 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Home" />
+      <ToggleMacOrWindowsLinux/>
       <HeroVideo />
       <DemosSectionTitle />
       <DemosGrid demos={demos1} />
@@ -23,3 +24,7 @@ const IndexPage = () => {
 }
 
 export default IndexPage
+
+function ToggleMacOrWindowsLinux(){
+
+}
