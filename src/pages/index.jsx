@@ -7,18 +7,24 @@ import GboardGrid from "../components/Home/GboardGrid/GboardGrid"
 import DemosSectionTitle from "../components/Home/DemosGrid/DemosSectionTitle"
 import { demos1, demos2 } from "../components/Home/DemosGrid/demosGridData"
 import BottomQuoteAndContact from "../components/Home/BottomQuoteAndContact"
+import "antd/dist/antd.css" // or 'antd/dist/antd.less'
+import { AppStyles } from "../components/AppStyles"
+import { ToggleMacOrWindowsLinux } from "../components/ToggleMacOrWindowsLinux"
 
 const IndexPage = () => {
   return (
-    <Layout>
-      <SEO title="Home" />
-      <HeroVideo />
-      <DemosSectionTitle />
-      <DemosGrid demos={demos1} />
-      <GboardGrid />
-      <DemosGrid demos={demos2} />
-      <BottomQuoteAndContact />
-    </Layout>
+    <AppStyles>
+      <Layout>
+        <SEO title="Home" />
+        <ToggleMacOrWindowsLinux />
+        <HeroVideo />
+        <DemosSectionTitle />
+        <DemosGrid demos={demos1} />
+        <GboardGrid />
+        <DemosGrid demos={demos2} />
+        <BottomQuoteAndContact />
+      </Layout>
+    </AppStyles>
   )
 }
 

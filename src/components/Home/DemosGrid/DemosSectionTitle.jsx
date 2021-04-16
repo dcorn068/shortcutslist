@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components/macro"
 import { useMediaQuery } from "@material-ui/core"
-import { BREAKPOINTS } from "../../../constants"
+import { BREAKPOINTS } from "../../../utils/constants"
 import PageLinksHorizontal from "../PageLinksHorizontal"
 
 const SectionTitleStyles = styled.div`

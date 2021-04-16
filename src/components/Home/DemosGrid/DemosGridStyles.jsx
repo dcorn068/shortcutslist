@@ -1,5 +1,5 @@
 import styled from "styled-components/macro"
-import { BREAKPOINTS } from "../../../constants"
+import { BREAKPOINTS } from "../../../utils/constants"
 const DEMO_BOX_WIDTH = 600
 
 export const DemosGridStyles = styled.div`

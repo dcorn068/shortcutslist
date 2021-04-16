@@ -8,6 +8,8 @@
     "@material-ui/core": "^4.4.2",
     "@material-ui/icons": "^4.4.1",
     "@material-ui/styles": "^4.6.0",
+    "@rehooks/component-size": "^1.0.3",
+    "antd": "^4.15.1",
     "babel-plugin-styled-components": "^1.10.6",
     "gatsby": "^2.15.16",
     "gatsby-image": "^2.2.19",
@@ -27,7 +29,8 @@
     "react-helmet": "^5.2.1",
     "react-spring": "^8.0.27",
     "react-youtube": "^7.9.0",
-    "styled-components": "^4.3.2"
+    "styled-components": "^4.3.2",
+    "zustand": "^3.4.1"
   },
   "devDependencies": {
     "env-cmd": "^10.0.1",
@@ -50,9 +53,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/dcorn068/shortcutslist"
+    "url": "https://github.com/danielacorner/shortcutslist"
   },
   "bugs": {
-    "url": "https://github.com/dcorn068/shortcutslist/issues"
+    "url": "https://github.com/danielacorner/shortcutslist/issues"
   }
 }

@@ -5,7 +5,7 @@ import RightArrowIcon from "@material-ui/icons/ArrowForwardIos"
 import LinkIcon from "@material-ui/icons/Link"
 import { startCase, kebabCase } from "lodash"
 import styled from "styled-components/macro"
-import { BREAKPOINTS } from "../../constants"
+import { BREAKPOINTS } from "../../utils/constants"
 
 const ShortcutRowStyles = styled.div`
   .shortcutRow {
@@ -111,14 +111,18 @@ const ListItemCollapsible = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false)
   const isTabletOrLarger = useMediaQuery(`(min-width: ${BREAKPOINTS.TABLET}px)`)
-
+  const handleClick = () => setIsOpen(!isOpen)
+  const clickHandlerProps = {
+    onClick: handleClick,
+    onKeyDown: handleClick,
+  }
   return (
     <ShortcutRowStyles className={`${isEvenRow ? "evenRow" : ""}`}>
       <div
         className={`shortcutRow${
           moreInfo ? " withMoreInfo" : " withoutMoreInfo"
         }${shortcut ? " withShortcut" : " withoutShortcut"}`}
-        onClick={() => setIsOpen(!isOpen)}
+        {...clickHandlerProps}
       >
         {!isTabletOrLarger
           ? null
@@ -132,7 +136,7 @@ const ListItemCollapsible = ({
         {shortcut && <div className="shortcut">{shortcut}</div>}
       </div>
       {!isTabletOrLarger && moreInfo ? (
-        <div className={`expandButtonRow`} onClick={() => setIsOpen(!isOpen)}>
+        <div className={`expandButtonRow`} {...clickHandlerProps}>
           <ExpandButton isTabletOrLarger={isTabletOrLarger} isOpen={isOpen} />
         </div>
       ) : null}

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import { animated, useTrail } from "react-spring"
 import { Link } from "gatsby"
 import styled from "styled-components/macro"
-import { BREAKPOINTS, getPageLinks } from "../../constants"
+import { BREAKPOINTS, getPageLinks } from "../../utils/constants"
 
 const LINK_WIDTH = 155
 const GRID_GAP_HZ = 10
@@ -106,10 +106,14 @@ export default () => {
           <animated.div key={to} style={spring}>
             <Link className="link" to={to}>
               <div
+                role="button"
+                tabIndex={0}
                 style={{
                   ...(isMousedOverIdx === idx
                     ? {
-                        transform: `scale(1.07) translateY(-3px) rotate(${rotateDeg}deg)`,
+                        transform: `scale(${1.07 +
+                          randomNumbers[0] * 0.5 -
+                          0.2}) translateY(-3px) rotate(${rotateDeg}deg)`,
                         color: `hsl(${randomNumbers[0] * 360},90%,80%)`,
                         borderColor: `hsl(${randomNumbers[1] * 360},90%,80%)`,
                         boxShadow: `0px 0px 20px 0px hsla(${randomNumbers[2] *

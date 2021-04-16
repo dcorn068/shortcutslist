@@ -1,7 +1,7 @@
 import { Link, useStaticQuery, graphql } from "gatsby"
 import React from "react"
 import styled from "styled-components/macro"
-import { getPageLinks, COLORS } from "../constants"
+import { getPageLinks, COLORS } from "../utils/constants"
 import GatsbyImage from "gatsby-image"
 
 const PAGE_LINKS = getPageLinks()

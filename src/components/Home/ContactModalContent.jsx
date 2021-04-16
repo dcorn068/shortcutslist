@@ -93,7 +93,7 @@ export default ({ handleClose, setIsModalMounted }) => {
           <CloseIcon />
         </IconButton>
         <h1>
-          Hey, thanks in advance!{" "}
+          cheers!{" "}
           <span aria-label="cheers-beers" role="img">
             🍻
           </span>

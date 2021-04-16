@@ -1,7 +1,7 @@
 import React from "react"
 import { DemosGridStyles } from "./DemosGridStyles"
 import { useMediaQuery } from "@material-ui/core"
-import { BREAKPOINTS } from "../../../constants"
+import { BREAKPOINTS } from "../../../utils/constants"
 import { Link } from "gatsby"
 
 export default function DemosGrid({ demos }) {

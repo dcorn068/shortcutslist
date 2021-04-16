@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components/macro"
-import { COLORS } from "../../../constants"
+import { COLORS } from "../../../utils/constants"
 import gboardLogo from "../../../images/icons/gboard-logo.svg"
 import { gboardDemos } from "./gboardGridData"
 
