@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useRef } from "react"
 import useComponentSize from "@rehooks/component-size"
 
+// Check if window is defined (so if in the browser or in node.js).
+const isBrowser = typeof window !== "undefined"
+
 /** useEffect that only runs once, on mount (and returns on unmount) */
 export function useMount(cb) {
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -11,11 +14,14 @@ export function useWindowSize() {
   // (For SSR apps only?) Initialize state with undefined width/height so server and client renders match
   // Learn more here: https://joshwcomeau.com/react/the-perils-of-rehydration/
   const [windowSize, setWindowSize] = useState({
-    width: window.innerWidth,
-    height: window.innerHeight,
+    width: isBrowser ? window.innerWidth : 0,
+    height: isBrowser ? window.innerHeight : 0,
   })
 
   useEffect(() => {
+    if (!isBrowser) {
+      return
+    }
     // Handler to call on window resize
     function handleResize() {
       // Set window width/height to state
@@ -32,7 +38,12 @@ export function useWindowSize() {
     handleResize()
 
     // Remove event listener on cleanup
-    return () => window.removeEventListener("resize", handleResize)
+    return () => {
+      if (!isBrowser) {
+        return
+      }
+      window.removeEventListener("resize", handleResize)
+    }
   }, []) // Empty array ensures that effect is only run on mount
 
   return windowSize
@@ -152,7 +163,9 @@ export function useLocalStorageState(
   { serialize = JSON.stringify, deserialize = JSON.parse } = {}
 ) {
   const [state, setState] = React.useState(() => {
-    const valueInLocalStorage = window.localStorage.getItem(key)
+    const valueInLocalStorage = isBrowser
+      ? window.localStorage.getItem(key)
+      : ""
     if (valueInLocalStorage) {
       return deserialize(valueInLocalStorage)
     }
@@ -163,6 +176,9 @@ export function useLocalStorageState(
 
   React.useEffect(() => {
     const prevKey = prevKeyRef.current
+    if (!isBrowser) {
+      return
+    }
     if (prevKey !== key) {
       window.localStorage.removeItem(prevKey)
     }
