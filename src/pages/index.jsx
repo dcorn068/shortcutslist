@@ -9,6 +9,8 @@ import { demos1, demos2 } from "../components/Home/DemosGrid/demosGridData"
 import BottomQuoteAndContact from "../components/Home/BottomQuoteAndContact"
 import { Switch } from "antd"
 import { useLocalStorageState } from "../utils/hooks"
+import { ReactComponent as AppleIcon } from "../images/icons/apple-logo.svg"
+import "antd/dist/antd.css" // or 'antd/dist/antd.less'
 
 const IndexPage = () => {
   return (
@@ -34,8 +36,8 @@ function ToggleMacOrWindowsLinux() {
   )
   return (
     <Switch
-      checkedChildren={<Thing />}
-      unCheckedChildren={<Thing />}
+      checkedChildren={<AppleIcon />}
+      unCheckedChildren={<WindowsIcon />}
       defaultChecked
       checked={checked}
       onChange={checked => {
@@ -45,6 +47,6 @@ function ToggleMacOrWindowsLinux() {
   )
 }
 
-function Thing() {
-  return <div></div>
+function WindowsIcon() {
+  return <img alt="windows" src="../images/icons/windows-10-logo.jpg" />
 }
