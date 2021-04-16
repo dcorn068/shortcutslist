@@ -12,6 +12,7 @@ import { useLocalStorageState } from "../utils/hooks"
 import "antd/dist/antd.css" // or 'antd/dist/antd.less'
 import styled from "styled-components/macro"
 import { useStore } from "../utils/store"
+import { Tooltip } from "@material-ui/core"
 
 const IndexPage = () => {
   return (
@@ -41,21 +42,27 @@ function ToggleMacOrWindowsLinux() {
   }, [isWindowsLS, set])
 
   return (
-    <SwitchStyles>
-      <Switch
-        checkedChildren={<WindowsIcon />}
-        unCheckedChildren={<AppleIcon />}
-        defaultChecked
-        checked={isWindowsLS}
-        onChange={checked => {
-          setIsWindowsLS(checked)
-        }}
-      />
-    </SwitchStyles>
+    <ToggleStyles>
+      <Tooltip title={isWindowsLS ? "Windows/Linux" : "Mac"}>
+        <Switch
+          checkedChildren={<WindowsIcon />}
+          unCheckedChildren={<AppleIcon />}
+          defaultChecked
+          checked={isWindowsLS}
+          onChange={checked => {
+            setIsWindowsLS(checked)
+          }}
+        />
+      </Tooltip>
+    </ToggleStyles>
   )
 }
 
-const SwitchStyles = styled.div`
+const ToggleStyles = styled.div`
+  position: fixed;
+  z-index: 2;
+  top: 5em;
+  right: 2em;
   .ant-switch,
   .ant-switch-checked {
     background: hsl(0, 0%, 80%);
