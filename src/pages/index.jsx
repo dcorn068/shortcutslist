@@ -8,8 +8,8 @@ import DemosSectionTitle from "../components/Home/DemosGrid/DemosSectionTitle"
 import { demos1, demos2 } from "../components/Home/DemosGrid/demosGridData"
 import BottomQuoteAndContact from "../components/Home/BottomQuoteAndContact"
 import "antd/dist/antd.css" // or 'antd/dist/antd.less'
-import { AppStyles } from "../utils/AppStyles"
-import { ToggleMacOrWindowsLinux } from "./ToggleMacOrWindowsLinux"
+import { AppStyles } from "../components/AppStyles"
+import { ToggleMacOrWindowsLinux } from "../components/ToggleMacOrWindowsLinux"
 
 const IndexPage = () => {
   return (
