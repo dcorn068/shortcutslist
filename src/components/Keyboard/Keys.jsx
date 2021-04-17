@@ -52,7 +52,10 @@ export const Windows = () => (
     <img alt="windows key" style={{ marginBottom: -2 }} src={windowsKey} />
   </div>
 )
+export const MacOption = () => <div className="kbd">option ⌥</div>
+export const MacCommand = () => <div className="kbd">command ⌘</div>
 
+export const Code = ({ children }) => <CodeStyles>{children}</CodeStyles>
 const CodeStyles = styled.div`
   display: inline;
   font-family: "Ubuntu Mono";
@@ -60,4 +63,3 @@ const CodeStyles = styled.div`
   padding: 0.25em 1ch;
   font-weight: 600;
 `
-export const Code = ({ children }) => <CodeStyles>{children}</CodeStyles>
