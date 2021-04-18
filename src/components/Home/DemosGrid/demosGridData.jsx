@@ -9,6 +9,7 @@ import linuxDemo from "../../../images/demosGrid/linux-demo.gif"
 
 import notepadLogo from "../../../images/icons/notepad-logo.jpg"
 import windows10Logo from "../../../images/icons/windows-10-logo.jpg"
+import appleLogo from "../../../images/icons/apple-logo.png"
 import chromeLogo from "../../../images/icons/chrome-logo.jpg"
 import vscodeLogo from "../../../images/icons/vscode-logo.png"
 import terminalLogo from "../../../images/icons/terminal-logo.svg"
@@ -32,9 +33,10 @@ import {
   MacCommand,
 } from "../../Keyboard/Keys"
 import { windowsShortcuts } from "../../../shortcuts/windowsShortcuts"
+import { macShortcuts } from "../../../shortcuts/macShortcuts"
 import { browserShortcuts } from "../../../shortcuts/browserShortcuts"
 
-export const demos1 = [
+export const getDemos1 = isWindows => [
   {
     imageSrc: basicShortcuts,
     logo: notepadLogo,
@@ -182,14 +184,21 @@ export const demos1 = [
       },
     ],
   },
-  // TODO: if !isWindows, replace with some Mac OS shortcuts
-  {
-    title: "Windows 10",
-    link: "windows",
-    imageSrc: virtualDesktopsDemo,
-    logo: windows10Logo,
-    shortcuts: windowsShortcuts.quickAccess,
-  },
+  isWindows
+    ? {
+        title: "Windows 10",
+        link: "windows",
+        imageSrc: virtualDesktopsDemo,
+        logo: windows10Logo,
+        shortcuts: windowsShortcuts.quickAccess,
+      }
+    : {
+        title: "Mac",
+        link: "mac",
+        imageSrc: virtualDesktopsDemo,
+        logo: appleLogo,
+        shortcuts: macShortcuts.quickAccess,
+      },
   {
     title: "Google Chrome",
     link: "browser",

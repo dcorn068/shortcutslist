@@ -1,5 +1,6 @@
 import React from "react"
 import windowsKey from "../../images/windows-key.png"
+import missionControlKey from "../../images/mac-mission-control-icon.png"
 import tabKey from "../../images/tab-key.png"
 import styled from "styled-components/macro"
 
@@ -49,11 +50,36 @@ export const Up = () => (
 )
 export const Windows = () => (
   <div className="kbd">
-    <img alt="windows key" style={{ marginBottom: -2 }} src={windowsKey} />
+    <img alt="windows key" style={{ marginTop: -5 }} src={windowsKey} />
   </div>
 )
-export const MacOption = () => <div className="kbd">option ⌥</div>
-export const MacCommand = () => <div className="kbd">command ⌘</div>
+export const MacOption = () => (
+  <div className="kbd">
+    <span style={{ fontSize: "0.75em" }}>option</span>&nbsp;
+    <span style={{ fontSize: "1.1em" }}>⌥</span>
+  </div>
+)
+export const MacCommand = () => (
+  <div className="kbd">
+    <span style={{ fontSize: "0.75em" }}>command</span>&nbsp;
+    <span style={{ fontSize: "0.8em" }}>⌘</span>
+  </div>
+)
+export const MacMissionControl = () => (
+  <div className="kbd">
+    <img
+      alt="mission control key"
+      style={{ transform: "scale(1.2)" }}
+      src={missionControlKey}
+    />
+  </div>
+)
+export const MacControl = () => (
+  <div className="kbd">
+    <span style={{ fontSize: "0.75em" }}>control</span>&nbsp;
+    <span style={{ fontSize: "1.2em" }}>^</span>
+  </div>
+)
 
 export const Code = ({ children }) => <CodeStyles>{children}</CodeStyles>
 const CodeStyles = styled.div`

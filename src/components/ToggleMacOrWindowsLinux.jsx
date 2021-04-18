@@ -17,10 +17,7 @@ export function ToggleMacOrWindowsLinux() {
 
   return (
     <ToggleStyles>
-      <Tooltip
-        // title={isWindowsLS ? "Windows/Linux" : "Mac"}
-        title={"Coming Soon!"}
-      >
+      <Tooltip title={isWindowsLS ? "Windows/Linux" : "Mac"}>
         <Switch
           checkedChildren={<WindowsIcon />}
           unCheckedChildren={<AppleIcon />}
