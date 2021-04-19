@@ -7,6 +7,10 @@ import {
   Shift,
   Left,
   Right,
+  MacOption,
+  MacCommand,
+  Up,
+  Down,
 } from "../components/Keyboard/Keys"
 
 export const browserShortcuts = {
@@ -18,18 +22,62 @@ export const browserShortcuts = {
           <Ctrl />+<Key>F</Key>
         </>
       ),
+      shortcutMac: (
+        <>
+          <MacCommand />+<Key>F</Key>
+        </>
+      ),
+    },
+    {
+      description: "Jump to the next match to your Find Bar search",
+      shortcut: (
+        <>
+          <Key>Enter</Key>
+        </>
+      ),
+      shortcutMac: (
+        <>
+          <MacCommand />+<Key>G</Key>
+        </>
+      ),
+    },
+    {
+      description: "Jump to the previous match to your Find Bar search",
+      shortcut: (
+        <>
+          <Shift />+<Key>Enter</Key>
+        </>
+      ),
+      shortcutMac: (
+        <>
+          <MacCommand />+<Shift />+<Key>G</Key>
+        </>
+      ),
     },
     {
       description: "Open link in new tab",
+      frontPage: true,
       shortcut: (
         <>
           <Ctrl />+ <strong>Click</strong> or <strong>Mousewheel-Click</strong>
+        </>
+      ),
+      shortcutMac: (
+        <>
+          <MacCommand />+ <strong>Click</strong> or{" "}
+          <strong>Mousewheel-Click</strong>
         </>
       ),
     },
     {
       description: "Quick-search any text",
       shortcut: (
+        <>
+          <strong>Select the text</strong> then{" "}
+          <strong>drag to the tab strip</strong>
+        </>
+      ),
+      shortcutMac: (
         <>
           <strong>Select the text</strong> then{" "}
           <strong>drag to the tab strip</strong>
@@ -45,48 +93,100 @@ export const browserShortcuts = {
           <Ctrl />+<Key>N</Key>
         </>
       ),
+      frontPage: true,
+      shortcutMac: (
+        <>
+          <MacCommand />+<Key>N</Key>
+        </>
+      ),
     },
     {
+      frontPage: true,
       description: "Next tab",
       shortcut: (
         <>
           <Ctrl />+<Tab />
         </>
       ),
+      shortcutMac: (
+        <>
+          <MacCommand />+<MacOption />+<Right />
+        </>
+      ),
     },
     {
+      frontPage: true,
       description: "Previous tab",
       shortcut: (
         <>
           <Ctrl />+<Shift />+<Tab />
         </>
       ),
+      shortcutMac: (
+        <>
+          <MacCommand />+<MacOption />+<Left />
+        </>
+      ),
     },
     {
+      frontPage: true,
       description: "Close tab",
       shortcut: (
         <>
           <Ctrl />+<Key>W</Key>
         </>
       ),
+      shortcutMac: (
+        <>
+          <MacCommand />+<Key>W</Key>
+        </>
+      ),
     },
     {
+      description: "Close window",
+      frontPage: true,
+      shortcut: (
+        <>
+          <Ctrl />+<Shift />+<Key>W</Key>
+        </>
+      ),
+      shortcutMac: (
+        <>
+          <MacCommand />+<Shift />+<Key>W</Key>
+        </>
+      ),
+    },
+    {
+      frontPage: true,
       description: "New tab",
       shortcut: (
         <>
           <Ctrl />+<Key>T</Key>
         </>
       ),
+      shortcutMac: (
+        <>
+          <MacCommand />+<Key>T</Key>
+        </>
+      ),
     },
     {
-      description: "Old tab (reopen last closed tab)",
+      frontPage: true,
+      description: "Unclose tab (reopen last closed tab)",
       shortcut: (
         <>
           <Ctrl />+<Shift />+<Key>T</Key>
         </>
       ),
+      shortcutMac: (
+        <>
+          <Ctrl />+<Shift />+<Key>T</Key>
+        </>
+      ),
     },
+
     {
+      frontPage: true,
       description: "Select multiple tabs",
       shortcut: (
         <>
@@ -95,18 +195,44 @@ export const browserShortcuts = {
           <Ctrl />+ <strong>Click</strong> tabs
         </>
       ),
+      shortcutMac: (
+        <>
+          <Shift />
+          or
+          <Ctrl />+ <strong>Click</strong> tabs
+        </>
+      ),
     },
     {
+      frontPage: true,
       description: "Split tabs into new window",
       shortcut: (
         <>
           <strong>Drag tabs</strong> out of the tab strip
         </>
       ),
+      shortcutMac: (
+        <>
+          <strong>Drag tabs</strong> out of the tab strip
+        </>
+      ),
     },
     {
+      frontPage: true,
       description: "Save group of tabs for later",
       shortcut: (
+        <>
+          <strong>Save session</strong> in{" "}
+          <a
+            href="https://chrome.google.com/webstore/detail/toby-for-chrome/hddnkoipeenegfoeaoibdmnaalmgkpip?hl=en"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Toby tab manager
+          </a>
+        </>
+      ),
+      shortcutMac: (
         <>
           <strong>Save session</strong> in{" "}
           <a
@@ -134,12 +260,28 @@ export const browserShortcuts = {
           </a>
         </>
       ),
+      shortcutMac: (
+        <>
+          <a
+            href="https://support.google.com/chrome/answer/157179?hl=en"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Complete Chrome shortcuts reference
+          </a>
+        </>
+      ),
     },
     {
       description: "Browser history",
       shortcut: (
         <>
           <Ctrl />+<Key>H</Key>
+        </>
+      ),
+      shortcutMac: (
+        <>
+          <MacCommand />+<Key>Y</Key>
         </>
       ),
     },
@@ -150,20 +292,42 @@ export const browserShortcuts = {
           <Ctrl />+<Key>J</Key>
         </>
       ),
+      shortcutMac: (
+        <>
+          <MacCommand />+
+          <Shift />+<Key>J</Key>
+        </>
+      ),
     },
     {
-      description: "Back a page",
+      frontPage: true,
+      description: "Go back one page in history",
       shortcut: (
         <>
           <Alt />+<Left />
         </>
       ),
+      shortcutMac: (
+        <>
+          <MacCommand />+
+          <Left /> or <MacCommand />+<Key>{"["}</Key>{" "}
+        </>
+      ),
     },
     {
-      description: "Forward a page",
+      frontPage: true,
+      description: "Go forward one page in history",
       shortcut: (
         <>
           <Alt />+<Right />
+        </>
+      ),
+      shortcutMac: (
+        <>
+          <>
+            <MacCommand />+
+            <Right /> or <MacCommand />+<Key>{"]"}</Key>{" "}
+          </>{" "}
         </>
       ),
     },
@@ -174,26 +338,43 @@ export const browserShortcuts = {
           <Ctrl />+<Key>Enter</Key>
         </>
       ),
+      shortcutMac: (
+        <>
+          <Ctrl />+<Key>Enter</Key>
+        </>
+      ),
     },
     {
+      frontPage: true,
       description: "Jump to the address bar",
       shortcut: (
         <>
           <Ctrl />+<Key>L</Key>
         </>
       ),
+      shortcutMac: (
+        <>
+          <MacCommand />+<Key>L</Key>
+        </>
+      ),
     },
     {
-      description: "Jump to the address bar, then tab bar, then page",
+      description: "Switch focus between toolbars (tabs / address bar / page)",
       shortcut: (
         <>
           <Key>F6</Key>
+        </>
+      ),
+      shortcutMac: (
+        <>
+          <MacCommand />+<MacOption />+<Up /> or <Down />
         </>
       ),
     },
     {
       description: "Add quick-search shortcuts",
       shortcut: <>Right-click address bar, "Edit search engines..."</>,
+      shortcutMac: <>Right-click address bar, "Edit search engines..."</>,
       moreInfo: (
         <>
           <div>
@@ -231,6 +412,9 @@ export const browserShortcuts = {
           <Shift />+<Key>Esc</Key>
         </>
       ),
+      shortcutMac: (
+        <>select Window from the top menu bar, then select Task Manager</>
+      ),
       moreInfo: (
         <>
           Useful if one of your tabs is frozen. If <Shift />+<Key>Esc</Key>{" "}
@@ -240,10 +424,16 @@ export const browserShortcuts = {
       ),
     },
   ],
+  // TODO: developer:[],
   videos: [
     {
       description: "Youtube shortcuts",
       shortcut: (
+        <>
+          <Shift />+<Key>?</Key>
+        </>
+      ),
+      shortcutMac: (
         <>
           <Shift />+<Key>?</Key>
         </>
@@ -293,6 +483,11 @@ export const browserShortcuts = {
         </a>
       ),
       shortcut: (
+        <>
+          <Key>D</Key> / <Key>S</Key>
+        </>
+      ),
+      shortcutMac: (
         <>
           <Key>D</Key> / <Key>S</Key>
         </>

@@ -210,7 +210,10 @@ export const getDemos1 = isWindows => [
     link: "browser",
     imageSrc: chromeTabsDemo,
     logo: chromeLogo,
-    shortcuts: [...browserShortcuts.basics, ...browserShortcuts.tabs],
+    shortcuts: Object.values(browserShortcuts).reduce((acc, cur) => {
+      const frontPageShortcuts = cur.filter(shortcut => shortcut.frontPage)
+      return [...acc, ...frontPageShortcuts]
+    }, []),
   },
 ]
 
