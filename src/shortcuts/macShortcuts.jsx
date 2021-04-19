@@ -10,14 +10,18 @@ import {
   Right,
   Down,
   Up,
+  MacOption,
+  MacCommand,
+  MacMissionControl,
+  MacControl,
 } from "../components/Keyboard/Keys"
 import taskManager from "../images/windows/task-manager-end-task.jpg"
 
-export const windowsShortcuts = {
+export const macShortcuts = {
   basics: [
     {
       description: "Open any program",
-      shortcut: (
+      shortcutMac: (
         <>
           <Windows />, then type what you want to open
         </>
@@ -25,7 +29,7 @@ export const windowsShortcuts = {
     },
     {
       description: "Copy",
-      shortcut: (
+      shortcutMac: (
         <>
           <Ctrl />+<Key>C</Key>
         </>
@@ -33,7 +37,7 @@ export const windowsShortcuts = {
     },
     {
       description: "Paste",
-      shortcut: (
+      shortcutMac: (
         <>
           <Ctrl />+<Key>V</Key>
         </>
@@ -41,7 +45,7 @@ export const windowsShortcuts = {
     },
     {
       description: "Cut (copy + delete)",
-      shortcut: (
+      shortcutMac: (
         <>
           <Ctrl />+<Key>X</Key>
         </>
@@ -49,7 +53,7 @@ export const windowsShortcuts = {
     },
     {
       description: "Undo",
-      shortcut: (
+      shortcutMac: (
         <>
           <Ctrl />+<Key>Z</Key>
         </>
@@ -57,7 +61,7 @@ export const windowsShortcuts = {
     },
     {
       description: "Close system dialog boxes / pop-ups",
-      shortcut: (
+      shortcutMac: (
         <>
           <Key>Esc</Key>
         </>
@@ -65,7 +69,7 @@ export const windowsShortcuts = {
     },
     {
       description: "Quick-switch programs",
-      shortcut: (
+      shortcutMac: (
         <>
           <Alt />+<Tab />
         </>
@@ -82,7 +86,7 @@ export const windowsShortcuts = {
     },
     {
       description: "Task manager - diagnose problems like slow computer",
-      shortcut: (
+      shortcutMac: (
         <>
           <Ctrl />+<Shift />+<Key>Esc</Key>
         </>
@@ -110,7 +114,7 @@ export const windowsShortcuts = {
     },
     {
       description: "Task manager menu - try when above doesn't work",
-      shortcut: (
+      shortcutMac: (
         <>
           <Ctrl />+<Alt />+<Key>Delete</Key>
         </>
@@ -118,7 +122,7 @@ export const windowsShortcuts = {
     },
     {
       description: "Close program",
-      shortcut: (
+      shortcutMac: (
         <>
           <Alt />+<Key>F4</Key>
         </>
@@ -126,7 +130,7 @@ export const windowsShortcuts = {
     },
     {
       description: "Snap window to sides",
-      shortcut: (
+      shortcutMac: (
         <>
           <Windows />+<Left />
           or
@@ -139,7 +143,7 @@ export const windowsShortcuts = {
     },
     {
       description: "Maximize, restore, minimize window",
-      shortcut: (
+      shortcutMac: (
         <>
           <Windows />+<Up />
           or
@@ -149,7 +153,7 @@ export const windowsShortcuts = {
     },
     {
       description: "Move window between multiple monitors",
-      shortcut: (
+      shortcutMac: (
         <>
           <Shift />+<Windows />+<Left />
           or
@@ -160,189 +164,108 @@ export const windowsShortcuts = {
   ],
   quickAccess: [
     {
-      description: "Find any program or file",
-      shortcut: (
+      description: "Spotlight search",
+      shortcutMac: (
         <>
-          <Windows />
-          &nbsp;+ type something
+          <MacCommand />+<Key>Space</Key>
         </>
       ),
     },
     {
-      description: "Open file explorer",
-      shortcut: (
+      description: "Open finder",
+      shortcutMac: (
         <>
-          <Windows />+<Key>E</Key>
+          <MacOption />+<MacCommand />+<Key>Space</Key>
         </>
       ),
     },
     {
       description: "Switch to most recently used open app",
-      shortcut: (
+      shortcutMac: (
         <>
-          <Alt />+<Tab />
+          <MacCommand />+<Tab />
         </>
       ),
     },
     {
-      description: "Task view",
-      shortcut: (
+      description: "Mission Control",
+      shortcutMac: (
         <>
-          <Windows />+<Tab />
+          <MacMissionControl /> or <MacControl />+<Up />
         </>
       ),
     },
     {
       description: "Copy screen clipping to clipboard",
-      shortcut: (
+      shortcutMac: (
         <>
-          <Windows />+<Shift />+<Key>S</Key>
+          <Shift />+<MacCommand />+<Key>4</Key>
         </>
       ),
     },
     {
-      description: "Launch Nth taskbar program",
-      shortcut: (
+      description: "Screen recording or screenshot (macOS Mojave or later)",
+      shortcutMac: (
         <>
-          <Windows />+<Key>0</Key>
-          to
-          <Key>9</Key>
+          <Shift />+<MacCommand />+<Key>5</Key>
         </>
       ),
     },
     {
-      description: "Action panel",
-      shortcut: (
+      description: "New sticky note from selected text",
+      shortcutMac: (
         <>
-          <Windows />+<Key>A</Key>
+          <MacCommand />+<Shift />+<Key>Y</Key>
         </>
       ),
     },
     {
-      description: "Toggle desktop view",
-      shortcut: (
+      description: "Show the desktop",
+      shortcutMac: (
         <>
-          <Windows />+<Key>D</Key>
+          <MacCommand />+<MacMissionControl />
         </>
       ),
     },
     {
-      description: "Connections (bluetooth)",
-      shortcut: (
+      description: "Show all windows of the front app",
+      shortcutMac: (
         <>
-          <Windows />+<Key>K</Key>
-        </>
-      ),
-    },
-    {
-      description: "Sticky notes, screen sketch",
-      shortcut: (
-        <>
-          <Windows />+<Key>W</Key>
-        </>
-      ),
-    },
-    {
-      description: "OneNote quick note",
-      shortcut: (
-        <>
-          <Windows />+<Key>N</Key>
-        </>
-      ),
-    },
-    {
-      description: "Magnifier",
-      shortcut: (
-        <>
-          <Windows />+<Key>+</Key>
-        </>
-      ),
-      moreInfo: (
-        <div
-          style={{ marginBottom: "1em", display: "grid", lineHeight: "2em" }}
-        >
-          <div>
-            Increase magnification: <Windows />+<Key>+</Key>
-          </div>
-          <div>
-            Decrease magnification: <Windows />+<Key>-</Key>
-          </div>
-          <div>
-            Exit magnifier: <Windows />+<Key>Esc</Key>
-          </div>
-        </div>
-      ),
-    },
-
-    {
-      description: "Admin menu",
-      shortcut: (
-        <>
-          <Windows />+<Key>X</Key>
-        </>
-      ),
-      moreInfo: (
-        <div style={{ marginBottom: "1em" }}>
-          Once open, type the underlined letters to follow the menu items.
-        </div>
-      ),
-    },
-    {
-      description: "Search with voice control",
-      shortcut: (
-        <>
-          <Windows />+<Key>Q</Key>
-        </>
-      ),
-    },
-    {
-      description:
-        "Ease of Access Center (magnifier, screen keyboard, high contrast etc.)",
-      shortcut: (
-        <>
-          <Windows />+<Key>U</Key>
+          <MacControl />+<Down />
         </>
       ),
     },
     {
       description: "Lock the computer",
-      shortcut: (
+      shortcutMac: (
         <>
-          <Windows />+<Key>L</Key>
+          <MacControl />+<MacCommand />+<Key>Q</Key>
         </>
       ),
     },
     {
       description: "🎈 Emoji menu 😎✨",
-      shortcut: (
+      shortcutMac: (
         <>
-          <Windows />+<Key smaller={true}>.</Key>
+          <MacControl />+<MacCommand />+<Key>Space</Key>
         </>
       ),
       moreInfo: <p>HEY I'm a more info over here</p>,
     },
     {
-      description: "Custom shortcuts",
-      shortcut: (
-        <div>
-          Check out{" "}
-          <a
-            href="https://www.autohotkey.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ display: "inline" }}
-          >
-            AutoHotkey
-          </a>{" "}
-          — many scripts are already available!
-        </div>
+      description:
+        "Something missing? I'm not an expert Mac user — recommendations are welcome!",
+      shortcutMac: (
+        <>
+          <Key>Any suggestions?</Key>
+        </>
       ),
     },
   ],
   fileExplorer: [
     {
       description: "Search programs, files, web",
-      shortcut: (
+      shortcutMac: (
         <>
           <Windows />, then <strong>type what you want</strong>
         </>
@@ -350,7 +273,7 @@ export const windowsShortcuts = {
     },
     {
       description: "Open file explorer",
-      shortcut: (
+      shortcutMac: (
         <>
           <Windows />+<Key>E</Key>
         </>
@@ -358,7 +281,7 @@ export const windowsShortcuts = {
     },
     {
       description: "Create a new folder",
-      shortcut: (
+      shortcutMac: (
         <>
           <Ctrl />+<Shift />+<Key>N</Key>
         </>
@@ -366,7 +289,7 @@ export const windowsShortcuts = {
     },
     {
       description: "Rename selected file/folder",
-      shortcut: (
+      shortcutMac: (
         <>
           <Key>F2</Key>
         </>
@@ -374,7 +297,7 @@ export const windowsShortcuts = {
     },
     {
       description: "Close file explorer",
-      shortcut: (
+      shortcutMac: (
         <>
           <Ctrl />+<Key>W</Key> or <Alt />+<Key>F4</Key>
         </>
@@ -382,7 +305,7 @@ export const windowsShortcuts = {
     },
     {
       description: "Create a new file",
-      shortcut: (
+      shortcutMac: (
         <>
           <strong>right-click</strong>, <Key>W</Key>, <Key>T</Key>
         </>
@@ -396,7 +319,7 @@ export const windowsShortcuts = {
     },
     {
       description: "Jump to a file in the current directory",
-      shortcut: (
+      shortcutMac: (
         <>
           <strong>click</strong> anywhere in the folder, then{" "}
           <strong>start typing</strong> the file name
@@ -405,7 +328,7 @@ export const windowsShortcuts = {
     },
     {
       description: "Find a file or folder",
-      shortcut: (
+      shortcutMac: (
         <>
           <Ctrl />+<Key>F</Key>
         </>
@@ -413,7 +336,7 @@ export const windowsShortcuts = {
     },
     {
       description: "Access any command in the top menus",
-      shortcut: (
+      shortcutMac: (
         <>
           <Alt />, then <strong>type the letters</strong> that appear on top of
           the menu items
@@ -423,7 +346,7 @@ export const windowsShortcuts = {
     {
       description:
         "Focus the address bar (e.g. to copy the address or navigate to a copied address)",
-      shortcut: (
+      shortcutMac: (
         <>
           <Key>F4</Key> or <Ctrl />+<Key>L</Key>
         </>
@@ -436,7 +359,7 @@ export const windowsShortcuts = {
     },
     {
       description: "Add a virtual desktop",
-      shortcut: (
+      shortcutMac: (
         <>
           <Ctrl />+<Windows />+<Key>D</Key>
         </>
@@ -444,7 +367,7 @@ export const windowsShortcuts = {
     },
     {
       description: "Switch between virtual desktops",
-      shortcut: (
+      shortcutMac: (
         <>
           <Ctrl />+<Windows />+<Left /> or <Right />
         </>
@@ -452,7 +375,7 @@ export const windowsShortcuts = {
     },
     {
       description: "Close virtual desktop",
-      shortcut: (
+      shortcutMac: (
         <>
           <Ctrl />+<Key>F4</Key>
         </>
@@ -460,7 +383,7 @@ export const windowsShortcuts = {
     },
     {
       description: "Task View: perform any of above using mouse",
-      shortcut: (
+      shortcutMac: (
         <>
           <Windows />+<Tab />
         </>
@@ -468,7 +391,7 @@ export const windowsShortcuts = {
     },
     {
       description: "Show a window or program on all desktops",
-      shortcut: (
+      shortcutMac: (
         <>
           In Task View, <strong>right-click</strong> a window >{" "}
           <strong>"show this window on all desktops"</strong> or{" "}

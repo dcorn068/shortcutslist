@@ -9,6 +9,7 @@ import linuxDemo from "../../../images/demosGrid/linux-demo.gif"
 
 import notepadLogo from "../../../images/icons/notepad-logo.jpg"
 import windows10Logo from "../../../images/icons/windows-10-logo.jpg"
+import appleLogo from "../../../images/icons/apple-logo.png"
 import chromeLogo from "../../../images/icons/chrome-logo.jpg"
 import vscodeLogo from "../../../images/icons/vscode-logo.png"
 import terminalLogo from "../../../images/icons/terminal-logo.svg"
@@ -28,11 +29,14 @@ import {
   Key,
   Code,
   Up,
+  MacOption,
+  MacCommand,
 } from "../../Keyboard/Keys"
 import { windowsShortcuts } from "../../../shortcuts/windowsShortcuts"
+import { macShortcuts } from "../../../shortcuts/macShortcuts"
 import { browserShortcuts } from "../../../shortcuts/browserShortcuts"
 
-export const demos1 = [
+export const getDemos1 = isWindows => [
   {
     imageSrc: basicShortcuts,
     logo: notepadLogo,
@@ -48,10 +52,24 @@ export const demos1 = [
             <Right />
           </>
         ),
+        shortcutMac: (
+          <>
+            <MacOption />+<Left />
+            or
+            <Right />
+          </>
+        ),
       },
       {
         description: "Select characters",
         shortcut: (
+          <>
+            <Shift />+<Left />
+            or
+            <Right />
+          </>
+        ),
+        shortcutMac: (
           <>
             <Shift />+<Left />
             or
@@ -69,6 +87,14 @@ export const demos1 = [
             <Right />
           </>
         ),
+        shortcutMac: (
+          <>
+            <MacOption />+<Shift />+
+            <Left />
+            or
+            <Right />
+          </>
+        ),
       },
       {
         description: "Jump to line ends",
@@ -77,6 +103,13 @@ export const demos1 = [
             <Home />
             or
             <End />
+          </>
+        ),
+        shortcutMac: (
+          <>
+            <MacCommand />+<Left />
+            or
+            <Right />
           </>
         ),
       },
@@ -89,10 +122,22 @@ export const demos1 = [
             <End />
           </>
         ),
+        shortcutMac: (
+          <>
+            <Shift />+<MacCommand />+<Left />
+            or
+            <Right />
+          </>
+        ),
       },
       {
         description: "Next field",
         shortcut: (
+          <>
+            <Tab />
+          </>
+        ),
+        shortcutMac: (
           <>
             <Tab />
           </>
@@ -105,12 +150,22 @@ export const demos1 = [
             <Shift />+<Tab />
           </>
         ),
+        shortcutMac: (
+          <>
+            <Shift />+<Tab />
+          </>
+        ),
       },
       {
         description: "Switch windows",
         shortcut: (
           <>
             <Alt />+<Tab />
+          </>
+        ),
+        shortcutMac: (
+          <>
+            <MacCommand />+<Tab />
           </>
         ),
       },
@@ -121,16 +176,29 @@ export const demos1 = [
             <Alt />+<Key>F4</Key>
           </>
         ),
+        shortcutMac: (
+          <>
+            <MacCommand />+<Key>W</Key>
+          </>
+        ),
       },
     ],
   },
-  {
-    title: "Windows 10",
-    link: "windows",
-    imageSrc: virtualDesktopsDemo,
-    logo: windows10Logo,
-    shortcuts: windowsShortcuts.quickAccess,
-  },
+  isWindows
+    ? {
+        title: "Windows 10",
+        link: "windows",
+        imageSrc: virtualDesktopsDemo,
+        logo: windows10Logo,
+        shortcuts: windowsShortcuts.quickAccess,
+      }
+    : {
+        title: "Mac",
+        link: "mac",
+        imageSrc: virtualDesktopsDemo,
+        logo: appleLogo,
+        shortcuts: macShortcuts.quickAccess,
+      },
   {
     title: "Google Chrome",
     link: "browser",
@@ -178,10 +246,20 @@ export const demos2 = [
             <Ctrl />+<Shift />+<Key>P</Key>
           </>
         ),
+        shortcutMac: (
+          <>
+            <Ctrl />+<Shift />+<Key>P</Key>
+          </>
+        ),
       },
       {
         description: "Navigate files",
         shortcut: (
+          <>
+            <Ctrl />+<Key>P</Key>
+          </>
+        ),
+        shortcutMac: (
           <>
             <Ctrl />+<Key>P</Key>
           </>
@@ -194,10 +272,20 @@ export const demos2 = [
             <Ctrl />+<Key>/</Key>
           </>
         ),
+        shortcutMac: (
+          <>
+            <Ctrl />+<Key>/</Key>
+          </>
+        ),
       },
       {
         description: "Duplicate lines",
         shortcut: (
+          <>
+            <Ctrl />+<Shift />+<Key>D</Key>
+          </>
+        ),
+        shortcutMac: (
           <>
             <Ctrl />+<Shift />+<Key>D</Key>
           </>
@@ -210,10 +298,20 @@ export const demos2 = [
             <Ctrl />+<Key>D</Key>
           </>
         ),
+        shortcutMac: (
+          <>
+            <Ctrl />+<Key>D</Key>
+          </>
+        ),
       },
       {
         description: "Add cursors to selection line ends",
         shortcut: (
+          <>
+            <Ctrl />+<Shift />+<Key>L</Key>
+          </>
+        ),
+        shortcutMac: (
           <>
             <Ctrl />+<Shift />+<Key>L</Key>
           </>
@@ -226,10 +324,20 @@ export const demos2 = [
             <Ctrl />+<Shift />+<Key>K</Key>
           </>
         ),
+        shortcutMac: (
+          <>
+            <Ctrl />+<Shift />+<Key>K</Key>
+          </>
+        ),
       },
       {
         description: "Join lines",
         shortcut: (
+          <>
+            <Ctrl />+<Key>J</Key>
+          </>
+        ),
+        shortcutMac: (
           <>
             <Ctrl />+<Key>J</Key>
           </>
@@ -242,10 +350,20 @@ export const demos2 = [
             <Alt />+<Key>Z</Key>
           </>
         ),
+        shortcutMac: (
+          <>
+            <Alt />+<Key>Z</Key>
+          </>
+        ),
       },
       {
         description: "Expand selection",
         shortcut: (
+          <>
+            <Shift />+<Alt />+<Right />
+          </>
+        ),
+        shortcutMac: (
           <>
             <Shift />+<Alt />+<Right />
           </>
@@ -295,30 +413,37 @@ export const demos2 = [
       {
         description: "Change directory",
         shortcut: <Code>cd [directory]</Code>,
+        shortcutMac: <Code>cd [directory]</Code>,
       },
       {
         description: "Up one level",
         shortcut: <Code>cd ..</Code>,
+        shortcutMac: <Code>cd ..</Code>,
       },
       {
         description: "Create files",
         shortcut: <Code>touch [file names]</Code>,
+        shortcutMac: <Code>touch [file names]</Code>,
       },
       {
         description: "Create folders",
         shortcut: <Code>mkdir [folder names]</Code>,
+        shortcutMac: <Code>mkdir [folder names]</Code>,
       },
       {
         description: "Open file explorer here (Windows)",
         shortcut: <Code>start .</Code>,
+        shortcutMac: <Code>start .</Code>,
       },
       {
         description: "Open file explorer here (Linux)",
         shortcut: <Code>nautilus .</Code>,
+        shortcutMac: <Code>nautilus .</Code>,
       },
       {
         description: "Open VS Code here",
         shortcut: <Code>code .</Code>,
+        shortcutMac: <Code>code .</Code>,
       },
     ],
   },
@@ -335,10 +460,20 @@ export const demos2 = [
             <Ctrl />+<Alt />+<Key>T</Key>
           </>
         ),
+        shortcutMac: (
+          <>
+            <Ctrl />+<Alt />+<Key>T</Key>
+          </>
+        ),
       },
       {
         description: "New terminal tab",
         shortcut: (
+          <>
+            <Ctrl />+<Shift />+<Key>T</Key>
+          </>
+        ),
+        shortcutMac: (
           <>
             <Ctrl />+<Shift />+<Key>T</Key>
           </>
@@ -351,10 +486,20 @@ export const demos2 = [
             <Alt />+<Key>0</Key>to<Key>9</Key>
           </>
         ),
+        shortcutMac: (
+          <>
+            <Alt />+<Key>0</Key>to<Key>9</Key>
+          </>
+        ),
       },
       {
         description: "Close terminal tab",
         shortcut: (
+          <>
+            <Ctrl />+<Key>D</Key> or <Ctrl />+<Shift />+<Key>W</Key>
+          </>
+        ),
+        shortcutMac: (
           <>
             <Ctrl />+<Key>D</Key> or <Ctrl />+<Shift />+<Key>W</Key>
           </>
@@ -367,10 +512,20 @@ export const demos2 = [
             <Ctrl />+<Key>C</Key>
           </>
         ),
+        shortcutMac: (
+          <>
+            <Ctrl />+<Key>C</Key>
+          </>
+        ),
       },
       {
         description: "Switch virtual desktops",
         shortcut: (
+          <>
+            <Ctrl />+<Alt />+<Down /> or <Up />
+          </>
+        ),
+        shortcutMac: (
           <>
             <Ctrl />+<Alt />+<Down /> or <Up />
           </>
@@ -384,10 +539,21 @@ export const demos2 = [
             shortcut
           </>
         ),
+        shortcutMac: (
+          <>
+            <Windows />, type "Keyboard", scroll to "screenshots" and set a
+            shortcut
+          </>
+        ),
       },
       {
         description: "Run any terminal command",
         shortcut: (
+          <>
+            <Windows />, type "Keyboard", scroll to bottom, add custom shortcut
+          </>
+        ),
+        shortcutMac: (
           <>
             <Windows />, type "Keyboard", scroll to bottom, add custom shortcut
           </>

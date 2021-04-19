@@ -3,6 +3,7 @@ import { DemosGridStyles } from "./DemosGridStyles"
 import { useMediaQuery } from "@material-ui/core"
 import { BREAKPOINTS } from "../../../utils/constants"
 import { Link } from "gatsby"
+import { useStore } from "../../../utils/store"
 
 export default function DemosGrid({ demos }) {
   const isTabletOrLarger = useMediaQuery(`(min-width: ${BREAKPOINTS.TABLET}px)`)
@@ -48,6 +49,7 @@ const ImageColumn = ({ imageSrc }) => (
 
 const ShortcutsColumn = ({ logo, title, link, shortcuts, isEvenGridItem }) => {
   const LinkOrDiv = props => (link ? <Link {...props} /> : <div {...props} />)
+  const isWindows = useStore(s => s.isWindows)
   return (
     <div className="shortcutsColumn">
       <LinkOrDiv to={link} className={`header ${link ? "header-link" : ""}`}>
@@ -56,7 +58,7 @@ const ShortcutsColumn = ({ logo, title, link, shortcuts, isEvenGridItem }) => {
         </div>
         <div className="title">{title}</div>
       </LinkOrDiv>
-      {shortcuts.map(({ description, shortcut }, idx) => (
+      {shortcuts.map(({ description, shortcut, shortcutMac }, idx) => (
         <div
           className={`shortcutRow${idx % 2 === 0 ? "" : " oddShortcutRow"}`}
           key={idx}
@@ -64,7 +66,9 @@ const ShortcutsColumn = ({ logo, title, link, shortcuts, isEvenGridItem }) => {
           {isEvenGridItem ? (
             <>
               <div className="description">{description}</div>
-              <div className="shortcut">{shortcut}</div>
+              <div className="shortcut">
+                {isWindows ? shortcut : shortcutMac}
+              </div>
             </>
           ) : (
             <>
@@ -72,7 +76,7 @@ const ShortcutsColumn = ({ logo, title, link, shortcuts, isEvenGridItem }) => {
                 className="shortcut"
                 style={{ display: "flex", justifyContent: "flex-end" }}
               >
-                {shortcut}
+                {isWindows ? shortcut : shortcutMac}
               </div>
               <div
                 className="description"
