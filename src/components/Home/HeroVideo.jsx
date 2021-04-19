@@ -11,7 +11,7 @@ import PageLinksHorizontal from "./PageLinksHorizontal"
 const HERO_HEIGHT = 480
 
 const HeroStyles = styled.section`
-  height: ${HERO_HEIGHT * 0.8}px;
+  height: ${HERO_HEIGHT}px;
   width: 100%;
   position: relative;
   .overflow-wrapper {
@@ -50,6 +50,7 @@ const HeroStyles = styled.section`
     align-items: center;
     justify-content: center;
     padding: 0 1em;
+    /* mobile */
     h1 {
       font-family: "Permanent Marker", Sans-serif;
       font-size: 19vw;
@@ -59,6 +60,7 @@ const HeroStyles = styled.section`
       font-family: "Roboto", sans-serif;
       font-weight: normal;
     }
+    /* tablet */
     @media (min-width: ${BREAKPOINTS.MOBILE}px) {
       h1 {
         font-size: 96px;
@@ -67,9 +69,17 @@ const HeroStyles = styled.section`
         font-size: 24px;
       }
     }
+    /* desktop */
+    @media (min-width: ${BREAKPOINTS.TABLET}px) {
+      height: ${HERO_HEIGHT}px;
+      h1 {
+        font-size: 60px;
+      }
+    }
+    /* desktop+ */
     @media (min-width: ${BREAKPOINTS.DESKTOP + 100}px) {
       h1 {
-        font-size: 128px;
+        font-size: 118px;
       }
       h3 {
         font-size: 32px;
@@ -82,12 +92,7 @@ const HeroStyles = styled.section`
     right: 0;
     color: white;
   }
-  @media (min-width: ${BREAKPOINTS.TABLET}px) {
-    height: ${HERO_HEIGHT}px;
-    h1 {
-      font-size: 60px;
-    }
-  }
+
   .static-image {
     animation-name: slow-transform-right;
     animation-duration: 20s;

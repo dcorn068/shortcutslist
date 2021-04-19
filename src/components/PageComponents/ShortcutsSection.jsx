@@ -6,6 +6,7 @@ import LinkIcon from "@material-ui/icons/Link"
 import { startCase, kebabCase } from "lodash"
 import styled from "styled-components/macro"
 import { BREAKPOINTS } from "../../utils/constants"
+import { useStore } from "../../utils/store"
 
 const ShortcutRowStyles = styled.div`
   .shortcutRow {
@@ -152,6 +153,7 @@ const ListItemCollapsible = ({
 
 export const ShortcutsSection = ({ shortcuts, sectionTitle }) => {
   const slug = kebabCase(sectionTitle)
+  const isWindows = useStore(s => s.isWindows)
   return (
     <div className="shortcutSection">
       <div className="sectionTitleRow" id={slug}>
@@ -168,17 +170,19 @@ export const ShortcutsSection = ({ shortcuts, sectionTitle }) => {
         <h3>Shortcut</h3>
       </div>
       <div className="sectionShortcuts">
-        {shortcuts.map(({ shortcut, description, moreInfo }, idx) => (
-          <ListItemCollapsible
-            isEvenRow={idx % 2 === 0}
-            key={
-              idx
-            } /* we can use idx here since the order/shortcuts array will never change */
-            description={description}
-            shortcut={shortcut}
-            moreInfo={moreInfo}
-          />
-        ))}
+        {shortcuts.map(
+          ({ shortcut, shortcutMac, description, moreInfo }, idx) => (
+            <ListItemCollapsible
+              isEvenRow={idx % 2 === 0}
+              key={
+                idx
+              } /* we can use idx here since the order/shortcuts array will never change */
+              description={description}
+              shortcut={isWindows ? shortcut : shortcutMac}
+              moreInfo={moreInfo}
+            />
+          )
+        )}
       </div>
     </div>
   )

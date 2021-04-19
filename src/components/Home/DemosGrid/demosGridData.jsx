@@ -197,7 +197,15 @@ export const getDemos1 = isWindows => [
         link: "mac",
         imageSrc: virtualDesktopsDemo,
         logo: appleLogo,
-        shortcuts: macShortcuts.quickAccess,
+        shortcuts: Object.values(macShortcuts).reduce((acc, cur) => {
+          console.log("🌟🚨 ~ shortcuts:Object.values ~ cur", cur)
+          const frontPageShortcuts = cur.filter(shortcut => shortcut.frontPage)
+          console.log(
+            "🌟🚨 ~ shortcuts:Object.values ~ frontPageShortcuts",
+            frontPageShortcuts
+          )
+          return [...acc, ...frontPageShortcuts]
+        }, []),
       },
   {
     title: "Google Chrome",

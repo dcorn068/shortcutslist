@@ -21,7 +21,6 @@ export function ToggleMacOrWindowsLinux() {
         <Switch
           checkedChildren={<WindowsIcon />}
           unCheckedChildren={<AppleIcon />}
-          defaultChecked
           checked={isWindowsLS}
           onChange={checked => {
             setIsWindowsLS(checked)
