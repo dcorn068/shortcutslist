@@ -9,6 +9,7 @@ export const getPageLinks = () => [
   { to: "/browser", title: "Browser" },
   { to: "/windows", title: "Windows" },
   { to: "/linux", title: "Linux" },
+  { to: "/mac", title: "Mac" },
   { to: "/vs-code", title: "VS Code" },
   { to: "/terminal", title: "Terminal" },
 ]

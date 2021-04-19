@@ -13,15 +13,14 @@ export default () => (
     <TopTip />
     <PageStyles>
       <section>
-        <h1 className="title">Mac</h1>
-        Coming soon!
-        {/* {Object.entries(windowsShortcuts).map(([sectionTitle, shortcuts]) => (
+        <h1 className="title">Windows</h1>
+        {Object.entries(windowsShortcuts).map(([sectionTitle, shortcuts]) => (
           <ShortcutsSection
             key={sectionTitle}
             shortcuts={shortcuts}
             sectionTitle={sectionTitle}
           />
-        ))} */}
+        ))}
       </section>
     </PageStyles>
   </Layout>
