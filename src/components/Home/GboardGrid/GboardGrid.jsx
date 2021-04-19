@@ -21,8 +21,8 @@ const GboardGridStyles = styled.div`
   }
   .logoContainer {
     height: 64px;
-    img {
-      margin-top: -2.25em;
+    img.logo {
+      margin-top: -3.45em;
       height: 100%;
     }
   }
