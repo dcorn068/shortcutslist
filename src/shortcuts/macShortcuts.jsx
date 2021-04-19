@@ -154,7 +154,7 @@ export const macShortcuts = {
       frontPage: true,
       shortcutMac: (
         <>
-          <MacCommand />+<Key>Space</Key>, then type "activity"
+          <MacCommand />+<Key>Space</Key>, type "activity"
         </>
       ),
       moreInfo: (

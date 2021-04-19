@@ -8,6 +8,8 @@ export const KeyboardStyles = styled.div`
     color: white;
     padding: 0.1em 0.3em;
     white-space: nowrap;
+    flex-shrink: 0;
+    height: fit-content;
     &.letter {
       padding: 0.1em 0.4em;
       &.small {
