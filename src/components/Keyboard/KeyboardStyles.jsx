@@ -7,6 +7,7 @@ export const KeyboardStyles = styled.div`
     text-align: center;
     color: white;
     padding: 0.1em 0.3em;
+    white-space: nowrap;
     &.letter {
       padding: 0.1em 0.4em;
       &.small {
