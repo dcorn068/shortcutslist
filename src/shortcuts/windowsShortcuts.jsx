@@ -17,6 +17,8 @@ export const windowsShortcuts = {
   basics: [
     {
       description: "Open any program",
+      frontPage: true,
+
       shortcut: (
         <>
           <Windows />, then type what you want to open
@@ -65,6 +67,8 @@ export const windowsShortcuts = {
     },
     {
       description: "Quick-switch programs",
+      frontPage: true,
+
       shortcut: (
         <>
           <Alt />+<Tab />
@@ -82,6 +86,8 @@ export const windowsShortcuts = {
     },
     {
       description: "Task manager - diagnose problems like slow computer",
+      frontPage: true,
+
       shortcut: (
         <>
           <Ctrl />+<Shift />+<Key>Esc</Key>
@@ -126,6 +132,8 @@ export const windowsShortcuts = {
     },
     {
       description: "Snap window to sides",
+      frontPage: true,
+
       shortcut: (
         <>
           <Windows />+<Left />
@@ -139,6 +147,8 @@ export const windowsShortcuts = {
     },
     {
       description: "Maximize, restore, minimize window",
+      frontPage: true,
+
       shortcut: (
         <>
           <Windows />+<Up />
@@ -149,6 +159,8 @@ export const windowsShortcuts = {
     },
     {
       description: "Move window between multiple monitors",
+      frontPage: true,
+
       shortcut: (
         <>
           <Shift />+<Windows />+<Left />
@@ -161,6 +173,8 @@ export const windowsShortcuts = {
   quickAccess: [
     {
       description: "Find any program or file",
+      frontPage: true,
+
       shortcut: (
         <>
           <Windows />
@@ -170,6 +184,8 @@ export const windowsShortcuts = {
     },
     {
       description: "Open file explorer",
+      frontPage: true,
+
       shortcut: (
         <>
           <Windows />+<Key>E</Key>
@@ -178,6 +194,8 @@ export const windowsShortcuts = {
     },
     {
       description: "Switch to most recently used open app",
+      frontPage: true,
+
       shortcut: (
         <>
           <Alt />+<Tab />
@@ -186,6 +204,8 @@ export const windowsShortcuts = {
     },
     {
       description: "Task view",
+      frontPage: true,
+
       shortcut: (
         <>
           <Windows />+<Tab />
@@ -194,6 +214,8 @@ export const windowsShortcuts = {
     },
     {
       description: "Copy screen clipping to clipboard",
+      frontPage: true,
+
       shortcut: (
         <>
           <Windows />+<Shift />+<Key>S</Key>
@@ -212,6 +234,8 @@ export const windowsShortcuts = {
     },
     {
       description: "Action panel",
+      frontPage: true,
+
       shortcut: (
         <>
           <Windows />+<Key>A</Key>
@@ -220,6 +244,8 @@ export const windowsShortcuts = {
     },
     {
       description: "Toggle desktop view",
+      frontPage: true,
+
       shortcut: (
         <>
           <Windows />+<Key>D</Key>
@@ -236,6 +262,8 @@ export const windowsShortcuts = {
     },
     {
       description: "Sticky notes, screen sketch",
+      frontPage: true,
+
       shortcut: (
         <>
           <Windows />+<Key>W</Key>
@@ -252,6 +280,8 @@ export const windowsShortcuts = {
     },
     {
       description: "Magnifier",
+      frontPage: true,
+
       shortcut: (
         <>
           <Windows />+<Key>+</Key>
@@ -313,6 +343,8 @@ export const windowsShortcuts = {
       ),
     },
     {
+      frontPage: true,
+
       description: "🎈 Emoji menu 😎✨",
       shortcut: (
         <>
@@ -323,6 +355,8 @@ export const windowsShortcuts = {
     },
     {
       description: "Custom shortcuts",
+      frontPage: true,
+
       shortcut: (
         <div>
           Check out{" "}
@@ -443,6 +477,7 @@ export const windowsShortcuts = {
       ),
     },
     {
+      frontPage: true,
       description: "Switch between virtual desktops",
       shortcut: (
         <>

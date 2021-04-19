@@ -154,7 +154,7 @@ export const macShortcuts = {
       frontPage: true,
       shortcutMac: (
         <>
-          <MacCommand />+<Key>Space</Key>, type "activity"
+          <MacCommand />+<Key>Space</Key>, then type "activity"
         </>
       ),
       moreInfo: (
@@ -207,6 +207,8 @@ export const macShortcuts = {
     },
     {
       description: "Snap window to sides",
+      frontPage: true,
+
       shortcutMac: (
         <>
           click and hold the full-screen button in the upper-left corner of a
@@ -218,9 +220,104 @@ export const macShortcuts = {
       ),
     },
   ],
+  spaces: [
+    {
+      description: "Create a space",
+      shortcutMac: (
+        <>
+          <MacMissionControl />
+          ,click the Add{" "}
+          <span>
+            <img
+              src="https://help.apple.com/assets/5FCA9DF4094622AC2BC6F94E/5FCA9E00094622AC2BC6F96C/en_US/a2ef32e34a5573d192b10d340a4f46b1.png"
+              alt="cross icon"
+            />
+          </span>{" "}
+          button
+        </>
+      ),
+      moreInfo: (
+        <>
+          <div>You can create up to 16 spaces</div>
+          <div>
+            Tip: Make your spaces unique by assigning a different desktop
+            picture to each one. Just assign System Preferences to all desktops
+          </div>
+          .
+        </>
+      ),
+    },
+    {
+      description: "Delete a space",
+      shortcutMac: (
+        <>
+          <MacMissionControl />, then move the pointer to the top edge of the
+          screen. In the Spaces bar, move the pointer over the space you want to
+          delete, then click the Delete button that appears.
+        </>
+      ),
+      moreInfo: (
+        <>
+          If the space contains open windows, they are moved to another space.
+        </>
+      ),
+    },
+    {
+      description: "Move between spaces (virtual desktops)",
+      shortcutMac: (
+        <>
+          <Ctrl />+<Right /> or <Left />
+        </>
+      ),
+      frontPage: true,
+      moreInfo: (
+        <>
+          <div>
+            On a trackpad, swipe left or right with three or four fingers. On a
+            Magic Mouse, swipe with two fingers.
+          </div>
+          <div>or</div>
+          <div>
+            Enter Mission Control, move the pointer to the top edge of the
+            screen, then click a space in the Spaces bar.
+          </div>
+        </>
+      ),
+    },
+    {
+      description: "Move an app window between spaces",
+      shortcutMac: (
+        <>
+          <MacMissionControl />, then drag the window up to the space you want
+          to use.
+        </>
+      ),
+    },
+
+    {
+      description: "Task View: perform any of above using mouse",
+      shortcutMac: (
+        <>
+          <Windows />+<Tab />
+        </>
+      ),
+    },
+    {
+      description: "Show a window or program on all desktops",
+      shortcutMac: (
+        <>
+          In Task View, <strong>right-click</strong> a window >{" "}
+          <strong>"show this window on all desktops"</strong> or{" "}
+          <strong>"show windows from this app on all desktops"</strong>
+        </>
+      ),
+    },
+  ],
   littleConveniences: [
     {
       description: "Copy screen clipping to clipboard",
+      frontPage: true,
+
       shortcutMac: (
         <>
           <Shift />+<MacCommand />+<Key>4</Key>
@@ -237,6 +334,8 @@ export const macShortcuts = {
     },
     {
       description: "New sticky note from selected text",
+      frontPage: true,
+
       shortcutMac: (
         <>
           <MacCommand />+<Shift />+<Key>Y</Key>
@@ -244,6 +343,8 @@ export const macShortcuts = {
       ),
     },
     {
+      frontPage: true,
+
       description: "Show the desktop",
       shortcutMac: (
         <>
@@ -252,6 +353,8 @@ export const macShortcuts = {
       ),
     },
     {
+      frontPage: true,
+
       description: "Show all windows of the front app",
       shortcutMac: (
         <>
@@ -268,6 +371,8 @@ export const macShortcuts = {
       ),
     },
     {
+      frontPage: true,
+
       description: "🎈 Emoji menu 😎✨",
       shortcutMac: (
         <>
@@ -277,6 +382,8 @@ export const macShortcuts = {
       moreInfo: <p>HEY I'm a more info over here</p>,
     },
     {
+      frontPage: true,
+
       description: "Custom shortcuts",
       shortcutMac: (
         <div>
@@ -394,102 +501,9 @@ export const macShortcuts = {
   //     ),
   //   },
   // ],
-  spaces: [
-    {
-      description: "Create a space",
-      shortcutMac: (
-        <>
-          <MacMissionControl />
-          ,click the Add{" "}
-          <span>
-            <img
-              src="https://help.apple.com/assets/5FCA9DF4094622AC2BC6F94E/5FCA9E00094622AC2BC6F96C/en_US/a2ef32e34a5573d192b10d340a4f46b1.png"
-              alt="cross icon"
-            />
-          </span>{" "}
-          button
-        </>
-      ),
-      moreInfo: (
-        <>
-          <div>You can create up to 16 spaces</div>
-          <div>
-            Tip: Make your spaces unique by assigning a different desktop
-            picture to each one. Just assign System Preferences to all desktops
-          </div>
-          .
-        </>
-      ),
-    },
-    {
-      description: "Delete a space",
-      shortcutMac: (
-        <>
-          <MacMissionControl />, then move the pointer to the top edge of the
-          screen. In the Spaces bar, move the pointer over the space you want to
-          delete, then click the Delete button that appears.
-        </>
-      ),
-      moreInfo: (
-        <>
-          If the space contains open windows, they are moved to another space.
-        </>
-      ),
-    },
-    {
-      description: "Move between spaces (virtual desktops)",
-      shortcutMac: (
-        <>
-          <Ctrl />+<Right /> or <Left />
-        </>
-      ),
-      frontPage: true,
-      moreInfo: (
-        <>
-          <div>
-            On a trackpad, swipe left or right with three or four fingers. On a
-            Magic Mouse, swipe with two fingers.
-          </div>
-          <div>or</div>
-          <div>
-            Enter Mission Control, move the pointer to the top edge of the
-            screen, then click a space in the Spaces bar.
-          </div>
-        </>
-      ),
-    },
-    {
-      description: "Move an app window between spaces",
-      shortcutMac: (
-        <>
-          <MacMissionControl />, then drag the window up to the space you want
-          to use.
-        </>
-      ),
-    },
 
-    {
-      description: "Task View: perform any of above using mouse",
-      shortcutMac: (
-        <>
-          <Windows />+<Tab />
-        </>
-      ),
-    },
-    {
-      description: "Show a window or program on all desktops",
-      shortcutMac: (
-        <>
-          In Task View, <strong>right-click</strong> a window >{" "}
-          <strong>"show this window on all desktops"</strong> or{" "}
-          <strong>"show windows from this app on all desktops"</strong>
-        </>
-      ),
-    },
-  ],
   other: [
     {
-      frontPage: true,
       description:
         "Something missing? I'm not an expert Mac user — recommendations are welcome!",
       shortcutMac: (

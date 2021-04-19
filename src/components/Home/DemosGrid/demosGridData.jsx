@@ -190,7 +190,10 @@ export const getDemos1 = isWindows => [
         link: "windows",
         imageSrc: virtualDesktopsDemo,
         logo: windows10Logo,
-        shortcuts: windowsShortcuts.quickAccess,
+        shortcuts: Object.values(windowsShortcuts).reduce((acc, cur) => {
+          const frontPageShortcuts = cur.filter(shortcut => shortcut.frontPage)
+          return [...acc, ...frontPageShortcuts]
+        }, []),
       }
     : {
         title: "Mac",
@@ -198,12 +201,7 @@ export const getDemos1 = isWindows => [
         imageSrc: virtualDesktopsDemo,
         logo: appleLogo,
         shortcuts: Object.values(macShortcuts).reduce((acc, cur) => {
-          console.log("🌟🚨 ~ shortcuts:Object.values ~ cur", cur)
           const frontPageShortcuts = cur.filter(shortcut => shortcut.frontPage)
-          console.log(
-            "🌟🚨 ~ shortcuts:Object.values ~ frontPageShortcuts",
-            frontPageShortcuts
-          )
           return [...acc, ...frontPageShortcuts]
         }, []),
       },
