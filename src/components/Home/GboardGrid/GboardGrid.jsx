@@ -71,7 +71,7 @@ export default () => {
     <GboardGridStyles>
       <div className="sectionTitle">
         <div className="logoContainer">
-          <img src={gboardLogo} alt="gboard logo" />
+          <img src={gboardLogo} className="logo" alt="gboard logo" />
         </div>
         <h2>Gboard by Google</h2>
       </div>
