@@ -9,7 +9,6 @@ import { getDemos1, demos2 } from "../components/Home/DemosGrid/demosGridData"
 import BottomQuoteAndContact from "../components/Home/BottomQuoteAndContact"
 import "antd/dist/antd.css" // or 'antd/dist/antd.less'
 import { AppStyles } from "../components/AppStyles"
-import { ToggleMacOrWindowsLinux } from "../components/ToggleMacOrWindowsLinux"
 import { useStore } from "../utils/store"
 
 const IndexPage = () => {
@@ -18,7 +17,6 @@ const IndexPage = () => {
     <AppStyles>
       <Layout>
         <SEO title="Home" />
-        <ToggleMacOrWindowsLinux />
         <HeroVideo />
         <DemosSectionTitle /> {/* no time to waste? */}
         <DemosGrid demos={getDemos1(isWindows)} />

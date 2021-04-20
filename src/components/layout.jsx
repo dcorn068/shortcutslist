@@ -9,7 +9,7 @@ import React from "react"
 import Navbar from "./Navbar"
 import "./layout.css"
 import { KeyboardStyles } from "./Keyboard/KeyboardStyles"
-
+import { ToggleMacOrWindowsLinux } from "../components/ToggleMacOrWindowsLinux"
 import styled from "styled-components/macro"
 import { COLORS } from "../utils/constants"
 
@@ -51,6 +51,8 @@ const Layout = ({ children }) => {
     <KeyboardStyles>
       <Navbar />
       <LayoutStyles>
+        <ToggleMacOrWindowsLinux />
+
         <main>{children}</main>
         <footer>
           © {new Date().getFullYear()}, Built with

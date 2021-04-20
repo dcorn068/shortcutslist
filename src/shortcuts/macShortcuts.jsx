@@ -110,7 +110,8 @@ export const macShortcuts = {
   appManagement: [
     {
       description: "Hide an app",
-      shortcut: (
+      frontPage: true,
+      shortcutMac: (
         <>
           <MacCommand />+<Key>H</Key>
         </>
@@ -118,7 +119,8 @@ export const macShortcuts = {
     },
     {
       description: "Quit an app",
-      shortcut: (
+      frontPage: true,
+      shortcutMac: (
         <>
           <MacCommand />+<Key>Q</Key>
         </>
@@ -126,7 +128,7 @@ export const macShortcuts = {
     },
     {
       description: "Close all open windows for an app (does not quit the app)",
-      shortcut: (
+      shortcutMac: (
         <>
           <MacOption />+<MacCommand />+<Key>W</Key>
         </>
@@ -134,7 +136,7 @@ export const macShortcuts = {
     },
     {
       description: "Force an app to quit",
-      shortcut: (
+      shortcutMac: (
         <>
           <MacOption />+<MacCommand />+<Key>Esc</Key>
         </>
@@ -229,6 +231,7 @@ export const macShortcuts = {
           ,click the Add{" "}
           <span>
             <img
+              style={{ width: 28, height: 28 }}
               src="https://help.apple.com/assets/5FCA9DF4094622AC2BC6F94E/5FCA9E00094622AC2BC6F96C/en_US/a2ef32e34a5573d192b10d340a4f46b1.png"
               alt="cross icon"
             />
@@ -317,7 +320,6 @@ export const macShortcuts = {
     {
       description: "Copy screen clipping to clipboard",
       frontPage: true,
-
       shortcutMac: (
         <>
           <Shift />+<MacCommand />+<Key>4</Key>
@@ -325,7 +327,7 @@ export const macShortcuts = {
       ),
     },
     {
-      description: "Screen recording or screenshot",
+      description: "Screen recording or screenshot menu",
       shortcutMac: (
         <>
           <Shift />+<MacCommand />+<Key>5</Key>
@@ -335,7 +337,6 @@ export const macShortcuts = {
     {
       description: "New sticky note from selected text",
       frontPage: true,
-
       shortcutMac: (
         <>
           <MacCommand />+<Shift />+<Key>Y</Key>
@@ -344,7 +345,6 @@ export const macShortcuts = {
     },
     {
       frontPage: true,
-
       description: "Show the desktop",
       shortcutMac: (
         <>
@@ -372,7 +372,6 @@ export const macShortcuts = {
     },
     {
       frontPage: true,
-
       description: "🎈 Emoji menu 😎✨",
       shortcutMac: (
         <>
@@ -383,7 +382,6 @@ export const macShortcuts = {
     },
     {
       frontPage: true,
-
       description: "Custom shortcuts",
       shortcutMac: (
         <div>

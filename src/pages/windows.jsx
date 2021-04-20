@@ -17,7 +17,7 @@ export default () => (
         {Object.entries(windowsShortcuts).map(([sectionTitle, shortcuts]) => (
           <ShortcutsSection
             key={sectionTitle}
-            shortcuts={shortcuts}
+            shortcuts={shortcuts.map(s => ({ ...s, shortcutMac: s.shortcut }))}
             sectionTitle={sectionTitle}
           />
         ))}
