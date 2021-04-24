@@ -8,8 +8,12 @@ const MAX_GIF_WIDTH = 900
 const BREAKPOINT_SHRINK = 630
 
 /** small gif preview that expands on hover */
-export function ExpandableGif({ pathToGif, isHoveredRow }) {
-  const [isHovered, setIsHovered] = useState(false)
+export function ExpandableGif({
+  pathToGif,
+  isHoveredRow,
+  isHoveredImg: isHovered,
+  setIsHoveredImg: setIsHovered,
+}) {
   const windowSize = useWindowSize()
 
   const shouldShrink = windowSize.width < BREAKPOINT_SHRINK
@@ -28,7 +32,7 @@ export function ExpandableGif({ pathToGif, isHoveredRow }) {
 
   return (
     <ExpandableGifStyles
-      {...{ smallGifWidth, shouldShrink }}
+      {...{ smallGifWidth, shouldShrink, isHovered }}
       onClick={e => e.stopPropagation()}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -40,8 +44,9 @@ export function ExpandableGif({ pathToGif, isHoveredRow }) {
 const ExpandableGifStyles = styled.div`
   height: 100%;
   padding: ${PADDING}px;
-  position: relative;
-  z-index: 20;
+  position: ${p => (p.isHovered ? "relative" : "static")};
+  z-index: ${p => (p.isHovered ? 9999999999 : 1)};
+  overflow: ${p => (p.isHovered ? "visible" : "hidden")};
   img {
     transform-origin: right;
     height: auto;

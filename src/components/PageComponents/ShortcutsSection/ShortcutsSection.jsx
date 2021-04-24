@@ -61,6 +61,8 @@ function ListItemCollapsible({
 }) {
   const [isOpen, setIsOpen] = useState(false)
   const [isHoveredRow, setIsHoveredRow] = useState(false)
+  const [isHoveredImg, setIsHoveredImg] = useState(false)
+
   const isTabletOrLarger = useMediaQuery(`(min-width: ${BREAKPOINTS.TABLET}px)`)
   const handleClick = () => setIsOpen(!isOpen)
   const clickHandlerProps = {
@@ -72,6 +74,7 @@ function ListItemCollapsible({
     <ShortcutRowStyles
       onMouseEnter={() => setIsHoveredRow(true)}
       onMouseLeave={() => setIsHoveredRow(false)}
+      {...{ isHoveredImg }}
       className={`${isEvenRow ? "evenRow" : ""}`}
     >
       <div
@@ -89,7 +92,9 @@ function ListItemCollapsible({
         {shortcut && <div className="shortcut">{shortcut}</div>}
         {pathToGif && (
           <div className="gifImg">
-            <ExpandableGif {...{ pathToGif, isHoveredRow }} />
+            <ExpandableGif
+              {...{ pathToGif, isHoveredRow, isHoveredImg, setIsHoveredImg }}
+            />
           </div>
         )}
       </div>
@@ -189,8 +194,11 @@ const ShortcutRowStyles = styled.div`
     }
   }
   position: relative;
+  z-index: ${p => (p.isHoveredImg ? 99999 : 1)};
   .gifImg{
-    position:absolute;right:0;top:0;
+    position:absolute;
+    right:0;
+    top:0;
     width: fit-content;
     z-index: 99999;
     height: 100%;

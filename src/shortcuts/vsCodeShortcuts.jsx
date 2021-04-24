@@ -11,6 +11,7 @@ import {
   Code,
 } from "../components/Keyboard/Keys"
 import commandPalette from "../images/vsCodeGifs/command_palette.gif"
+import toggleSidebars from "../images/vsCodeGifs/toggle_sidebar_and_terminal.gif"
 
 export const ReferenceSheets = () => (
   <>
@@ -210,6 +211,7 @@ export const vsCodeShortcuts = {
     },
     {
       description: "Toggle sidebar",
+      pathToGif: toggleSidebars,
       shortcut: (
         <>
           <Ctrl />+<Key>B</Key>
@@ -218,6 +220,7 @@ export const vsCodeShortcuts = {
     },
     {
       description: "Toggle integrated terminal",
+      pathToGif: toggleSidebars,
       shortcut: (
         <>
           <Ctrl />+<Key>`</Key>
