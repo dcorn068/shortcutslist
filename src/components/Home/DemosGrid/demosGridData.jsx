@@ -222,26 +222,6 @@ export const demos2 = [
     title: (
       <div style={{ position: "relative", paddingBottom: "0.5em" }}>
         <div>Visual Studio Code</div>
-        <small
-          style={{
-            fontSize: "0.4em",
-            position: "absolute",
-            overflow: "visible",
-            whiteSpace: "nowrap",
-            left: -200,
-            right: -200,
-            textAlign: "center",
-          }}
-        >
-          Note: some of these require{" "}
-          <a
-            href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.sublime-keybindings"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Sublime Text keymap extension
-          </a>
-        </small>
       </div>
     ),
     link: "vs-code",
@@ -288,15 +268,15 @@ export const demos2 = [
         ),
       },
       {
-        description: "Duplicate lines",
+        description: "Copy Lines Down",
         shortcut: (
           <>
-            <Ctrl />+<Shift />+<Key>D</Key>
+            <Shift />+<Alt />+<Down />
           </>
         ),
         shortcutMac: (
           <>
-            <Ctrl />+<Shift />+<Key>D</Key>
+            <Shift />+<Alt />+<Down />
           </>
         ),
       },
