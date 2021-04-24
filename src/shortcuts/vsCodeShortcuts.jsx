@@ -100,8 +100,6 @@ const SUBLIME_TEXT_NOTICE = {
   ),
 }
 
-const pathToVsCodeShortcuts = "/src/images/vsCodeGifs/"
-
 export const vsCodeShortcuts = {
   basics: [
     {
