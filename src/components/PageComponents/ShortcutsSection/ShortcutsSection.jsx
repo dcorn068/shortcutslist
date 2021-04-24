@@ -7,9 +7,9 @@ import { startCase, kebabCase } from "lodash"
 import styled from "styled-components/macro"
 import { BREAKPOINTS } from "../../../utils/constants"
 import { useStore } from "../../../utils/store"
-import { ExpandableGif } from "./ExpandableGif"
+import ExpandableGif from "./ExpandableGif"
 
-export const ShortcutsSection = ({ shortcuts, sectionTitle }) => {
+export default function ShortcutsSection({ shortcuts, sectionTitle }) {
   const slug = kebabCase(sectionTitle)
   const isWindows = useStore(s => s.isWindows)
   return (
@@ -80,7 +80,10 @@ function ListItemCollapsible({
       <div
         className={`shortcutRow${
           moreInfo ? " withMoreInfo" : " withoutMoreInfo"
-        }${shortcut ? " withShortcut" : " withoutShortcut"}`}
+        }
+        ${shortcut ? " withShortcut" : " withoutShortcut"}
+        ${pathToGif ? " withGif" : ""}
+        `}
         {...clickHandlerProps}
       >
         {!isTabletOrLarger
@@ -131,6 +134,9 @@ const ShortcutRowStyles = styled.div`
       grid-template-columns: 1fr;
       @media (min-width: ${BREAKPOINTS.TABLET}px) {
       }
+    }
+    &.withGif {
+      padding-right: 4em;
     }
     /* &.withShortcut {
       &.withoutMoreInfo {
