@@ -99,10 +99,13 @@ const SUBLIME_TEXT_NOTICE = {
   ),
 }
 
+const pathToVsCodeShortcuts = "/src/images/vsCodeGifs/"
+
 export const vsCodeShortcuts = {
   basics: [
     {
       description: "Show Command Palette — perform any action",
+      pathToGif: pathToVsCodeShortcuts + "command_palette.gif",
       shortcut: (
         <>
           <Ctrl />+<Shift />+<Key>P</Key>

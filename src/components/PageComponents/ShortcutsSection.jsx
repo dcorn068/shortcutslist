@@ -7,6 +7,8 @@ import { startCase, kebabCase } from "lodash"
 import styled from "styled-components/macro"
 import { BREAKPOINTS } from "../../utils/constants"
 import { useStore } from "../../utils/store"
+import { useSpring } from "react-spring"
+import { animated } from "react-spring/renderprops-universal"
 
 const ShortcutRowStyles = styled.div`
   .shortcutRow {
@@ -88,6 +90,10 @@ const ShortcutRowStyles = styled.div`
       padding: 0.5em 1em;
     }
   }
+  position: relative;
+  .gifImg{
+    position:absolute;right:0;top:0;
+  }
 `
 const ExpandButton = ({ isOpen, isTabletOrLarger }) => (
   <Tooltip
@@ -109,6 +115,7 @@ const ListItemCollapsible = ({
   description,
   moreInfo,
   isEvenRow,
+  pathToGif,
 }) => {
   const [isOpen, setIsOpen] = useState(false)
   const isTabletOrLarger = useMediaQuery(`(min-width: ${BREAKPOINTS.TABLET}px)`)
@@ -135,6 +142,11 @@ const ListItemCollapsible = ({
             )}
         <div className="description">{description}</div>
         {shortcut && <div className="shortcut">{shortcut}</div>}
+        {pathToGif && (
+          <div className="gifImg">
+            <ExpandableGif {...{ pathToGif }} />
+          </div>
+        )}
       </div>
       {!isTabletOrLarger && moreInfo ? (
         <div className={`expandButtonRow`} {...clickHandlerProps}>
@@ -150,6 +162,20 @@ const ListItemCollapsible = ({
     </ShortcutRowStyles>
   )
 }
+
+/** small gif preview that expands on hover */
+function ExpandableGif({ pathToGif }) {
+  const spring = useSpring({})
+  return (
+    <ExpandableGifStyles style={spring}>
+      <img src={pathToGif} alt="" srcset="" />
+    </ExpandableGifStyles>
+  )
+}
+const ExpandableGifStyles = styled(animated.div)`
+  height: 100%;
+  width: auto;
+`
 
 export const ShortcutsSection = ({ shortcuts, sectionTitle }) => {
   const slug = kebabCase(sectionTitle)
@@ -171,15 +197,21 @@ export const ShortcutsSection = ({ shortcuts, sectionTitle }) => {
       </div>
       <div className="sectionShortcuts">
         {shortcuts.map(
-          ({ shortcut, shortcutMac, description, moreInfo }, idx) => (
+          (
+            { shortcut, shortcutMac, description, moreInfo, pathToGif },
+            idx
+          ) => (
             <ListItemCollapsible
               isEvenRow={idx % 2 === 0}
               key={
                 idx
               } /* we can use idx here since the order/shortcuts array will never change */
-              description={description}
-              shortcut={isWindows ? shortcut : shortcutMac}
-              moreInfo={moreInfo}
+              {...{
+                description,
+                shortcut: isWindows ? shortcut : shortcutMac,
+                moreInfo,
+                pathToGif,
+              }}
             />
           )
         )}
