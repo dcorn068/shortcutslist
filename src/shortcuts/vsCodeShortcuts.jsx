@@ -10,6 +10,7 @@ import {
   Up,
   Code,
 } from "../components/Keyboard/Keys"
+import commandPalette from "../images/vsCodeGifs/command_palette.gif"
 
 export const ReferenceSheets = () => (
   <>
@@ -105,7 +106,7 @@ export const vsCodeShortcuts = {
   basics: [
     {
       description: "Show Command Palette — perform any action",
-      pathToGif: pathToVsCodeShortcuts + "command_palette.gif",
+      pathToGif: commandPalette,
       shortcut: (
         <>
           <Ctrl />+<Shift />+<Key>P</Key>
