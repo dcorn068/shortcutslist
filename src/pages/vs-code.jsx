@@ -28,7 +28,7 @@ export default () => {
           {Object.entries(vsCodeShortcuts).map(([sectionTitle, shortcuts]) => (
             <ShortcutsSection
               key={sectionTitle}
-              shortcuts={shortcuts.slice(0, 4).map(s => ({
+              shortcuts={shortcuts.map(s => ({
                 ...s,
                 shortcutMac: s.shortcutMac || s.shortcut,
               }))}

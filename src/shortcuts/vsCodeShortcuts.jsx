@@ -194,8 +194,8 @@ export const vsCodeShortcuts = {
       moreInfo: (
         <>
           <p>
-            Performs a "fuzzy match" — type any part(s) of the file name to find
-            it.
+            Performs a "fuzzy match" — type any part{"("}s{")"} of the file name
+            to find it.
           </p>
           <p>Much faster than using the file explorer!</p>
         </>
@@ -220,10 +220,9 @@ export const vsCodeShortcuts = {
     },
     {
       description: "Toggle integrated terminal",
-      pathToGif: toggleSidebars,
       shortcut: (
         <>
-          <Ctrl />+<Key>`</Key>
+          <Ctrl />+<Key>{"`"}</Key>
         </>
       ),
     },
@@ -231,7 +230,7 @@ export const vsCodeShortcuts = {
       description: "Create new terminal",
       shortcut: (
         <>
-          <Ctrl />+<Shift />+<Key>`</Key>
+          <Ctrl />+<Shift />+<Key>{"`"}</Key>
         </>
       ),
     },
@@ -239,7 +238,7 @@ export const vsCodeShortcuts = {
       description: "Toggle Problems panel",
       shortcut: (
         <>
-          <Ctrl />+<Shift />+<Key>`</Key>
+          <Ctrl />+<Shift />+<Key>{"`"}</Key>
         </>
       ),
     },
@@ -340,12 +339,12 @@ export const vsCodeShortcuts = {
       description: (
         <pre>
           {`<section class="list-container">
-  <li>
-    <ul>item 1</ul>
-    <ul>item 2</ul>
-    <ul>item 3</ul>
-  </li>
-</section>`}
+    <li>
+      <ul>item 1</ul>
+      <ul>item 2</ul>
+      <ul>item 3</ul>
+    </li>
+  </section>`}
         </pre>
       ),
       shortcut: (
@@ -399,6 +398,7 @@ export const vsCodeShortcuts = {
       ),
     },
   ],
+
   multipleSelections: [
     SUBLIME_TEXT_NOTICE,
     {

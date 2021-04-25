@@ -9,12 +9,6 @@ export default styled.div`
     margin: auto;
     position: relative;
   }
-  .shortcutSection {
-    position: relative;
-  }
-  .sectionShortcuts {
-    padding-bottom: 3em;
-  }
   .iconButton {
     transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   }
