@@ -11,30 +11,32 @@ import TopTip from "../components/TopTip"
 import ShortcutsSection from "../components/PageComponents/ShortcutsSection/ShortcutsSection"
 import PageStyles from "../components/PageComponents/PageStyles"
 
-export default () => (
-  <Layout>
-    <SEO title="VS Code" />
-    <TopTip />
-    <PageStyles>
-      <section>
-        <h1 className="title">VS Code</h1>
-        <h3 className="title subtitle">
-          Reference sheets: <ReferenceSheets />
-        </h3>
-        <h3 className="title subtitle">
-          New to JavaScript? <JsResources />
-        </h3>
-        {/* {Object.entries(vsCodeShortcuts).map(([sectionTitle, shortcuts]) => (
-          <ShortcutsSection
-            key={sectionTitle}
-            shortcuts={shortcuts.map(s => ({
-              ...s,
-              shortcutMac: s.shortcutMac || s.shortcut,
-            }))}
-            sectionTitle={sectionTitle}
-          />
-        ))} */}
-      </section>
-    </PageStyles>
-  </Layout>
-)
+export default () => {
+  return (
+    <Layout>
+      <SEO title="VS Code" />
+      <TopTip />
+      <PageStyles>
+        <section>
+          <h1 className="title">VS Code</h1>
+          <h3 className="title subtitle">
+            Reference sheets: <ReferenceSheets />
+          </h3>
+          <h3 className="title subtitle">
+            New to JavaScript? <JsResources />
+          </h3>
+          {Object.entries(vsCodeShortcuts).map(([sectionTitle, shortcuts]) => (
+            <ShortcutsSection
+              key={sectionTitle}
+              shortcuts={shortcuts.slice(0, 4).map(s => ({
+                ...s,
+                shortcutMac: s.shortcutMac || s.shortcut,
+              }))}
+              sectionTitle={sectionTitle}
+            />
+          ))}
+        </section>
+      </PageStyles>
+    </Layout>
+  )
+}
