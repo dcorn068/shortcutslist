@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import Collapse from "@material-ui/core/Collapse"
 import { IconButton, Tooltip, Divider, useMediaQuery } from "@material-ui/core"
 import RightArrowIcon from "@material-ui/icons/ArrowForwardIos"
 import styled from "styled-components/macro"
 import { BREAKPOINTS, Z_INDICES } from "../../../utils/constants"
 import ExpandableGif from "./ExpandableGif"
-import { useStore } from "../../../utils/store"
 
 export function ShortcutRow({
   shortcut,
@@ -16,13 +15,6 @@ export function ShortcutRow({
 }) {
   const [isOpen, setIsOpen] = useState(false)
   const [isHoveredRow, setIsHoveredRow] = useState(false)
-  const [isHoveredImg, setIsHoveredImg] = useState(false)
-
-  // sync "isHoveredImg" state to store
-  const set = useStore(s => s.set)
-  useEffect(() => {
-    set({ isHoveredImg })
-  }, [isHoveredImg])
 
   const isTabletOrLarger = useMediaQuery(`(min-width: ${BREAKPOINTS.TABLET}px)`)
   const handleClick = () => setIsOpen(!isOpen)
@@ -35,7 +27,7 @@ export function ShortcutRow({
     <ShortcutRowStyles
       onMouseEnter={() => setIsHoveredRow(true)}
       onMouseLeave={() => setIsHoveredRow(false)}
-      {...{ isHoveredImg }}
+      {...{ isHoveredRow }}
       className={`${isEvenRow ? "evenRow" : ""}`}
     >
       <div
@@ -56,9 +48,7 @@ export function ShortcutRow({
         {shortcut && <div className="shortcut">{shortcut}</div>}
         {pathToGif && (
           <div className="gifImg">
-            <ExpandableGif
-              {...{ pathToGif, isHoveredRow, isHoveredImg, setIsHoveredImg }}
-            />
+            <ExpandableGif {...{ pathToGif, isHoveredRow }} />
           </div>
         )}
       </div>
@@ -161,7 +151,7 @@ const ShortcutRowStyles = styled.div`
     }
   }
   position: relative;
-  z-index: ${p => (p.isHoveredImg ? Z_INDICES[7] : 1)};
+  z-index: ${p => (p.isHoveredRow ? Z_INDICES[7] : 1)};
   .gifImg{
     position:absolute;
     right:0;

@@ -1,21 +1,25 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import styled from "styled-components/macro"
 import { animated, useSpring } from "react-spring"
 import { useWindowSize } from "../../../utils/hooks"
 import { ClickAwayListener } from "@material-ui/core"
 import { Z_INDICES } from "../../../utils/constants"
+import { useStore } from "../../../utils/store"
 
 const PADDING = 6
 const MAX_GIF_WIDTH = 900
 const BREAKPOINT_SHRINK = 630
 
 /** small gif preview that expands on hover */
-export default function ExpandableGif({
-  pathToGif,
-  isHoveredRow,
-  isHoveredImg: isHovered,
-  setIsHoveredImg: setIsHovered,
-}) {
+export default function ExpandableGif({ pathToGif, isHoveredRow }) {
+  const [isHovered, setIsHovered] = useState(false)
+
+  // sync "isHoveredImg" state to store
+  const set = useStore(s => s.set)
+  useEffect(() => {
+    set({ isHoveredImg: isHovered })
+  }, [isHovered])
+
   const windowSize = useWindowSize()
 
   const shouldShrink = windowSize.width < BREAKPOINT_SHRINK
@@ -33,10 +37,14 @@ export default function ExpandableGif({
     transform: `scale(${scale}) `,
     config: { tension: 380, friction: 40 },
     onStart: () => {
-      setIsAnimating(true)
+      if (isHovered) {
+        setIsAnimating(true)
+      }
     },
     onRest: () => {
-      setIsAnimating(false)
+      if (!isHoveredRow) {
+        setIsAnimating(false)
+      }
     },
   })
 
@@ -45,7 +53,7 @@ export default function ExpandableGif({
   return (
     <ClickAwayListener onClickAway={() => setIsHovered(false)}>
       <ExpandableGifStyles
-        {...{ smallGifWidth, shouldShrink, isOnTop }}
+        {...{ smallGifWidth, shouldShrink, isOnTop, isHoveredRow }}
         onClick={e => {
           e.stopPropagation()
           setIsHovered(true)
@@ -59,7 +67,8 @@ export default function ExpandableGif({
   )
 }
 const ExpandableGifStyles = styled.div`
-  height: 100%;
+  height: calc(100% - ${p => (p.isHoveredRow ? 0 : PADDING)}px);
+  transition: height 300ms cubic-bezier(0.39, 0.575, 0.565, 1);
   padding: ${PADDING}px;
   position: ${p => (p.isOnTop ? "relative" : "static")};
   z-index: ${p => (p.isOnTop ? Z_INDICES[11] : Z_INDICES[1])};

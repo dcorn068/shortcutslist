@@ -12,6 +12,12 @@ import {
 } from "../components/Keyboard/Keys"
 import commandPalette from "../images/vsCodeGifs/command_palette.gif"
 import toggleSidebars from "../images/vsCodeGifs/toggle_sidebar_and_terminal.gif"
+import joinLines from "../images/vsCodeGifs/join_lines.gif"
+import foldAll from "../images/vsCodeGifs/fold_all.gif"
+import insertLineAboveBelow from "../images/vsCodeGifs/insert_line_above_below.gif"
+import lineEnds from "../images/vsCodeGifs/line_ends.gif"
+import moveLines from "../images/vsCodeGifs/move_lines.gif"
+import scrollFaster from "../images/vsCodeGifs/scroll_faster.gif"
 
 export const ReferenceSheets = () => (
   <>
@@ -210,6 +216,15 @@ export const vsCodeShortcuts = {
       ),
     },
     {
+      description: "Scroll faster",
+      pathToGif: scrollFaster,
+      shortcut: (
+        <>
+          <Alt /> + scroll (mousewheel or trackpad)
+        </>
+      ),
+    },
+    {
       description: "Toggle sidebar",
       pathToGif: toggleSidebars,
       shortcut: (
@@ -239,6 +254,15 @@ export const vsCodeShortcuts = {
       shortcut: (
         <>
           <Ctrl />+<Shift />+<Key>{"`"}</Key>
+        </>
+      ),
+    },
+    {
+      description: "Fold All (get a bird's-eye-view of a file)",
+      pathToGif: foldAll,
+      shortcut: (
+        <>
+          <Ctrl />+<Key>K</Key>, <Ctrl />+<Key>0</Key>
         </>
       ),
     },
@@ -382,7 +406,8 @@ export const vsCodeShortcuts = {
       ),
     },
     {
-      description: "Split a selection on line ends",
+      description: "Add cursors to line ends",
+      pathToGif: lineEnds,
       shortcut: (
         <>
           <Ctrl />+<Shift />+<Key>L</Key>
@@ -398,7 +423,6 @@ export const vsCodeShortcuts = {
       ),
     },
   ],
-
   multipleSelections: [
     SUBLIME_TEXT_NOTICE,
     {
@@ -565,6 +589,7 @@ export const vsCodeShortcuts = {
     SUBLIME_TEXT_NOTICE,
     {
       description: "Bubble selected lines up or down",
+      pathToGif: moveLines,
       shortcut: (
         <>
           <Ctrl />+<Shift />+<Up /> or <Down />
@@ -573,14 +598,16 @@ export const vsCodeShortcuts = {
     },
     {
       description: "Insert line below/above",
+      pathToGif: insertLineAboveBelow,
       shortcut: (
         <>
-          <Ctrl />+<Key>Enter</Key> / <Ctrl />+<Shift />+<Key>Enter</Key>
+          <Ctrl />+<Key>Enter</Key> {"/"} <Ctrl />+<Shift />+<Key>Enter</Key>
         </>
       ),
     },
     {
       description: "Join lines (and trim whitespace)",
+      pathToGif: joinLines,
       shortcut: (
         <>
           <Ctrl />+<Key>J</Key>
