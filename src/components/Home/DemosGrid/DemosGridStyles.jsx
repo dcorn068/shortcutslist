@@ -26,61 +26,6 @@ export const DemosGridStyles = styled.div`
     width: 100%;
     margin: 0 auto;
 
-    .shortcutsColumn {
-      background: #ffffff;
-      width: 100%;
-      height: 100%;
-      padding: 2em 1em;
-      @media (min-width: ${BREAKPOINTS.TABLET}px) {
-        padding: 2em;
-      }
-
-      .header {
-        display: grid;
-        place-items: center;
-        grid-template-rows: auto 1fr;
-        .title {
-          padding: 0.5em 0 1em 0;
-          font-size: 2em;
-          font-family: "Montserrat", sans-serif;
-        }
-        &.withNote {
-          .title {
-            padding: 0.5em 0 0 0;
-          }
-        }
-      }
-      .note {
-        font-size: 1.2em;
-        padding-bottom: 0.5em;
-        text-align: center;
-        /* height: ; */
-      }
-      .shortcutRow {
-        display: grid;
-        place-items: center;
-        padding: 1em 0.5em;
-        grid-gap: 0.25em;
-        &.oddShortcutRow {
-          background: hsla(0, 0%, 0%, 0.08);
-        }
-        [alt="windows key"] {
-          margin-top: -2px;
-        }
-      }
-      .header,
-      .description,
-      .shortcut {
-        font-size: 1.2em;
-      }
-      .header {
-        line-height: 1.6em;
-      }
-      .shortcut {
-        line-height: 1.8em;
-        font-family: "Ubuntu Mono";
-      }
-    }
     &.oddDemoRow {
       .shortcut {
         line-height: 1.4em;
