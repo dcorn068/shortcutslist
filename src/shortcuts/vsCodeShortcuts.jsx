@@ -235,6 +235,7 @@ export const vsCodeShortcuts = {
     },
     {
       description: "Toggle integrated terminal",
+      pathToGif: toggleSidebars,
       shortcut: (
         <>
           <Ctrl />+<Key>{"`"}</Key>
