@@ -26,3 +26,5 @@ export const COLORS = {
 }
 
 export const MAX_WIDTH = 900
+
+export const Z_INDICES = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]

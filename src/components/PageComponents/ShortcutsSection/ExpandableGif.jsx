@@ -2,6 +2,8 @@ import React, { useState } from "react"
 import styled from "styled-components/macro"
 import { animated, useSpring } from "react-spring"
 import { useWindowSize } from "../../../utils/hooks"
+import { ClickAwayListener } from "@material-ui/core"
+import { Z_INDICES } from "../../../utils/constants"
 
 const PADDING = 6
 const MAX_GIF_WIDTH = 900
@@ -41,23 +43,26 @@ export default function ExpandableGif({
   const isOnTop = isHovered || isAnimating
 
   return (
-    <ExpandableGifStyles
-      {...{ smallGifWidth, shouldShrink, isOnTop }}
-      onClick={e => e.stopPropagation()}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      onTouchStart={() => setIsHovered(true)}
-      onTouchEnd={() => setIsHovered(false)}
-    >
-      <animated.img style={spring} src={pathToGif} alt="" srcSet="" />
-    </ExpandableGifStyles>
+    <ClickAwayListener onClickAway={() => setIsHovered(false)}>
+      <ExpandableGifStyles
+        {...{ smallGifWidth, shouldShrink, isOnTop }}
+        onClick={e => {
+          e.stopPropagation()
+          setIsHovered(true)
+        }}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        <animated.img style={spring} src={pathToGif} alt="" srcSet="" />
+      </ExpandableGifStyles>
+    </ClickAwayListener>
   )
 }
 const ExpandableGifStyles = styled.div`
   height: 100%;
   padding: ${PADDING}px;
   position: ${p => (p.isOnTop ? "relative" : "static")};
-  z-index: ${p => (p.isOnTop ? 9999999999 : 1)};
+  z-index: ${p => (p.isOnTop ? Z_INDICES[11] : Z_INDICES[1])};
   overflow: ${p => (p.isOnTop ? "visible" : "hidden")};
   img {
     transform-origin: right;

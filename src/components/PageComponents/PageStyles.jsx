@@ -1,5 +1,5 @@
 import styled from "styled-components/macro"
-import { MAX_WIDTH } from "../../utils/constants"
+import { MAX_WIDTH, Z_INDICES } from "../../utils/constants"
 
 export default styled.div`
   padding: 3em 1em;
@@ -21,7 +21,6 @@ export default styled.div`
     }
   }
   .sectionTitleRow {
-    z-index: 99999;
     position: relative;
     background: white;
     padding-bottom: 1em;
@@ -48,7 +47,7 @@ export default styled.div`
     top: 0px;
     box-shadow: 0px 6px 9px -8px rgba(0, 0, 0, 0.3);
     background: white;
-    z-index: 10;
+    z-index: ${Z_INDICES[2]};
     h3 {
       font-family: "Montserrat", serif;
       margin: 0;

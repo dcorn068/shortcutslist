@@ -1,4 +1,5 @@
 import styled from "styled-components/macro"
+import { Z_INDICES } from "../../utils/constants"
 export const KeyboardStyles = styled.div`
   .kbd {
     display: inline;
@@ -36,7 +37,7 @@ export const KeyboardStyles = styled.div`
       #272727
     );
     position: relative;
-    z-index: 1;
+    z-index: ${Z_INDICES[1]};
     &:before {
       border-radius: 4px;
       position: absolute;

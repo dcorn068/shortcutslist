@@ -1,5 +1,5 @@
 import styled from "styled-components/macro"
-import { BREAKPOINTS } from "../../../utils/constants"
+import { BREAKPOINTS, Z_INDICES } from "../../../utils/constants"
 const DEMO_BOX_WIDTH = 600
 
 export const DemosGridStyles = styled.div`
@@ -79,7 +79,7 @@ export const DemosGridStyles = styled.div`
       grid-template-columns: 1fr 1fr;
       .shortcutsColumn {
         box-shadow: 0px 7px 7px 0px rgba(0, 0, 0, 0.42);
-        z-index: 1;
+        z-index: ${Z_INDICES[1]};
         .header,
         .description,
         .shortcut {

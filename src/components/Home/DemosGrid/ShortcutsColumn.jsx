@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import { useStore } from "../../../utils/store"
-import { BREAKPOINTS } from "../../../utils/constants"
+import { BREAKPOINTS, Z_INDICES } from "../../../utils/constants"
 import styled from "styled-components/macro"
 
 export const ShortcutsColumn = ({
@@ -116,7 +116,7 @@ const ShortcutsColumnStyles = styled.div`
   }
   @media (min-width: ${BREAKPOINTS.TABLET}px) {
     box-shadow: 0px 7px 7px 0px rgba(0, 0, 0, 0.42);
-    z-index: 1;
+    z-index: ${Z_INDICES[1]};
     .header,
     .description,
     .shortcut {

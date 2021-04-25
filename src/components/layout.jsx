@@ -11,7 +11,8 @@ import "./layout.css"
 import { KeyboardStyles } from "./Keyboard/KeyboardStyles"
 import { ToggleMacOrWindowsLinux } from "../components/ToggleMacOrWindowsLinux"
 import styled from "styled-components/macro"
-import { COLORS } from "../utils/constants"
+import { COLORS, Z_INDICES } from "../utils/constants"
+import { useStore } from "../utils/store"
 
 const LayoutStyles = styled.div`
   display: flex;
@@ -54,6 +55,7 @@ const Layout = ({ children }) => {
         <ToggleMacOrWindowsLinux />
 
         <main>{children}</main>
+        <Backdrop />
         <footer>
           © {new Date().getFullYear()}, Built with
           {` `}
@@ -65,3 +67,21 @@ const Layout = ({ children }) => {
 }
 
 export default Layout
+
+function Backdrop() {
+  const isHoveredImg = useStore(s => s.isHoveredImg)
+
+  return <BackdropStyles {...{ isHoveredImg }} />
+}
+const BackdropStyles = styled.div`
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: ${Z_INDICES[5]};
+  opacity: ${p => (p.isHoveredImg ? 0.5 : 0)};
+  transition: opacity 0.2s cubic-bezier(0.39, 0.575, 0.565, 1);
+  background: black;
+`

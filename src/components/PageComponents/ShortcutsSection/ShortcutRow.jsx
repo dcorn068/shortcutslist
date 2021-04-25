@@ -1,10 +1,11 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import Collapse from "@material-ui/core/Collapse"
 import { IconButton, Tooltip, Divider, useMediaQuery } from "@material-ui/core"
 import RightArrowIcon from "@material-ui/icons/ArrowForwardIos"
 import styled from "styled-components/macro"
-import { BREAKPOINTS } from "../../../utils/constants"
+import { BREAKPOINTS, Z_INDICES } from "../../../utils/constants"
 import ExpandableGif from "./ExpandableGif"
+import { useStore } from "../../../utils/store"
 
 export function ShortcutRow({
   shortcut,
@@ -16,6 +17,12 @@ export function ShortcutRow({
   const [isOpen, setIsOpen] = useState(false)
   const [isHoveredRow, setIsHoveredRow] = useState(false)
   const [isHoveredImg, setIsHoveredImg] = useState(false)
+
+  // sync "isHoveredImg" state to store
+  const set = useStore(s => s.set)
+  useEffect(() => {
+    set({ isHoveredImg })
+  }, [isHoveredImg])
 
   const isTabletOrLarger = useMediaQuery(`(min-width: ${BREAKPOINTS.TABLET}px)`)
   const handleClick = () => setIsOpen(!isOpen)
@@ -154,13 +161,13 @@ const ShortcutRowStyles = styled.div`
     }
   }
   position: relative;
-  z-index: ${p => (p.isHoveredImg ? 99999 : 1)};
+  z-index: ${p => (p.isHoveredImg ? Z_INDICES[7] : 1)};
   .gifImg{
     position:absolute;
     right:0;
     top:0;
     width: fit-content;
-    z-index: 99999;
+    z-index: ${Z_INDICES[9]};
     height: 100%;
   }
 `

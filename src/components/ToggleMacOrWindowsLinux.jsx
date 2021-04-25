@@ -4,6 +4,7 @@ import { useLocalStorageState } from "../utils/hooks"
 import styled from "styled-components/macro"
 import { useStore } from "../utils/store"
 import { Tooltip } from "@material-ui/core"
+import { Z_INDICES } from "../utils/constants"
 
 export function ToggleMacOrWindowsLinux() {
   // switch state that syncs with local storage
@@ -32,7 +33,7 @@ export function ToggleMacOrWindowsLinux() {
 }
 const ToggleStyles = styled.div`
   position: fixed;
-  z-index: 2;
+  z-index: ${Z_INDICES[2]};
   bottom: 4em;
   right: 4em;
   .ant-switch,

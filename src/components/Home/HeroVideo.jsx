@@ -3,7 +3,7 @@ import styled from "styled-components/macro"
 import Youtube from "react-youtube"
 import ContainerDimensions from "react-container-dimensions"
 import useMediaQuery from "@material-ui/core/useMediaQuery"
-import { BREAKPOINTS } from "../../utils/constants"
+import { BREAKPOINTS, Z_INDICES } from "../../utils/constants"
 import Img from "gatsby-image"
 import { useStaticQuery, graphql } from "gatsby"
 import PageLinksHorizontal from "./PageLinksHorizontal"
@@ -120,7 +120,7 @@ const HeroStyles = styled.section`
     opacity: 0.8;
     transform: scale(2);
     position: absolute;
-    z-index: 0;
+    z-index: ${Z_INDICES[0]};
     top: 0;
     bottom: 0;
     left: 0;
@@ -130,7 +130,7 @@ const HeroStyles = styled.section`
   }
   .titleWord {
     position: absolute;
-    z-index: 0;
+    z-index: ${Z_INDICES[0]};
     &.top {
       top: 0;
     }
@@ -141,7 +141,7 @@ const HeroStyles = styled.section`
     right: 0;
     display: grid;
     place-items: center center;
-    z-index: 1;
+    z-index: ${Z_INDICES[1]};
   }
 `
 export default () => {
