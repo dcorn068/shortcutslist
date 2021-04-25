@@ -44,6 +44,17 @@ export const DemosGridStyles = styled.div`
           font-size: 2em;
           font-family: "Montserrat", sans-serif;
         }
+        &.withNote {
+          .title {
+            padding: 0.5em 0 0 0;
+          }
+        }
+      }
+      .note {
+        font-size: 1.2em;
+        padding-bottom: 0.5em;
+        text-align: center;
+        /* height: ; */
       }
       .shortcutRow {
         display: grid;

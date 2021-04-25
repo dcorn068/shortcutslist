@@ -24,7 +24,7 @@ export default () => (
         <h3 className="title subtitle">
           New to JavaScript? <JsResources />
         </h3>
-        {Object.entries(vsCodeShortcuts).map(([sectionTitle, shortcuts]) => (
+        {/* {Object.entries(vsCodeShortcuts).map(([sectionTitle, shortcuts]) => (
           <ShortcutsSection
             key={sectionTitle}
             shortcuts={shortcuts.map(s => ({
@@ -33,7 +33,7 @@ export default () => (
             }))}
             sectionTitle={sectionTitle}
           />
-        ))}
+        ))} */}
       </section>
     </PageStyles>
   </Layout>

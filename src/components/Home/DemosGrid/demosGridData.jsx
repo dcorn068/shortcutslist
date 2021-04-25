@@ -364,36 +364,28 @@ export const demos2 = [
     title: (
       <div style={{ position: "relative", paddingBottom: "0.5em" }}>
         <div>Terminal</div>
-        <small
-          style={{
-            fontSize: "0.4em",
-            position: "absolute",
-            overflow: "visible",
-            whiteSpace: "nowrap",
-            left: -200,
-            right: -200,
-            textAlign: "center",
-          }}
-        >
-          Note: on Windows, use{" "}
-          <a
-            href="https://git-scm.com/downloads"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            git bash
-          </a>{" "}
-          (easy) or{" "}
-          <a
-            href="https://itsfoss.com/install-bash-on-windows/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Linux bash
-          </a>{" "}
-          (powerful)
-        </small>
       </div>
+    ),
+    note: (
+      <small>
+        Note: on Windows, use{" "}
+        <a
+          href="https://git-scm.com/downloads"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          git bash
+        </a>{" "}
+        (easy) or{" "}
+        <a
+          href="https://itsfoss.com/install-bash-on-windows/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Linux bash
+        </a>{" "}
+        (powerful)
+      </small>
     ),
     link: "terminal",
     imageSrc: terminalDemo,
