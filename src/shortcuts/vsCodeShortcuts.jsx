@@ -351,7 +351,7 @@ export const vsCodeShortcuts = {
       shortcut: (
         <>
           <Code>
-            section.list-container>li>ul*3{"{"}item ${"}"}
+            section.list-container{">"}li{">"}ul*3{"{"}item ${"}"}
           </Code>
         </>
       ),
@@ -759,7 +759,7 @@ export const vsCodeShortcuts = {
           <div style={{ color: "hsl(20,0%,70%)", background: "hsl(0,0%,20%)" }}>
             <Code>
               <span style={{ marginLeft: "5ch" }} />
-              bracket =>
+              bracket {"=>"}
               <span style={{ color: "hsl(220,80%,70%)" }}>{` { `}</span>
               colorize
               <span style={{ color: "hsl(55,70%,50%)" }}>{`(`}</span>
@@ -908,7 +908,7 @@ export const vsCodeShortcuts = {
           >
             VSCode React Refactor
           </a>{" "}
-          — like right-click -> refactor but for JSX
+          — like right-click {"->"} refactor but for JSX
         </>
       ),
       shortcut: (
@@ -917,7 +917,7 @@ export const vsCodeShortcuts = {
           <span role="img" aria-label="lightbulb">
             💡
           </span>{" "}
-          icon -> refactor
+          icon {"->"} refactor
         </>
       ),
     },
@@ -990,7 +990,7 @@ export const vsCodeShortcuts = {
           >
             Toggle Quotes
           </a>{" "}
-          — cycle between " -> ' -> `
+          — cycle between " {"->"} ' {"->"} `
         </>
       ),
       shortcut: (
