@@ -9,6 +9,7 @@ import { useStore } from "../../../utils/store"
 const PADDING = 6
 const MAX_GIF_WIDTH = 900
 const BREAKPOINT_SHRINK = 630
+const SHRINK_OFFSET_RIGHT = 32
 
 /** small gif preview that expands on hover */
 export default function ExpandableGif({ pathToGif, isHoveredRow }) {
@@ -26,7 +27,7 @@ export default function ExpandableGif({ pathToGif, isHoveredRow }) {
   const smallGifWidth = shouldShrink ? 64 : 104
   const bigGifWidth = Math.min(
     MAX_GIF_WIDTH,
-    windowSize.width - (shouldShrink ? 32 : 64)
+    windowSize.width - (shouldShrink ? 48 : 64)
   )
   const sizeRatio = bigGifWidth / smallGifWidth
   const scale = isHovered ? sizeRatio : isHoveredRow ? 1.2 : 1
@@ -34,7 +35,9 @@ export default function ExpandableGif({ pathToGif, isHoveredRow }) {
   const [isAnimating, setIsAnimating] = useState(false)
 
   const spring = useSpring({
-    transform: `scale(${scale}) `,
+    transform: `translateX(${
+      shouldShrink && isHovered ? -SHRINK_OFFSET_RIGHT : 0
+    }px) scale(${scale}) `,
     config: { tension: 380, friction: 40 },
     onStart: () => {
       if (isHovered) {
@@ -70,7 +73,7 @@ const ExpandableGifStyles = styled.div`
   height: calc(100% - ${p => (p.isHoveredRow ? 0 : PADDING)}px);
   transition: height 300ms cubic-bezier(0.39, 0.575, 0.565, 1);
   padding: ${PADDING}px;
-  position: ${p => (p.isOnTop ? "relative" : "static")};
+  position: relative;
   z-index: ${p => (p.isOnTop ? Z_INDICES[11] : Z_INDICES[1])};
   overflow: ${p => (p.isOnTop ? "visible" : "hidden")};
   img {
@@ -78,6 +81,5 @@ const ExpandableGifStyles = styled.div`
     height: auto;
     width: ${p => p.smallGifWidth}px;
   }
-  top: ${p => (p.shouldShrink ? `${-p.smallGifWidth / 2}px` : "unset")};
-  right: ${p => (p.shouldShrink ? "-12px" : "unset")};
+  right: ${p => (p.shouldShrink ? `-${SHRINK_OFFSET_RIGHT}px` : "unset")};
 `
