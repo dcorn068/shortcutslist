@@ -26,28 +26,23 @@ const tips = [
     The best way to understand a shortcut is to try it out and see what happens!
   </>,
   <>
-    <div>
-      You can use{" "}
-      <a
-        href="https://www.audible.ca/pd/Unlimited-Memory-Audiobook/B071VH423Q"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <span role="img" aria-label="lightning">
-          ⚡
-        </span>
-        mnemonics
-        <span role="img" aria-label="brain">
-          🧠
-        </span>
-      </a>{" "}
-      to memorize anything more quickly.
-    </div>
-    <div>
-      For example, <Shift /> means "backwards", <Ctrl />+<Key>T</Key> is "new
-      browser tab", so <Ctrl />+<Shift />+<Key>T</Key> must be "old browser
-      tab".
-    </div>
+    You can use{" "}
+    <a
+      href="https://www.audible.ca/pd/Unlimited-Memory-Audiobook/B071VH423Q"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <span role="img" aria-label="lightning">
+        ⚡
+      </span>
+      mnemonics
+      <span role="img" aria-label="brain">
+        🧠
+      </span>
+    </a>{" "}
+    to memorize anything more quickly... For example, <Shift /> means
+    "backwards", <Ctrl />+<Key>T</Key> is "new browser tab", so <Ctrl />+
+    <Shift />+<Key>T</Key> must be "old browser tab".
   </>,
 ]
 
