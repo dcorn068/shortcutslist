@@ -6,7 +6,7 @@ export const useStore = create(set => ({
   paused: false,
   temperature: 1,
   isWindows: true,
-  isHoveredImg: false,
+  isGifModalOpen: false,
   setTemperature: newValue => set(() => ({ temperature: newValue })),
   set: newState => set(state => ({ ...state, ...newState })),
 }))

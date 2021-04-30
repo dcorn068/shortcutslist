@@ -51,7 +51,7 @@ export const macShortcuts = {
       ),
     },
   ],
-  quickAccess: [
+  movingAround: [
     {
       description: "Spotlight search - open any program or file",
       frontPage: true,

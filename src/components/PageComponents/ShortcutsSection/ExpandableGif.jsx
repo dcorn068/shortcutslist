@@ -5,6 +5,7 @@ import { useWindowSize } from "../../../utils/hooks"
 import { ClickAwayListener } from "@material-ui/core"
 import { Z_INDICES } from "../../../utils/constants"
 import { useStore } from "../../../utils/store"
+import { getIsTouchDevice } from "../../../utils/getIsTouchDevice"
 
 const PADDING = 6
 const MAX_GIF_WIDTH = 900
@@ -13,13 +14,13 @@ const SHRINK_OFFSET_RIGHT = 32
 
 /** small gif preview that expands on hover */
 export default function ExpandableGif({ pathToGif, isHoveredRow }) {
-  const [isHovered, setIsHovered] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
 
-  // sync "isHoveredImg" state to store
+  // sync "isGifModalOpen" state to store
   const set = useStore(s => s.set)
   useEffect(() => {
-    set({ isHoveredImg: isHovered })
-  }, [isHovered])
+    set({ isGifModalOpen: isOpen })
+  }, [isOpen])
 
   const windowSize = useWindowSize()
 
@@ -30,17 +31,17 @@ export default function ExpandableGif({ pathToGif, isHoveredRow }) {
     windowSize.width - (shouldShrink ? 48 : 64)
   )
   const sizeRatio = bigGifWidth / smallGifWidth
-  const scale = isHovered ? sizeRatio : isHoveredRow ? 1.2 : 1
+  const scale = isOpen ? sizeRatio : isHoveredRow ? 1.2 : 1
 
   const [isAnimating, setIsAnimating] = useState(false)
 
   const spring = useSpring({
     transform: `translateX(${
-      shouldShrink && isHovered ? -SHRINK_OFFSET_RIGHT : 0
+      shouldShrink && isOpen ? -SHRINK_OFFSET_RIGHT : 0
     }px) scale(${scale}) `,
     config: { tension: 380, friction: 40 },
     onStart: () => {
-      if (isHovered) {
+      if (isOpen) {
         setIsAnimating(true)
       }
     },
@@ -51,18 +52,27 @@ export default function ExpandableGif({ pathToGif, isHoveredRow }) {
     },
   })
 
-  const isOnTop = isHovered || isAnimating
+  const isOnTop = isOpen || isAnimating
+
+  const handleOpen = () => setIsOpen(true)
+  const handleClose = () => setIsOpen(false)
+
+  const isTouchDevice = getIsTouchDevice()
 
   return (
-    <ClickAwayListener onClickAway={() => setIsHovered(false)}>
+    <ClickAwayListener onClickAway={handleClose}>
       <ExpandableGifStyles
         {...{ smallGifWidth, shouldShrink, isOnTop, isHoveredRow }}
         onClick={e => {
           e.stopPropagation()
-          setIsHovered(true)
+          setIsOpen(prev => !prev)
         }}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
+        {...(isTouchDevice
+          ? {}
+          : {
+              onMouseEnter: handleOpen,
+              onMouseLeave: handleClose,
+            })}
       >
         <animated.img style={spring} src={pathToGif} alt="" srcSet="" />
       </ExpandableGifStyles>
@@ -70,6 +80,7 @@ export default function ExpandableGif({ pathToGif, isHoveredRow }) {
   )
 }
 const ExpandableGifStyles = styled.div`
+  cursor: pointer;
   height: calc(100% - ${p => (p.isHoveredRow ? 0 : PADDING)}px);
   transition: height 300ms cubic-bezier(0.39, 0.575, 0.565, 1);
   padding: ${PADDING}px;

@@ -88,6 +88,9 @@ const ShortcutRowStyles = styled.div`
     }
     &.withGif {
       padding-right: 4em;
+      @media (min-width: ${630}px) {
+      padding-right: 8em;
+      }
     }
     /* &.withShortcut {
       &.withoutMoreInfo {

@@ -69,9 +69,9 @@ const Layout = ({ children }) => {
 export default Layout
 
 function Backdrop() {
-  const isHoveredImg = useStore(s => s.isHoveredImg)
+  const isGifModalOpen = useStore(s => s.isGifModalOpen)
 
-  return <BackdropStyles {...{ isHoveredImg }} />
+  return <BackdropStyles {...{ isGifModalOpen }} />
 }
 const BackdropStyles = styled.div`
   pointer-events: none;
@@ -81,7 +81,7 @@ const BackdropStyles = styled.div`
   bottom: 0;
   left: 0;
   z-index: ${Z_INDICES[5]};
-  opacity: ${p => (p.isHoveredImg ? 0.5 : 0)};
+  opacity: ${p => (p.isGifModalOpen ? 0.5 : 0)};
   transition: opacity 0.2s cubic-bezier(0.39, 0.575, 0.565, 1);
   background: black;
 `

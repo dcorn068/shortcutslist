@@ -170,7 +170,7 @@ export const windowsShortcuts = {
       ),
     },
   ],
-  quickAccess: [
+  movingAround: [
     {
       description: "Find any program or file",
       frontPage: true,

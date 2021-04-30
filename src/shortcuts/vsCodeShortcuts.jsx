@@ -18,6 +18,7 @@ import insertLineAboveBelow from "../images/vsCodeGifs/insert_line_above_below.g
 import lineEnds from "../images/vsCodeGifs/line_ends.gif"
 import moveLines from "../images/vsCodeGifs/move_lines.gif"
 import scrollFaster from "../images/vsCodeGifs/scroll_faster.gif"
+import moveToNewFile from "../images/vsCodeGifs/move_to_new_file.gif"
 
 export const ReferenceSheets = () => (
   <>
@@ -189,7 +190,7 @@ export const vsCodeShortcuts = {
       ),
     },
   ],
-  quickAccess: [
+  movingAround: [
     {
       description: "Go to any file",
       shortcut: (
@@ -314,69 +315,6 @@ export const vsCodeShortcuts = {
       shortcut: (
         <>
           <Ctrl />+<Shift />+<Key>G</Key>
-        </>
-      ),
-    },
-  ],
-  writingHtmlWithEmmet: [
-    {
-      description: (
-        <div>
-          Write HTML with maximum efficiency using Emmet shortcuts -- head on
-          over to the{" "}
-          <a
-            style={{ fontWeight: "bold" }}
-            href="https://docs.emmet.io/cheat-sheet/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Emmet Cheat Sheet
-          </a>{" "}
-          for a full specification.
-        </div>
-      ),
-    },
-    {
-      description: `<div class="foo"></div>`,
-      shortcut: (
-        <>
-          <Code>div.foo</Code> or simply <Code>.foo</Code>
-        </>
-      ),
-    },
-    {
-      description: `<p id="bar"></p>`,
-      shortcut: (
-        <>
-          <Code>p#bar</Code>
-        </>
-      ),
-    },
-    {
-      description: `<h1 id="weirdo" class="salty sweet sour"></h1>`,
-      shortcut: (
-        <>
-          <Code>h1#weirdo.salty.sweet.sour</Code>
-        </>
-      ),
-    },
-    {
-      description: (
-        <pre>
-          {`<section class="list-container">
-    <li>
-      <ul>item 1</ul>
-      <ul>item 2</ul>
-      <ul>item 3</ul>
-    </li>
-  </section>`}
-        </pre>
-      ),
-      shortcut: (
-        <>
-          <Code>
-            section.list-container{">"}li{">"}ul*3{"{"}item ${"}"}
-          </Code>
         </>
       ),
     },
@@ -538,6 +476,69 @@ export const vsCodeShortcuts = {
       ),
     },
   ],
+  writingHtmlWithEmmet: [
+    {
+      description: (
+        <div>
+          Write HTML with maximum efficiency using Emmet shortcuts -- head on
+          over to the{" "}
+          <a
+            style={{ fontWeight: "bold" }}
+            href="https://docs.emmet.io/cheat-sheet/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Emmet Cheat Sheet
+          </a>{" "}
+          for a full specification.
+        </div>
+      ),
+    },
+    {
+      description: `<div class="foo"></div>`,
+      shortcut: (
+        <>
+          <Code>div.foo</Code> or simply <Code>.foo</Code>
+        </>
+      ),
+    },
+    {
+      description: `<p id="bar"></p>`,
+      shortcut: (
+        <>
+          <Code>p#bar</Code>
+        </>
+      ),
+    },
+    {
+      description: `<h1 id="weirdo" class="salty sweet sour"></h1>`,
+      shortcut: (
+        <>
+          <Code>h1#weirdo.salty.sweet.sour</Code>
+        </>
+      ),
+    },
+    {
+      description: (
+        <pre>
+          {`<section class="list-container">
+    <li>
+      <ul>item 1</ul>
+      <ul>item 2</ul>
+      <ul>item 3</ul>
+    </li>
+  </section>`}
+        </pre>
+      ),
+      shortcut: (
+        <>
+          <Code>
+            section.list-container{">"}li{">"}ul*3{"{"}item ${"}"}
+          </Code>
+        </>
+      ),
+    },
+  ],
   copyPaste: [
     SUBLIME_TEXT_NOTICE,
     {
@@ -626,6 +627,26 @@ export const vsCodeShortcuts = {
     {
       description: "Quick-select entire lines",
       shortcut: <>Drag mouse along the line numbers</>,
+    },
+    {
+      description: "Indent or outdent (de-indent) lines",
+      shortcut: (
+        <>
+          <Ctrl />+<Key>{"]"}</Key> or <Key>{"["}</Key>
+        </>
+      ),
+    },
+  ],
+  fileManipulation: [
+    {
+      description: "Move some code to a new file",
+      pathToGif: moveToNewFile,
+      shortcut: (
+        <>
+          Select some code, then <Ctrl />+<Key>.</Key> or right-click {"➡"}{" "}
+          Refactor...
+        </>
+      ),
     },
   ],
   extensions: [
@@ -936,7 +957,8 @@ export const vsCodeShortcuts = {
           >
             VSCode React Refactor
           </a>{" "}
-          — like right-click {"->"} refactor but for JSX
+          — like right-click {"➡"} Refactor, but for moving selected JSX
+          elements into a new component file
         </>
       ),
       shortcut: (
@@ -945,7 +967,7 @@ export const vsCodeShortcuts = {
           <span role="img" aria-label="lightbulb">
             💡
           </span>{" "}
-          icon {"->"} refactor
+          icon {"➡"} refactor
         </>
       ),
     },
@@ -1018,7 +1040,7 @@ export const vsCodeShortcuts = {
           >
             Toggle Quotes
           </a>{" "}
-          — cycle between " {"->"} ' {"->"} `
+          — cycle between " {"➡"} ' {"➡"} `
         </>
       ),
       shortcut: (
