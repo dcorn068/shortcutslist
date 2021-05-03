@@ -19,6 +19,8 @@ import lineEnds from "../images/vsCodeGifs/line_ends.gif"
 import moveLines from "../images/vsCodeGifs/move_lines.gif"
 import scrollFaster from "../images/vsCodeGifs/scroll_faster.gif"
 import moveToNewFile from "../images/vsCodeGifs/move_to_new_file.gif"
+import replaceAMatchGlobally from "../images/vsCodeGifs/replace_a_match_globally.gif"
+import searchAllFiles from "../images/vsCodeGifs/search_all_files.gif"
 
 export const ReferenceSheets = () => (
   <>
@@ -304,9 +306,10 @@ export const vsCodeShortcuts = {
     },
     {
       description: "Search all files",
+      pathToGif: searchAllFiles,
       shortcut: (
         <>
-          <Ctrl />+<Shift />+<Key>F</Key>
+          select some text then <Ctrl />+<Shift />+<Key>F</Key>
         </>
       ),
     },
@@ -450,6 +453,7 @@ export const vsCodeShortcuts = {
           <Ctrl />+<Shift />+<Key>H</Key>
         </>
       ),
+      pathToGif: replaceAMatchGlobally,
       moreInfo: (
         <>
           <p>To replace a match globally, follow the steps:</p>
