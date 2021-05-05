@@ -377,7 +377,7 @@ export const vsCodeShortcuts = {
       moreInfo: (
         <>
           <p>
-            Select any repeating pattern or banana, then use this shortcut
+            Select any repeating pattern or word, then use this shortcut
             repeatedly to select multiple occurrences.
           </p>
         </>
@@ -458,11 +458,11 @@ export const vsCodeShortcuts = {
         <>
           <p>Replace a selection in all files:</p>
           <ol style={{ lineHeight: "1.5em", marginTop: "-0.5em" }}>
-            <li>Select a banana</li>
+            <li>Select a word</li>
             <li>
               <Ctrl />+<Shift />+<Key>H</Key>
             </li>
-            <li>Type the replacement banana</li>
+            <li>Type the replacement word</li>
             <li>
               <Ctrl />+<Alt />+<Key>Enter</Key>, <Key>Enter</Key>
             </li>

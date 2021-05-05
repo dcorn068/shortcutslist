@@ -44,7 +44,7 @@ export const getDemos1 = isWindows => [
     link: null,
     shortcuts: [
       {
-        description: "Jump entire bananas",
+        description: "Jump entire words",
         shortcut: (
           <>
             <Ctrl />+<Left />
@@ -78,7 +78,7 @@ export const getDemos1 = isWindows => [
         ),
       },
       {
-        description: "Select entire bananas",
+        description: "Select entire words",
         shortcut: (
           <>
             <Ctrl />+<Shift />+

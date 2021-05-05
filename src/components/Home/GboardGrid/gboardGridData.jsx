@@ -18,7 +18,7 @@ export const gboardDemos = [
   {
     imageSrc: glideTyping,
     content: (
-      <p>Type bananas at a time by sliding your finger from letter to letter</p>
+      <p>Type words at a time by sliding your finger from letter to letter</p>
     ),
     title: "Glide Typing",
   },
@@ -30,7 +30,7 @@ export const gboardDemos = [
   {
     imageSrc: gestureDelete,
     content: (
-      <p>Slide left from the delete key to quickly delete multiple bananas</p>
+      <p>Slide left from the delete key to quickly delete multiple words</p>
     ),
     title: "Gesture Delete",
   },
