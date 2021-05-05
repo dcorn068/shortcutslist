@@ -5,7 +5,7 @@ import { useWindowSize } from "../../../utils/hooks"
 import { ClickAwayListener } from "@material-ui/core"
 import { Z_INDICES } from "../../../utils/constants"
 import { useStore } from "../../../utils/store"
-import { getIsTouchDevice } from "../../../utils/getIsTouchDevice"
+import { useIsTouchDevice } from "../../../utils/useIsTouchDevice"
 
 const PADDING = 6
 const MAX_GIF_WIDTH = 900
@@ -57,7 +57,7 @@ export default function ExpandableGif({ pathToGif, isHoveredRow }) {
   const handleOpen = () => setIsOpen(true)
   const handleClose = () => setIsOpen(false)
 
-  const isTouchDevice = getIsTouchDevice()
+  const isTouchDevice = useIsTouchDevice()
 
   return (
     <ClickAwayListener onClickAway={handleClose}>
