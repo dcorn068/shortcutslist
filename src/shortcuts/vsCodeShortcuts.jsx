@@ -94,22 +94,6 @@ export const JsResources = () => (
   </JsResourcesStyles>
 )
 
-const SUBLIME_TEXT_NOTICE = {
-  description: (
-    <div style={{}}>
-      NOTE: this section's shortcuts use the extension{" "}
-      <a
-        href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.sublime-keybindings"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Sublime Text Keymap and Settings Importer
-      </a>{" "}
-      — equivalent shortcuts: <ReferenceSheets />
-    </div>
-  ),
-}
-
 export const vsCodeShortcuts = {
   basics: [
     {
@@ -535,7 +519,6 @@ export const vsCodeShortcuts = {
     },
   ],
   copyPaste: [
-    SUBLIME_TEXT_NOTICE,
     {
       description: "Copy line (with empty selection)",
       shortcut: (
@@ -569,7 +552,7 @@ export const vsCodeShortcuts = {
       description: "Duplicate line(s)",
       shortcut: (
         <>
-          <Ctrl />+<Shift />+<Key>D</Key>
+          <Shift />+<Alt />+<Down />
         </>
       ),
     },
@@ -583,13 +566,12 @@ export const vsCodeShortcuts = {
     },
   ],
   lineManipulation: [
-    SUBLIME_TEXT_NOTICE,
     {
       description: "Bubble selected lines up or down",
       pathToGif: moveLines,
       shortcut: (
         <>
-          <Ctrl />+<Shift />+<Up /> or <Down />
+          <Alt />+<Up /> or <Down />
         </>
       ),
     },
