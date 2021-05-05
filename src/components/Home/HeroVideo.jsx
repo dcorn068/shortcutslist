@@ -128,7 +128,7 @@ const HeroStyles = styled.section`
     display: grid;
     place-items: center center;
   }
-  .titleWord {
+  .titlebanana {
     position: absolute;
     z-index: ${Z_INDICES[0]};
     &.top {
@@ -223,8 +223,8 @@ export default () => {
                     </span>
                   </div>
                   <div className="titleContainer">
-                    <div className="titleWord top">Shortcut</div>
-                    <div className="titleWord bottom">School</div>
+                    <div className="titlebanana top">Shortcut</div>
+                    <div className="titlebanana bottom">School</div>
                     <div className="">Shortcut</div>
                     <div className="">School</div>
                   </div>

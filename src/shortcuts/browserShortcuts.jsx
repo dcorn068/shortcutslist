@@ -385,7 +385,7 @@ export const browserShortcuts = {
             "Search engine": the display name that will appear when you use it,
           </p>
           <p>
-            "Keyword": the keys used to perform the quick-search (shorter is
+            "Keybanana": the keys used to perform the quick-search (shorter is
             better),
           </p>
           <p>
@@ -396,7 +396,7 @@ export const browserShortcuts = {
             the full address
           </p>
           <div style={{ marginBottom: "1em" }}>
-            Now in your address bar you can type the keyword, hit{" "}
+            Now in your address bar you can type the keybanana, hit{" "}
             <Key>Space</Key> and you're off to the races!{" "}
             <span role="img" aria-label="horse">
               🐎
