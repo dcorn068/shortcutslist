@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from "styled-components/macro"
 import { BREAKPOINTS, MAX_WIDTH, Z_INDICES } from "../../utils/constants"
 import { useStore } from "../../utils/store"
