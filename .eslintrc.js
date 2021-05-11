@@ -15,7 +15,7 @@ module.exports = {
     "react/no-unused-prop-types": 1,
     "jsx-a11y/no-static-element-interactions": 0,
     "no-plusplus": 1,
-    quotes: "double-quotes",
+    quotes: "double",
     "linebreak-style": [
       "error",
       /^win/.test(process.platform) ? "windows" : "unix",

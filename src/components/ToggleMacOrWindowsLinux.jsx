@@ -33,9 +33,13 @@ export function ToggleMacOrWindowsLinux() {
 }
 const ToggleStyles = styled.div`
   position: fixed;
-  z-index: ${Z_INDICES[2]};
-  bottom: 4em;
-  right: 4em;
+  z-index: ${Z_INDICES[3]};
+  bottom: 1.8em;
+  right: 2em;
+  @media (min-width: ${800}px) {
+    bottom: 4em;
+    right: 4em;
+  }
   .ant-switch,
   .ant-switch-checked {
     background: hsl(0, 0%, 80%);
