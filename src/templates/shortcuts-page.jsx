@@ -7,8 +7,6 @@ import ShortcutsSection from "../components/PageComponents/ShortcutsSection/Shor
 import PageStyles from "../components/PageComponents/PageStyles"
 
 export default ({ pageContext }) => {
-  console.log("🌟🚨: pageContext", pageContext)
-
   return (
     <Layout>
       <SEO title="Windows" />

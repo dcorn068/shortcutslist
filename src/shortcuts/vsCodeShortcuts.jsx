@@ -2,7 +2,6 @@ import React from "react"
 import styled from "styled-components/macro"
 import {
   Alt,
-  Tab,
   Key,
   Ctrl,
   Shift,
@@ -307,8 +306,6 @@ export const vsCodeShortcuts = {
     },
   ],
   multipleCursors: [
-    SUBLIME_TEXT_NOTICE,
-    /* TODO: find shortcuts without sublime keymapper */
     {
       description: "Add cursor above or below",
       shortcut: (
@@ -350,7 +347,6 @@ export const vsCodeShortcuts = {
     },
   ],
   multipleSelections: [
-    SUBLIME_TEXT_NOTICE,
     {
       description: "Add cursor at next instance of current selection",
       shortcut: (

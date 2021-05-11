@@ -70,8 +70,17 @@ export default Layout
 
 function Backdrop() {
   const isGifModalOpen = useStore(s => s.isGifModalOpen)
+  const isGifModalBigOrAnimating = useStore(s => s.isGifModalBigOrAnimating)
 
-  return <BackdropStyles {...{ isGifModalOpen }} />
+  return (
+    <BackdropStyles
+      onClick={e => {
+        e.preventDefault()
+        e.stopPropagation()
+      }}
+      {...{ isGifModalOpen, isGifModalBigOrAnimating }}
+    />
+  )
 }
 const BackdropStyles = styled.div`
   pointer-events: none;
@@ -80,8 +89,8 @@ const BackdropStyles = styled.div`
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: ${Z_INDICES[5]};
-  opacity: ${p => (p.isGifModalOpen ? 0.5 : 0)};
+  z-index: ${p => (p.isGifModalBigOrAnimating ? Z_INDICES[5] : 0)};
+  opacity: ${p => (p.isGifModalOpen ? 0.4 : 0)};
   transition: opacity 0.2s cubic-bezier(0.39, 0.575, 0.565, 1);
   background: black;
 `

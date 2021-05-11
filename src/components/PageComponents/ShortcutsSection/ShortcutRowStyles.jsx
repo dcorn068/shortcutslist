@@ -88,7 +88,6 @@ export const ShortcutRowStyles = styled.div`
     }
   }
   position: relative;
-  z-index: ${p => (p.isHoveredRow ? Z_INDICES[7] : 1)};
   .gifImg{
     position:absolute;
     right:0;

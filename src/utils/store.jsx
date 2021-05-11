@@ -7,6 +7,10 @@ export const useStore = create(set => ({
   temperature: 1,
   isWindows: true,
   isGifModalOpen: false,
-  setTemperature: newValue => set(() => ({ temperature: newValue })),
+  setIsGifModalOpen: x => set(() => ({ isGifModalOpen: x })),
+  isGifModalBigOrAnimating: false,
+  setIsGifModalBigOrAnimating: x =>
+    set(() => ({ isGifModalBigOrAnimating: x })),
+  setTemperature: x => set(() => ({ temperature: x })),
   set: newState => set(state => ({ ...state, ...newState })),
 }))

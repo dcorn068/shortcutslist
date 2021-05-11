@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import Collapse from "@material-ui/core/Collapse"
 import { Divider, useMediaQuery } from "@material-ui/core"
 import { BREAKPOINTS } from "../../../utils/constants"
-import ExpandableGif from "./ExpandableGif"
+import ExpandableGifImage from "./ExpandableGifImage"
 import { ExpandIcon } from "./ExpandIcon"
 import { ShortcutRowStyles } from "./ShortcutRowStyles"
 
@@ -48,7 +48,7 @@ export function ShortcutRow({
         {shortcut && <div className="shortcut">{shortcut}</div>}
         {pathToGif && (
           <div className="gifImg">
-            <ExpandableGif {...{ pathToGif, isHoveredRow }} />
+            <ExpandableGifImage {...{ pathToGif, isHoveredRow }} />
           </div>
         )}
       </div>

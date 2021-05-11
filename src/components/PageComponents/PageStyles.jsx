@@ -1,5 +1,5 @@
 import styled from "styled-components/macro"
-import { MAX_WIDTH, Z_INDICES } from "../../utils/constants"
+import { BREAKPOINTS, MAX_WIDTH, Z_INDICES } from "../../utils/constants"
 
 export default styled.div`
   padding: 3em 1em;
@@ -40,15 +40,26 @@ export default styled.div`
   }
   .sectionHeaders {
     padding: 0.5em 1em;
+    @media (min-width: ${BREAKPOINTS.TABLET}px) {
+      padding-left: 88px;
+    }
     display: grid;
-    grid-template-columns: 64px 1fr 1fr;
+    grid-template-columns: 1fr 1fr 64px;
     grid-gap: 1em;
     position: sticky;
     top: 0px;
     box-shadow: 0px 6px 9px -8px rgba(0, 0, 0, 0.3);
     background: white;
-    z-index: ${Z_INDICES[2]};
-    h3 {
+    z-index: ${p => (p.isGifModalOpen ? 1 : Z_INDICES[2])};
+    align-items: baseline;
+    justify-items: start;
+    .demo {
+      justify-self: right;
+    }
+    h3,
+    h4,
+    h5,
+    h6 {
       font-family: "Montserrat", serif;
       margin: 0;
     }

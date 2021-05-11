@@ -19,9 +19,9 @@ export default function ShortcutsSection({ shortcuts, sectionTitle }) {
         </a>
       </div>
       <div className="sectionHeaders">
-        <div />
         <h3>Effect</h3>
         <h3>Shortcut</h3>
+        <h5 className="demo">Demo</h5>
       </div>
       <div className="sectionShortcuts">
         {shortcuts.map(
