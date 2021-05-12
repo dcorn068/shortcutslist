@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react"
 import styled from "styled-components/macro"
 import { BREAKPOINTS, MAX_WIDTH, Z_INDICES } from "../../utils/constants"
 import { useStore } from "../../utils/store"
@@ -10,7 +10,7 @@ const PageStylesComponent = ({ children }) => {
 
 export default PageStylesComponent
 
-const PageStyles = () => styled.div`
+const PageStyles = styled.div`
   padding: 3em 1em;
   background: white;
   section {
