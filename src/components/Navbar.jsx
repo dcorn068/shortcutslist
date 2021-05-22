@@ -1,7 +1,7 @@
 import { Link, useStaticQuery, graphql } from "gatsby"
 import React from "react"
 import styled from "styled-components/macro"
-import { getPageLinks, COLORS } from "../utils/constants"
+import { getPageLinks, COLORS, BREAKPOINTS } from "../utils/constants"
 import GatsbyImage from "gatsby-image"
 
 const PAGE_LINKS = getPageLinks()
@@ -14,6 +14,10 @@ const NavbarStyles = styled.nav`
   display: grid;
   align-items: center;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  @media (min-width: ${BREAKPOINTS.TABLET}px) {
+    display: flex;
+    justify-content: space-between;
+  }
   .logo-link {
     .logo {
       width: ${LOGO_WIDTH}px;

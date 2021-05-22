@@ -12,6 +12,7 @@ export const getPageLinks = () => [
   { to: "/mac", title: "Mac" },
   { to: "/vs-code", title: "VS Code" },
   { to: "/terminal", title: "Terminal" },
+  { to: "/portfolio", title: "My Other Works" },
 ]
 
 export const COLORS = {
