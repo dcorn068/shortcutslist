@@ -147,7 +147,7 @@ const HeroStyles = styled.section`
 export default () => {
   const isTabletOrLarger = useMediaQuery(`(min-width:${BREAKPOINTS.TABLET}px)`)
   const doesFitFullWidthTitle = useMediaQuery(`(min-width:${914}px)`)
-
+  const isSlowNetwork = navigator?.connection?.downlink && navigator.connection.downlink < 5
   const data = useStaticQuery(graphql`
     query {
       site {
@@ -169,7 +169,7 @@ export default () => {
       {({ width }) => (
         <HeroStyles>
           <div className="overflow-wrapper">
-            {isTabletOrLarger ? (
+            {isTabletOrLarger && !isSlowNetwork ? (
               <div
                 style={{
                   transform: `scale(${Math.min(
