@@ -144,6 +144,9 @@ const HeroStyles = styled.section`
     z-index: ${Z_INDICES[1]};
   }
 `
+
+const isBraveBrowser = (navigator.brave && await navigator.brave.isBrave() || false)
+
 export default () => {
   const isTabletOrLarger = useMediaQuery(`(min-width:${BREAKPOINTS.TABLET}px)`)
   const doesFitFullWidthTitle = useMediaQuery(`(min-width:${914}px)`)
@@ -169,7 +172,7 @@ export default () => {
       {({ width }) => (
         <HeroStyles>
           <div className="overflow-wrapper">
-            {isTabletOrLarger && !isSlowNetwork ? (
+            {isTabletOrLarger && !isSlowNetwork && !isBraveBrowser ? (
               <div
                 style={{
                   transform: `scale(${Math.min(
