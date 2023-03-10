@@ -9,7 +9,7 @@ const GRID_GAP_HZ = 10
 const LINK_HEIGHT = 48
 
 export default () => {
-  const PAGE_LINKS = getPageLinks().slice(1)
+  const PAGE_LINKS = getPageLinks().slice(1, -1)
   const isMounted = useIsMounted()
   const trailSpringLeftOnEnter = useTrail(PAGE_LINKS.length, {
     transform: `translate(${isMounted ? 0 : 250}px, 0px)`,
@@ -39,14 +39,14 @@ export default () => {
                 style={{
                   ...(isMousedOverIdx === idx
                     ? {
-                        transform: `scale(${1.07 +
-                          randomNumbers[0] * 0.5 -
-                          0.2}) translateY(-3px) rotate(${rotateDeg}deg)`,
-                        color: `hsl(${randomNumbers[0] * 360},90%,80%)`,
-                        borderColor: `hsl(${randomNumbers[1] * 360},90%,80%)`,
-                        boxShadow: `0px 0px 20px 0px hsla(${randomNumbers[2] *
-                          360}, 67%, 82%, 0.56)`,
-                      }
+                      transform: `scale(${1.07 +
+                        randomNumbers[0] * 0.5 -
+                        0.2}) translateY(-3px) rotate(${rotateDeg}deg)`,
+                      color: `hsl(${randomNumbers[0] * 360},90%,80%)`,
+                      borderColor: `hsl(${randomNumbers[1] * 360},90%,80%)`,
+                      boxShadow: `0px 0px 20px 0px hsla(${randomNumbers[2] *
+                        360}, 67%, 82%, 0.56)`,
+                    }
                     : {}),
                 }}
                 onMouseEnter={() => {

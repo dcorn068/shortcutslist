@@ -145,12 +145,12 @@ const HeroStyles = styled.section`
   }
 `
 
-const isBraveBrowser = (navigator.brave && await navigator.brave.isBrave() || false)
+const isBraveBrowser = (async () => ((navigator.brave && await navigator.brave.isBrave() || false)))()
 
 export default () => {
   const isTabletOrLarger = useMediaQuery(`(min-width:${BREAKPOINTS.TABLET}px)`)
   const doesFitFullWidthTitle = useMediaQuery(`(min-width:${914}px)`)
-  const isSlowNetwork = navigator?.connection?.downlink && navigator.connection.downlink < 5
+  const isSlowNetwork = typeof window !== 'undefined' && navigator?.connection?.downlink && navigator.connection.downlink < 5
   const data = useStaticQuery(graphql`
     query {
       site {

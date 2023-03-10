@@ -1,3 +1,6 @@
+import { GitHub } from "@material-ui/icons"
+import React from "react"
+
 export const BREAKPOINTS = {
   MOBILE: 480,
   TABLET: 800,
@@ -12,7 +15,7 @@ export const getPageLinks = () => [
   { to: "/mac", title: "Mac" },
   { to: "/vs-code", title: "VS Code" },
   { to: "/terminal", title: "Terminal" },
-  { to: "https://github.com/danielacorner/", title: "whoami" },
+  { to: "https://github.com/danielacorner/shortcutslist", title: <GitHub style={{ width: "0.5em", height: "0.5em", marginTop: 2 }} />, },
 ]
 
 export const COLORS = {
