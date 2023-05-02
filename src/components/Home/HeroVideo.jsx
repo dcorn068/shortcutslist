@@ -145,7 +145,10 @@ const HeroStyles = styled.section`
   }
 `
 
-const isBraveBrowser = (async () => ((navigator.brave && await navigator.brave.isBrave() || false)))()
+const isBraveBrowser = (async () => {
+  if (typeof window === 'undefined') { return false }
+  return ((navigator?.brave && await navigator.brave.isBrave() || false))
+})()
 
 export default () => {
   const isTabletOrLarger = useMediaQuery(`(min-width:${BREAKPOINTS.TABLET}px)`)
